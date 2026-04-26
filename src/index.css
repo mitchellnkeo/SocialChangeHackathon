@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -11,9 +12,20 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #f4f8f7;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(154, 235, 255, 0.42), transparent 24%),
+    radial-gradient(circle at 85% 12%, rgba(255, 207, 240, 0.35), transparent 22%),
+    radial-gradient(circle at 65% 78%, rgba(179, 252, 226, 0.32), transparent 28%),
+    #f3fbff;
   color: #133037;
-  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Baloo 2", "Nunito", sans-serif;
+  letter-spacing: 0.01em;
 }
