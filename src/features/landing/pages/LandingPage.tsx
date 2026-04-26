@@ -554,21 +554,20 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Shoreline Timelapse
                 </h2>
-                <div className="relative mx-auto mt-5 aspect-video w-full max-w-[29.4rem] overflow-hidden rounded-3xl sm:max-w-[33.6rem]">
-                  <img
-                    src={timelineImages[activeTimelineIndex].src}
-                    alt={timelineImages[activeTimelineIndex].alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
+                <div className="mx-auto mt-5 w-full max-w-[29.4rem] sm:max-w-[33.6rem]">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-3xl">
+                    <img
+                      src={timelineImages[activeTimelineIndex].src}
+                      alt={timelineImages[activeTimelineIndex].alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  </div>
+                  <p className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-cyan-700">
+                    {timelineImages[activeTimelineIndex].caption}
+                  </p>
                 </div>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-cyan-700">
-                  {timelineImages[activeTimelineIndex].caption}
-                </p>
-                <p className="mt-3 text-slate-700">
-                  Use this timeline slider like an exhibit control.
-                </p>
                 <div className="mt-8 rounded-3xl border-2 border-cyan-100 bg-cyan-50/70 p-5">
                   <input
                     type="range"
