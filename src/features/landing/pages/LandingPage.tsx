@@ -576,16 +576,9 @@ export function LandingPage() {
             <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
-                  Which One Looks More Like Your View?
+                  Which Describes Your Property?
                 </h2>
-                <img
-                  src={panelImages[2].src}
-                  alt={panelImages[2].alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover"
-                />
-                <p className="mt-3 max-w-3xl text-slate-700">
+                <p className="mt-5 max-w-3xl text-slate-700">
                   Pick the option that best matches your current shoreline setup.
                   We will personalize next-step guidance based on your selection.
                 </p>
@@ -631,10 +624,11 @@ export function LandingPage() {
                     />
                   </div>
                 )}
-                <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-sky-50 p-4 text-slate-800">
-                  {selectedArea?.guidance ??
-                    'Select your shoreline type to see guidance tailored to your situation.'}
-                </p>
+                {selectedArea?.guidance && (
+                  <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-sky-50 p-4 text-slate-800">
+                    {selectedArea.guidance}
+                  </p>
+                )}
                 <article className="mt-4 rounded-3xl border-2 border-sky-200 bg-sky-50/70 p-4 md:p-5">
                   <p className="text-xs font-extrabold uppercase tracking-wide text-sky-700">
                     Bluff shoreline note
