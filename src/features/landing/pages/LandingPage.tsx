@@ -151,7 +151,7 @@ export function LandingPage() {
               If we act now, we can protect the places we call home, reduce future
               costs, and preserve what we pass on to our kids and grandkids.
             </p>
-            <div className="mt-8 flex flex-wrap items-end gap-4">
+            <div className="mt-8 flex flex-wrap items-end justify-end gap-4">
               <button
                 type="button"
                 onClick={() => setActiveAppPage(1)}
