@@ -349,47 +349,57 @@ export function LandingPage() {
       >
         <section
           id="landing-hero"
-          className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24"
+          className="relative flex h-full w-screen items-center overflow-hidden bg-white px-6 py-20 text-slate-900 md:py-24"
           onPointerDown={(event) =>
             handleAppPointerDown(event.clientX, event.target)
           }
           onPointerUp={(event) => handleAppPointerUp(event.clientX)}
           onPointerCancel={() => setAppDragStartX(null)}
         >
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: "url('/images/LandingPage.jpg')" }}
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-white/72"
+            aria-hidden="true"
+          />
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
-          <div className="mx-auto w-full max-w-6xl">
+          <div className="relative z-10 mx-auto w-full max-w-6xl">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl">
-                <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
-                  Washington Shoreline Conservation
+                <p className="mb-3 inline-block rounded-full bg-emerald-100 px-3 py-1 text-sm font-bold uppercase tracking-wider text-emerald-800">
+                  Washington Department of Fish and Wildlife
                 </p>
                 <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
                   Protect Your Shoreline. Protect Your Legacy.
                 </h1>
-                <p className="mt-5 text-lg text-emerald-50/95">
+                <p className="mt-5 text-lg text-slate-700">
                   Washington shorelines support homes, habitat, and local economies.
                   Let&apos;s make this practical: what is changing, what it means for
                   your property, and what you can do next.
                 </p>
+                <div className="mt-8 flex justify-end md:mt-12">
+                  <button
+                    type="button"
+                    onClick={() => setActiveAppPage(1)}
+                    className="inline-flex flex-col items-center gap-2 text-slate-800"
+                    aria-label="Go to shoreline informational pages"
+                  >
+                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
+                      {'\u2192'}
+                    </span>
+                    <span className="text-sm font-extrabold uppercase tracking-wide text-slate-700">
+                      Explore Shoreline Outlook
+                    </span>
+                  </button>
+                </div>
               </div>
-
-              <button
-                type="button"
-                onClick={() => setActiveAppPage(1)}
-                className="inline-flex flex-col items-center gap-2 text-white md:mb-2"
-                aria-label="Go to shoreline informational pages"
-              >
-                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
-                  {'\u2192'}
-                </span>
-                <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
-                  Explore Shoreline Outlook
-                </span>
-              </button>
             </div>
-            <PanelSourcesFooter sources={landingPageSources} variant="onDark" />
+            <PanelSourcesFooter sources={landingPageSources} />
           </div>
         </section>
 
@@ -445,7 +455,7 @@ export function LandingPage() {
             </button>
           </div>
 
-          <div className="absolute right-6 top-6 z-20">
+          <div className="absolute bottom-6 left-6 z-20">
             <button
               type="button"
               onClick={() => setIsSourcesOpen(true)}
@@ -790,7 +800,7 @@ export function LandingPage() {
 
         <section
           id="cta"
-          className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white"
+          className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-12 text-white md:py-16"
           onPointerDown={(event) =>
             handleAppPointerDown(event.clientX, event.target)
           }
@@ -816,7 +826,7 @@ export function LandingPage() {
             </button>
           </div>
 
-          <div className="mx-auto w-full max-w-6xl">
+          <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100/60 bg-white/10 p-6 shadow-xl shadow-sky-900/20 backdrop-blur-sm md:p-7">
             <h2 className="text-4xl font-bold md:text-5xl">Take Action with Your Community</h2>
             <p className="mt-4 max-w-3xl text-cyan-50">
               Share this effort, talk with your neighbors, and connect with a
@@ -908,7 +918,7 @@ export function LandingPage() {
             </div>
 
             <PanelSourcesFooter sources={ctaPageSources} variant="onDark" />
-          </div>
+          </article>
         </section>
       </div>
     </main>
