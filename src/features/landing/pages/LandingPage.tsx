@@ -375,15 +375,6 @@ export function LandingPage() {
                 Let&apos;s make this practical: what is changing, what it means for
                 your property, and what you can do next.
               </p>
-              <div className="mt-8">
-                <button
-                  type="button"
-                  onClick={() => setActiveAppPage(2)}
-                  className="rounded-full border-2 border-white/80 bg-white/10 px-6 py-3 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
-                >
-                  Request Expert Guidance
-                </button>
-              </div>
             </div>
 
             <button
