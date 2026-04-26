@@ -6,7 +6,6 @@ import {
   financialCards,
   informationalPanelSources,
   landingPageSources,
-  outreachItems,
   projectionItems,
   solutionSlides,
   sourceModalLinks,
@@ -116,7 +115,6 @@ export function LandingPage() {
   }, [])
 
   const panelTitles = [
-    'Outreach',
     'Timeline',
     'Your Shoreline',
     'Future Outlook',
@@ -430,12 +428,6 @@ export function LandingPage() {
             </button>
           </div>
 
-          <div className="absolute left-1/2 top-6 z-20 hidden -translate-x-1/2 md:block">
-            <p className="rounded-full bg-white/20 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cyan-50">
-              {activePanel + 1} / {panelTitles.length}
-            </p>
-          </div>
-
           <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 rounded-full bg-white/15 px-3 py-2 backdrop-blur md:hidden">
             <button
               type="button"
@@ -444,9 +436,6 @@ export function LandingPage() {
             >
               {'\u2190'}
             </button>
-            <p className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
-              {activePanel + 1}/{panelTitles.length}
-            </p>
             <button
               type="button"
               onClick={goToNextPanel}
@@ -467,7 +456,7 @@ export function LandingPage() {
           </div>
 
           <div
-            className="flex h-full w-[600vw] transition-transform duration-500 ease-in-out"
+            className="flex h-full w-[500vw] transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${activePanel * 100}vw)` }}
             onPointerDown={(event) =>
               handlePanelPointerDown(event.clientX, event.target)
@@ -475,40 +464,6 @@ export function LandingPage() {
             onPointerUp={(event) => handlePanelPointerUp(event.clientX)}
             onPointerCancel={() => setPanelDragStartX(null)}
           >
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
-                <h2 className="text-3xl font-bold text-shoreline-900">
-                  How Outreach Happens Today
-                </h2>
-                <img
-                  src={panelImages[0].src}
-                  alt={panelImages[0].alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover"
-                />
-                <p className="mt-3 max-w-3xl text-slate-700">
-                  We meet residents where they already are: trusted clubs, agency
-                  channels, neighborhood communication, and a clear mobile-friendly
-                  website.
-                </p>
-                <div className="mt-8 grid gap-4 md:grid-cols-3">
-                  {outreachItems.map((item) => (
-                    <article
-                      key={item.title}
-                      className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-sky-50 p-5"
-                    >
-                      <h3 className="text-lg font-semibold text-shoreline-900">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-slate-700">{item.description}</p>
-                    </article>
-                  ))}
-                </div>
-                <PanelSourcesFooter sources={informationalPanelSources[0]} />
-              </article>
-            </div>
-
             <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
@@ -550,7 +505,7 @@ export function LandingPage() {
                     </p>
                   </article>
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[1]} />
+                <PanelSourcesFooter sources={informationalPanelSources[0]} />
               </article>
             </div>
 
@@ -647,7 +602,7 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[2]} />
+                <PanelSourcesFooter sources={informationalPanelSources[1]} />
               </article>
             </div>
 
@@ -683,7 +638,7 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[3]} />
+                <PanelSourcesFooter sources={informationalPanelSources[2]} />
               </article>
             </div>
 
@@ -755,7 +710,7 @@ export function LandingPage() {
                   </p>
                   <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[4]} />
+                <PanelSourcesFooter sources={informationalPanelSources[3]} />
               </article>
             </div>
 
@@ -788,7 +743,7 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[5]} />
+                <PanelSourcesFooter sources={informationalPanelSources[4]} />
               </article>
             </div>
           </div>
