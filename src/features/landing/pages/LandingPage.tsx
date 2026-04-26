@@ -819,6 +819,15 @@ export function LandingPage() {
                       communities over time.
                     </p>
                     <p className="mt-3 text-slate-700">
+                      Forage fish need suitable sediment; some beaches can be starved
+                      of it when shoreline processes are disrupted. These are the fish
+                      that spawn in beach sediments—eggs hatch in the nearshore, and
+                      those tiny fish help feed endangered Chinook salmon. Juvenile
+                      Chinook use the nearshore just off the beach. Southern Resident
+                      killer whales rely heavily on Chinook—a tight link from healthy
+                      beach sediment to whales offshore.
+                    </p>
+                    <p className="mt-3 text-slate-700">
                       One property cannot solve this alone. If only one household
                       adopts shoreline-friendly solutions while neighbors do not, the
                       benefits are limited. Lasting resilience improves when
