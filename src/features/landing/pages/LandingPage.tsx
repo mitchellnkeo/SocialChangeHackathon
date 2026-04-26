@@ -652,6 +652,24 @@ export function LandingPage() {
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}
                 </p>
+                <article className="mt-4 rounded-3xl border-2 border-sky-200 bg-sky-50/70 p-4 md:p-5">
+                  <p className="text-xs font-extrabold uppercase tracking-wide text-sky-700">
+                    Bluff shoreline note
+                  </p>
+                  <h3 className="mt-1 text-lg font-bold text-shoreline-900">
+                    Bluff edges need slope-aware planning
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-700">
+                    Bluff shorelines are dynamic by nature. Drainage changes, vegetation
+                    loss, and intense storm cycles can increase bluff stress and sediment
+                    movement over time.
+                  </p>
+                  <p className="mt-2 text-sm text-slate-700">
+                    If your property includes a bluff, prioritize slope-friendly drainage,
+                    deep-rooted native plants, and early technical review before emergency
+                    repairs become the default path.
+                  </p>
+                </article>
                 <div className="mt-6 rounded-3xl border-2 border-cyan-100 bg-white p-4 md:p-5">
                   <p className="text-sm font-bold uppercase tracking-wide text-cyan-700">
                     Interactive Shoreline Hotspots
