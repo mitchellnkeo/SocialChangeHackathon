@@ -109,12 +109,18 @@ export function LandingPage() {
             If we act now, we can protect the places we call home, reduce future
             costs, and preserve what we pass on to our kids and grandkids.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap items-end gap-4">
             <a
               href="#shoreline-quiz"
-              className="rounded-full bg-white px-6 py-3 font-extrabold text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50"
+              className="inline-flex flex-col items-center gap-2 text-white"
+              aria-label="Go to shoreline informational pages"
             >
-              Explore Shoreline Outlook
+              <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
+                {'\u2192'}
+              </span>
+              <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
+                Explore Shoreline Outlook
+              </span>
             </a>
             <a
               href="#cta"
