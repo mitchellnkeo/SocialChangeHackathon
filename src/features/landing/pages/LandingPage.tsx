@@ -69,27 +69,27 @@ export function LandingPage() {
 
   const panelImages = [
     {
-      src: 'https://source.unsplash.com/1600x900/?washington,shoreline',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Washington_Coast_%285652105519%29_%282%29.jpg',
       alt: 'Washington shoreline with coastal homes and water.',
     },
     {
-      src: 'https://source.unsplash.com/1600x900/?puget,sound,coast',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Federal_Way%2C_Puget_Sound%2C_Washington.jpg',
       alt: 'Puget Sound style coastline and tide movement.',
     },
     {
-      src: 'https://source.unsplash.com/1600x900/?coastal,erosion,beach',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Hoh_Head%2C_Washington_coast.jpg',
       alt: 'Eroding beach and bluff edge along a coastal area.',
     },
     {
-      src: 'https://source.unsplash.com/1600x900/?pacific,northwest,coastline',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Jagged_Island_Washington_coast.jpg',
       alt: 'Pacific Northwest coastal landscape with shoreline habitat.',
     },
     {
-      src: 'https://source.unsplash.com/1600x900/?flooding,coast,home',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Washington_Coast_%285652100327%29_%282%29.jpg',
       alt: 'Coastal flood risk visual near homes and infrastructure.',
     },
     {
-      src: 'https://source.unsplash.com/1600x900/?shoreline,restoration,habitat',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Washington_Coast_%285652105519%29_%282%29.jpg',
       alt: 'Shoreline restoration and habitat-focused coastal scene.',
     },
   ]
@@ -124,8 +124,20 @@ export function LandingPage() {
       url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
     },
     {
-      label: 'Unsplash Source — Washington shoreline image search',
-      url: 'https://source.unsplash.com/',
+      label: 'Wikimedia Commons — Washington Coast photo set',
+      url: 'https://commons.wikimedia.org/wiki/File:Washington_Coast_(5652105519)_(2).jpg',
+    },
+    {
+      label: 'Wikimedia Commons — Puget Sound (Federal Way)',
+      url: 'https://commons.wikimedia.org/wiki/File:Federal_Way,_Puget_Sound,_Washington.jpg',
+    },
+    {
+      label: 'Wikimedia Commons — Hoh Head, Washington Coast',
+      url: 'https://commons.wikimedia.org/wiki/File:Hoh_Head,_Washington_coast.jpg',
+    },
+    {
+      label: 'Wikimedia Commons — Jagged Island, Washington Coast',
+      url: 'https://commons.wikimedia.org/wiki/File:Jagged_Island_Washington_coast.jpg',
     },
   ]
 
