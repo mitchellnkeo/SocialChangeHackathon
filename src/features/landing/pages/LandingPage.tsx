@@ -25,6 +25,19 @@ const COASTLINE_TYPE_LABELS: Record<string, string> = {
 /** Horizontal app pages: 0 landing, 1 info, 2 Whidbey story, 3 CTA */
 const APP_PAGE_LAST_INDEX = 3
 
+/** Nine `/images/timeline/` assets in chronological order (matches `timelineItems` indices 0–8). */
+const TIMELINE_IMAGE_FILES = [
+  '1850.png',
+  '1900s_1940s.png',
+  '1950s_1970s.png',
+  '1980s_1990s.png',
+  '2000s_2010s.png',
+  '2020s.png',
+  '2030s_2040s.png',
+  '2050.png',
+  '2050Plus.png',
+] as const
+
 function PanelSourcesFooter({
   sources,
   variant = 'onLight',
@@ -203,53 +216,15 @@ export function LandingPage() {
     },
   ]
 
-  const timelineImages = [
-    {
-      src: '/images/timeline-01-lonely-cove-1906.jpeg',
-      alt: 'Historic Washington Pacific coast beach and shoreline from early 1900s.',
-      caption: 'Historic shoreline view (early 1900s)',
-    },
-    {
-      src: '/images/timeline-02-washington-coast.jpg',
-      alt: 'Natural Washington coast with wave-exposed shoreline and sediment movement.',
-      caption: 'Natural coastal systems under wave energy',
-    },
-    {
-      src: '/images/timeline-03-washington-coastline-2.jpg',
-      alt: 'Washington shoreline showing developed coastal edge and altered beach profile.',
-      caption: 'Shoreline change under development pressure',
-    },
-    {
-      src: '/images/timeline-04-washington-coastline-5768.jpg',
-      alt: 'Washington coastline with visible erosion and high-energy shoreline processes.',
-      caption: 'Erosion signals become more visible',
-    },
-    {
-      src: '/images/timeline-05-puget-sound-federal-way.jpg',
-      alt: 'Puget Sound shoreline with residential areas and marine water.',
-      caption: 'Shoreline risk becomes a community planning issue',
-    },
-    {
-      src: '/images/timeline-06-hoh-head.jpg',
-      alt: 'Hoh Head on Washington coast showing exposed coastal bluff and shoreline.',
-      caption: 'Current hazards: bluff stress and coastal exposure',
-    },
-    {
-      src: '/images/timeline-07-jagged-island.jpg',
-      alt: 'Washington coastal habitat landscape illustrating dynamic nearshore systems.',
-      caption: 'Adaptation era: protect habitat while reducing risk',
-    },
-    {
-      src: '/images/timeline-05-puget-sound-federal-way.jpg',
-      alt: 'Puget Sound shoreline exposed to higher water and increasing flood pressure.',
-      caption: '2030s-2040s: the adaptation window narrows',
-    },
-    {
-      src: '/images/timeline-08-2050-outlook.jpg',
-      alt: 'Washington coastal outlook image representing future resilience planning horizon.',
-      caption: '2050+ outlook: long-term resilience depends on decisions now',
-    },
-  ] as const
+  const timelineImages = useMemo(
+    () =>
+      timelineItems.map((item, index) => ({
+        src: `/images/timeline/${TIMELINE_IMAGE_FILES[index]}`,
+        alt: `${item.period} — ${item.title}. Puget Sound shoreline timeline illustration.`,
+        caption: `${item.period} · ${item.title}`,
+      })),
+    [],
+  )
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
