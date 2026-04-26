@@ -368,11 +368,11 @@ export function LandingPage() {
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
-          <div className="absolute right-10 top-10 z-20 md:right-16 md:top-12">
+          <div className="absolute right-8 top-8 z-20 md:right-14 md:top-10">
             <img
               src="/images/Washington_State_Department_of_Fish_and_Wildlife_(logo).svg"
               alt="Washington Department of Fish and Wildlife logo"
-              className="h-20 w-auto rounded-xl bg-white/78 p-2 shadow-lg shadow-slate-500/35 md:h-28"
+              className="h-24 w-auto rounded-xl bg-white/80 p-2.5 shadow-lg shadow-slate-500/35 md:h-36"
               loading="eager"
               decoding="async"
             />
@@ -380,7 +380,7 @@ export function LandingPage() {
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl rounded-3xl border border-white/70 bg-white/38 p-5 shadow-lg shadow-slate-600/10 backdrop-blur-[1px] md:p-6">
-                <p className="mb-3 inline-block rounded-full border border-teal-200 bg-white/85 px-3 py-1 text-sm font-bold uppercase tracking-wider text-teal-800">
+                <p className="mb-3 inline-block rounded-full border border-[#3f7a3f] bg-white/85 px-3 py-1 text-sm font-bold uppercase tracking-wider text-teal-800">
                   Washington Department of Fish and Wildlife
                 </p>
                 <h1 className="text-4xl font-extrabold leading-tight text-slate-900 md:text-6xl">
@@ -402,13 +402,28 @@ export function LandingPage() {
                       {'\u2192'}
                     </span>
                     <span className="text-sm font-extrabold uppercase tracking-wide text-slate-800">
-                      See how:
+                      See how
                     </span>
                   </button>
                 </div>
               </div>
             </div>
-            <PanelSourcesFooter sources={landingPageSources} />
+          </div>
+          <div className="absolute bottom-2 left-2 z-20 max-w-[calc(100%-1rem)] overflow-x-auto">
+            <div className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 text-[11px] font-semibold text-slate-700 shadow-sm">
+              <span className="font-extrabold uppercase tracking-wide text-slate-600">Sources:</span>
+              {landingPageSources.map((source) => (
+                <a
+                  key={source.url}
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-sky-300 underline-offset-2 hover:text-sky-700"
+                >
+                  {source.label}
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
