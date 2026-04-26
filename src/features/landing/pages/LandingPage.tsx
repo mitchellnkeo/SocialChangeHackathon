@@ -198,8 +198,8 @@ export function LandingPage() {
       alt: 'Coastal flood risk visual near homes and infrastructure.',
     },
     {
-      src: '/images/wa-coast-1.jpg',
-      alt: 'Shoreline restoration and habitat-focused coastal scene.',
+      src: '/images/CommunitySolutions.png',
+      alt: 'Community-led shoreline and habitat solutions along a Washington coast.',
     },
   ]
 
