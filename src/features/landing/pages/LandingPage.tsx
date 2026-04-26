@@ -921,6 +921,23 @@ export function LandingPage() {
               </button>
             </form>
 
+            <div className="mt-4 rounded-2xl border-2 border-white/30 bg-white/10 p-4 text-sm text-cyan-50">
+              <p className="font-extrabold uppercase tracking-wide text-white">
+                What happens when you submit?
+              </p>
+              <p className="mt-2">
+                This request is your first step toward a shoreline stewardship
+                conversation. You&apos;ll share basic context so local coordinators
+                and nature-based technical experts can follow up with guidance on
+                practical next steps for your shoreline type.
+              </p>
+              <p className="mt-2">
+                Expected outcome: a clearer action path (for you and your
+                neighbors) that prioritizes habitat-friendly options over
+                last-minute emergency fixes.
+              </p>
+            </div>
+
             <p className="mt-4 text-sm font-medium text-cyan-50">{statusMessage}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
