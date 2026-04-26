@@ -402,7 +402,7 @@ export function LandingPage() {
                       {'\u2192'}
                     </span>
                     <span className="text-sm font-extrabold uppercase tracking-wide text-slate-800">
-                      Explore Shoreline Outlook
+                      See how:
                     </span>
                   </button>
                 </div>
