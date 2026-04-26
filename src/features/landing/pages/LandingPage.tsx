@@ -962,6 +962,49 @@ export function LandingPage() {
               </p>
             </div>
 
+            <div className="mt-4 rounded-2xl border-2 border-amber-200/60 bg-amber-500/10 p-4 text-sm text-amber-50">
+              <p className="font-extrabold uppercase tracking-wide text-amber-100">
+                Choosing a Shoreline Contractor
+              </p>
+              <p className="mt-2">
+                Important: many contractors advertise shoreline protection, but
+                that does not always mean Shore Friendly protection. Ask
+                specifically about armor alternatives, not just bulkhead
+                installation.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-amber-50">
+                <li>
+                  Verify the business license and registration status before
+                  signing any contract.
+                </li>
+                <li>
+                  Ask what experience they have with alternatives to bulkheads
+                  (soft shore protection, vegetation-based approaches, and
+                  beach nourishment where appropriate).
+                </li>
+                <li>
+                  Ask whether they have completed relevant coastal training
+                  (for example, Alternatives to Bulkheads training through
+                  coastal training programs).
+                </li>
+                <li>
+                  Ask if they coordinate with shoreline planners, natural
+                  resource specialists, and coastal engineers when project
+                  conditions require it.
+                </li>
+                <li>
+                  Ask how they handle transitions at property edges (for
+                  example, where a neighboring bulkhead remains) so your
+                  project does not create new erosion pressure next door.
+                </li>
+              </ul>
+              <p className="mt-3">
+                Shore Friendly Partners focus on armor alternatives. The best
+                outcomes usually come from neighborhood-scale coordination, not
+                one-off parcel fixes.
+              </p>
+            </div>
+
             <p className="mt-4 text-sm font-medium text-cyan-50">{statusMessage}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
