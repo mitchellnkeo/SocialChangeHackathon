@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-shoreline-50: #f2f8f7;
+  --color-shoreline-100: #d7eeea;
+  --color-shoreline-500: #1f8f76;
+  --color-shoreline-700: #12584a;
+  --color-shoreline-900: #0f3437;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f4f8f7;
+  color: #133037;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
