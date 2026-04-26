@@ -379,14 +379,14 @@ export function LandingPage() {
           </div>
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-3xl">
-                <p className="mb-3 inline-block rounded-full bg-emerald-100 px-3 py-1 text-sm font-bold uppercase tracking-wider text-emerald-800">
+              <div className="max-w-3xl rounded-3xl border border-white/70 bg-white/38 p-5 shadow-lg shadow-slate-600/10 backdrop-blur-[1px] md:p-6">
+                <p className="mb-3 inline-block rounded-full border border-teal-200 bg-white/85 px-3 py-1 text-sm font-bold uppercase tracking-wider text-teal-800">
                   Washington Department of Fish and Wildlife
                 </p>
-                <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
+                <h1 className="text-4xl font-extrabold leading-tight text-slate-900 md:text-6xl">
                   Protect Your Shoreline. Protect Your Legacy.
                 </h1>
-                <p className="mt-5 text-lg text-slate-700">
+                <p className="mt-5 text-lg text-slate-800">
                   Washington shorelines support homes, habitat, and local economies.
                   Let&apos;s make this practical: what is changing, what it means for
                   your property, and what you can do next.
@@ -395,13 +395,13 @@ export function LandingPage() {
                   <button
                     type="button"
                     onClick={() => setActiveAppPage(1)}
-                    className="inline-flex flex-col items-center gap-2 text-slate-800"
+                    className="inline-flex flex-col items-center gap-2 text-slate-900"
                     aria-label="Go to shoreline informational pages"
                   >
-                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
+                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-teal-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-teal-50">
                       {'\u2192'}
                     </span>
-                    <span className="text-sm font-extrabold uppercase tracking-wide text-slate-700">
+                    <span className="text-sm font-extrabold uppercase tracking-wide text-slate-800">
                       Explore Shoreline Outlook
                     </span>
                   </button>
