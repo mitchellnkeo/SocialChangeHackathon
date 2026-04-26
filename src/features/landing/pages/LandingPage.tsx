@@ -67,6 +67,33 @@ export function LandingPage() {
     'Solutions',
   ]
 
+  const panelImages = [
+    {
+      src: 'https://source.unsplash.com/1600x900/?washington,shoreline',
+      alt: 'Washington shoreline with coastal homes and water.',
+    },
+    {
+      src: 'https://source.unsplash.com/1600x900/?puget,sound,coast',
+      alt: 'Puget Sound style coastline and tide movement.',
+    },
+    {
+      src: 'https://source.unsplash.com/1600x900/?coastal,erosion,beach',
+      alt: 'Eroding beach and bluff edge along a coastal area.',
+    },
+    {
+      src: 'https://source.unsplash.com/1600x900/?pacific,northwest,coastline',
+      alt: 'Pacific Northwest coastal landscape with shoreline habitat.',
+    },
+    {
+      src: 'https://source.unsplash.com/1600x900/?flooding,coast,home',
+      alt: 'Coastal flood risk visual near homes and infrastructure.',
+    },
+    {
+      src: 'https://source.unsplash.com/1600x900/?shoreline,restoration,habitat',
+      alt: 'Shoreline restoration and habitat-focused coastal scene.',
+    },
+  ]
+
   const sourceLinks = [
     {
       label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
@@ -95,6 +122,10 @@ export function LandingPage() {
     {
       label: 'TVW — Coastal Town Erosion (2025)',
       url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
+    },
+    {
+      label: 'Unsplash Source — Washington shoreline image search',
+      url: 'https://source.unsplash.com/',
     },
   ]
 
@@ -272,6 +303,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   How Outreach Happens Today
                 </h2>
+                <img
+                  src={panelImages[0].src}
+                  alt={panelImages[0].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                />
                 <p className="mt-3 max-w-3xl text-slate-700">
                   We meet residents where they already are: trusted clubs, agency
                   channels, neighborhood communication, and a clear mobile-friendly
@@ -298,6 +336,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
                 </h2>
+                <img
+                  src={panelImages[1].src}
+                  alt={panelImages[1].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                />
                 <p className="mt-3 text-slate-700">
                   Use this timeline slider like an exhibit control.
                 </p>
@@ -332,6 +377,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which One Looks More Like Your View?
                 </h2>
+                <img
+                  src={panelImages[2].src}
+                  alt={panelImages[2].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                />
                 <p className="mt-3 max-w-3xl text-slate-700">
                   Pick the option that best matches your shoreline area. We will
                   personalize the next step guidance.
@@ -371,6 +423,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Future Outlook in 50-Year Steps
                 </h2>
+                <img
+                  src={panelImages[3].src}
+                  alt={panelImages[3].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                />
                 <p className="mt-3 max-w-3xl text-slate-700">
                   Helping residents visualize long-term change can make policy,
                   planning, and funding decisions easier to understand.
@@ -399,6 +458,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters Financially
                 </h2>
+                <img
+                  src={panelImages[4].src}
+                  alt={panelImages[4].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                />
                 <p className="mt-3 max-w-3xl text-slate-700">
                   Waiting usually costs more. Early planning can help protect
                   property value and avoid larger emergency expenses.
@@ -463,6 +529,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
                 </h2>
+                <img
+                  src={panelImages[5].src}
+                  alt={panelImages[5].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                />
                 <p className="mt-3 max-w-3xl text-slate-700">
                   Inspired by successful community efforts, these options can be
                   tailored to your shoreline type and neighborhood priorities.
