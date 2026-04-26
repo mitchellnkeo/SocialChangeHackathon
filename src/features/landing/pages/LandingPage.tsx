@@ -2,12 +2,67 @@ import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import {
   areaTypes,
+  ctaPageSources,
   financialCards,
+  informationalPanelSources,
+  landingPageSources,
   outreachItems,
   projectionItems,
   solutionSlides,
+  sourceModalLinks,
   timelineItems,
+  type SourceReference,
 } from '../data/landingContent'
+
+function PanelSourcesFooter({
+  sources,
+  variant = 'onLight',
+}: {
+  sources: SourceReference[]
+  variant?: 'onLight' | 'onDark'
+}) {
+  if (sources.length === 0) return null
+
+  const isDark = variant === 'onDark'
+
+  return (
+    <footer
+      className={
+        isDark
+          ? 'mt-6 border-t border-white/25 pt-4'
+          : 'mt-8 border-t border-slate-200 pt-4'
+      }
+    >
+      <p
+        className={
+          isDark
+            ? 'text-xs font-extrabold uppercase tracking-wide text-cyan-100/90'
+            : 'text-xs font-extrabold uppercase tracking-wide text-slate-500'
+        }
+      >
+        Sources for this page
+      </p>
+      <ul className="mt-2 list-none space-y-1.5 p-0">
+        {sources.map((source) => (
+          <li key={source.url}>
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noreferrer"
+              className={
+                isDark
+                  ? 'text-xs font-semibold text-white underline decoration-cyan-200/80 underline-offset-2 hover:text-cyan-50'
+                  : 'text-xs font-semibold text-sky-700 underline decoration-sky-300 underline-offset-2 hover:text-sky-800'
+              }
+            >
+              {source.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </footer>
+  )
+}
 
 export function LandingPage() {
   const [selectedAreaTypeId, setSelectedAreaTypeId] = useState<
@@ -190,61 +245,6 @@ export function LandingPage() {
     },
   ] as const
 
-  const sourceLinks = [
-    {
-      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
-      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
-    },
-    {
-      label: 'WA Dept. of Ecology — Sea Level Rise',
-      url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
-    },
-    {
-      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
-      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
-    },
-    {
-      label: 'WDFW — Marine Shorelines',
-      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
-    },
-    {
-      label: 'UW Climate Impacts Group — WA Coast Climate Impacts',
-      url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
-    },
-    {
-      label: 'Washington Sea Grant — Shorelines of the Future',
-      url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
-    },
-    {
-      label: 'TVW — Coastal Town Erosion (2025)',
-      url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
-    },
-    {
-      label: 'Wikimedia Commons — Washington Coast photo set',
-      url: 'https://commons.wikimedia.org/wiki/File:Washington_Coast_(5652105519)_(2).jpg',
-    },
-    {
-      label: 'Wikimedia Commons — Puget Sound (Federal Way)',
-      url: 'https://commons.wikimedia.org/wiki/File:Federal_Way,_Puget_Sound,_Washington.jpg',
-    },
-    {
-      label: 'Wikimedia Commons — Hoh Head, Washington Coast',
-      url: 'https://commons.wikimedia.org/wiki/File:Hoh_Head,_Washington_coast.jpg',
-    },
-    {
-      label: 'Wikimedia Commons — Jagged Island, Washington Coast',
-      url: 'https://commons.wikimedia.org/wiki/File:Jagged_Island_Washington_coast.jpg',
-    },
-    {
-      label: 'Wikimedia Commons — Lonely Cove shoreline (ca. 1906)',
-      url: 'https://commons.wikimedia.org/wiki/File:Beach_and_shoreline_at_Lonely_Cove,_Pacific_Coast,_Washington,_ca_1906_(WASTATE_1707).jpeg',
-    },
-    {
-      label: 'Wikimedia Commons — Washington Coastline (5768933029)',
-      url: 'https://commons.wikimedia.org/wiki/File:Washington_Coastline_(5768933029)_(2).jpg',
-    },
-  ]
-
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
@@ -361,34 +361,37 @@ export function LandingPage() {
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-3xl">
-              <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
-                Washington Shoreline Conservation
-              </p>
-              <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
-                Protect Your Shoreline. Protect Your Legacy.
-              </h1>
-              <p className="mt-5 text-lg text-emerald-50/95">
-                Washington shorelines support homes, habitat, and local economies.
-                Let&apos;s make this practical: what is changing, what it means for
-                your property, and what you can do next.
-              </p>
-            </div>
+          <div className="mx-auto w-full max-w-6xl">
+            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-3xl">
+                <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
+                  Washington Shoreline Conservation
+                </p>
+                <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
+                  Protect Your Shoreline. Protect Your Legacy.
+                </h1>
+                <p className="mt-5 text-lg text-emerald-50/95">
+                  Washington shorelines support homes, habitat, and local economies.
+                  Let&apos;s make this practical: what is changing, what it means for
+                  your property, and what you can do next.
+                </p>
+              </div>
 
-            <button
-              type="button"
-              onClick={() => setActiveAppPage(1)}
-              className="inline-flex flex-col items-center gap-2 text-white md:mb-2"
-              aria-label="Go to shoreline informational pages"
-            >
-              <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
-                {'\u2192'}
-              </span>
-              <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
-                Explore Shoreline Outlook
-              </span>
-            </button>
+              <button
+                type="button"
+                onClick={() => setActiveAppPage(1)}
+                className="inline-flex flex-col items-center gap-2 text-white md:mb-2"
+                aria-label="Go to shoreline informational pages"
+              >
+                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
+                  {'\u2192'}
+                </span>
+                <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
+                  Explore Shoreline Outlook
+                </span>
+              </button>
+            </div>
+            <PanelSourcesFooter sources={landingPageSources} variant="onDark" />
           </div>
         </section>
 
@@ -502,6 +505,7 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
+                <PanelSourcesFooter sources={informationalPanelSources[0]} />
               </article>
             </div>
 
@@ -546,6 +550,7 @@ export function LandingPage() {
                     </p>
                   </article>
                 </div>
+                <PanelSourcesFooter sources={informationalPanelSources[1]} />
               </article>
             </div>
 
@@ -642,6 +647,7 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
+                <PanelSourcesFooter sources={informationalPanelSources[2]} />
               </article>
             </div>
 
@@ -677,6 +683,7 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
+                <PanelSourcesFooter sources={informationalPanelSources[3]} />
               </article>
             </div>
 
@@ -748,6 +755,7 @@ export function LandingPage() {
                   </p>
                   <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
                 </div>
+                <PanelSourcesFooter sources={informationalPanelSources[4]} />
               </article>
             </div>
 
@@ -780,6 +788,7 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
+                <PanelSourcesFooter sources={informationalPanelSources[5]} />
               </article>
             </div>
           </div>
@@ -806,7 +815,7 @@ export function LandingPage() {
                 </div>
 
                 <ul className="space-y-2">
-                  {sourceLinks.map((source) => (
+                  {sourceModalLinks.map((source) => (
                     <li key={source.url}>
                       <a
                         href={source.url}
@@ -942,6 +951,8 @@ export function LandingPage() {
                 Copy Neighbor Outreach Template
               </button>
             </div>
+
+            <PanelSourcesFooter sources={ctaPageSources} variant="onDark" />
           </div>
         </section>
       </div>

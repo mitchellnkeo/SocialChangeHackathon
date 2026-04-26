@@ -150,3 +150,184 @@ export const solutionSlides = [
       'Coastal communities are testing practical, place-based approaches. Use before/after examples to show progress is possible.',
   },
 ]
+
+export type SourceReference = {
+  label: string
+  url: string
+}
+
+/** Full list for the “Sources” modal in the informational flow. */
+export const sourceModalLinks: SourceReference[] = [
+  {
+    label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+    url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+  },
+  {
+    label: 'WA Dept. of Ecology — Sea Level Rise',
+    url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+  },
+  {
+    label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+    url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+  },
+  {
+    label: 'WDFW — Marine Shorelines',
+    url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+  },
+  {
+    label: 'UW Climate Impacts Group — WA Coast Climate Impacts',
+    url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
+  },
+  {
+    label: 'Washington Sea Grant — Shorelines of the Future',
+    url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+  },
+  {
+    label: 'TVW — Coastal Town Erosion (2025)',
+    url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
+  },
+  {
+    label: 'Wikimedia Commons — Washington Coast photo set',
+    url: 'https://commons.wikimedia.org/wiki/File:Washington_Coast_(5652105519)_(2).jpg',
+  },
+  {
+    label: 'Wikimedia Commons — Puget Sound (Federal Way)',
+    url: 'https://commons.wikimedia.org/wiki/File:Federal_Way,_Puget_Sound,_Washington.jpg',
+  },
+  {
+    label: 'Wikimedia Commons — Hoh Head, Washington Coast',
+    url: 'https://commons.wikimedia.org/wiki/File:Hoh_Head,_Washington_coast.jpg',
+  },
+  {
+    label: 'Wikimedia Commons — Jagged Island, Washington Coast',
+    url: 'https://commons.wikimedia.org/wiki/File:Jagged_Island_Washington_coast.jpg',
+  },
+  {
+    label: 'Wikimedia Commons — Lonely Cove shoreline (ca. 1906)',
+    url: 'https://commons.wikimedia.org/wiki/File:Beach_and_shoreline_at_Lonely_Cove,_Pacific_Coast,_Washington,_ca_1906_(WASTATE_1707).jpeg',
+  },
+  {
+    label: 'Wikimedia Commons — Washington Coastline (5768933029)',
+    url: 'https://commons.wikimedia.org/wiki/File:Washington_Coastline_(5768933029)_(2).jpg',
+  },
+]
+
+export const landingPageSources: SourceReference[] = [
+  {
+    label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+    url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+  },
+  {
+    label: 'WA Dept. of Ecology — Sea Level Rise',
+    url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+  },
+  {
+    label: 'WDFW — Marine Shorelines',
+    url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+  },
+]
+
+export const ctaPageSources: SourceReference[] = [
+  {
+    label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+    url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+  },
+  {
+    label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+    url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+  },
+  {
+    label: 'Washington Sea Grant — Shorelines of the Future',
+    url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+  },
+]
+
+/**
+ * Sources aligned to each informational exhibit panel (Outreach → Solutions).
+ */
+export const informationalPanelSources: SourceReference[][] = [
+  [
+    {
+      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+    {
+      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+  ],
+  [
+    {
+      label: 'UW Climate Impacts Group — WA Coast Climate Impacts',
+      url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
+    },
+    {
+      label: 'Washington Sea Grant — Shorelines of the Future',
+      url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+    },
+    {
+      label: 'TVW — Coastal Town Erosion (2025)',
+      url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
+    },
+    {
+      label: 'WA Dept. of Ecology — Sea Level Rise',
+      url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+    },
+  ],
+  [
+    {
+      label: 'WDFW — Marine Shorelines',
+      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+    },
+    {
+      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+  ],
+  [
+    {
+      label: 'WA Dept. of Ecology — Sea Level Rise',
+      url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+    },
+    {
+      label: 'UW Climate Impacts Group — WA Coast Climate Impacts',
+      url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
+    },
+    {
+      label: 'Washington Sea Grant — Shorelines of the Future',
+      url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+    },
+  ],
+  [
+    {
+      label: 'UW Climate Impacts Group — WA Coast Climate Impacts',
+      url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
+    },
+    {
+      label: 'Washington Sea Grant — Shorelines of the Future',
+      url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+    },
+    {
+      label: 'TVW — Coastal Town Erosion (2025)',
+      url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
+    },
+    {
+      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+  ],
+  [
+    {
+      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+    {
+      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+    {
+      label: 'WDFW — Marine Shorelines',
+      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+    },
+  ],
+]
