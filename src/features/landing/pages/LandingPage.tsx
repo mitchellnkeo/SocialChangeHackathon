@@ -793,6 +793,13 @@ export function LandingPage() {
                     <h3 className="mt-2 text-2xl font-bold text-shoreline-900">
                       Shoreline risk becomes household and statewide cost
                     </h3>
+                    <img
+                      src="/images/Financial.png"
+                      alt="Coastal homes and neighborhood infrastructure partially surrounded by floodwater under gray skies, illustrating shoreline-related property and financial risk."
+                      loading="lazy"
+                      decoding="async"
+                      className="mt-4 h-44 w-full rounded-2xl border-2 border-cyan-200/80 object-cover"
+                    />
                     <p className="mt-3 text-slate-700">
                       Erosion, flooding, and shoreline instability can lower property
                       value, increase insurance and repair costs, and force emergency
