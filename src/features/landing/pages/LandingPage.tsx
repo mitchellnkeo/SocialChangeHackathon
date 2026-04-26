@@ -17,6 +17,7 @@ export function LandingPage() {
   const [activePanel, setActivePanel] = useState(0)
   const [activeAppPage, setActiveAppPage] = useState(0)
   const [panelDragStartX, setPanelDragStartX] = useState<number | null>(null)
+  const [isSourcesOpen, setIsSourcesOpen] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
   const [timelineIndex, setTimelineIndex] = useState(0)
   const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
@@ -32,15 +33,15 @@ export function LandingPage() {
     financialMode === 'act-now'
       ? {
           title: 'If your community acts now',
-          value: 'Lower risk, steadier property value',
+          value: 'Reduce risk before costs spike',
           detail:
-            'Early planning helps avoid emergency repair spikes and can preserve long-term neighborhood value.',
+            'Early planning improves options: phased upgrades, smarter permitting, and better long-term protection for homes and infrastructure.',
         }
       : {
           title: 'If action is delayed',
-          value: 'Higher repair exposure, larger losses',
+          value: 'Higher emergency exposure, fewer options',
           detail:
-            'Waiting can mean emergency construction, repeat storm damage, and increased financial pressure over time.',
+            'Waiting often pushes communities into reactive fixes after damage occurs, which can increase both direct repair and indirect costs.',
         }
 
   const shareLinks = useMemo(() => {
@@ -65,6 +66,37 @@ export function LandingPage() {
     'Future Outlook',
     'Financial Impact',
     'Solutions',
+  ]
+
+  const sourceLinks = [
+    {
+      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+    {
+      label: 'WA Dept. of Ecology — Sea Level Rise',
+      url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+    },
+    {
+      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+    {
+      label: 'WDFW — Marine Shorelines',
+      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+    },
+    {
+      label: 'UW Climate Impacts Group — WA Coast Climate Impacts',
+      url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
+    },
+    {
+      label: 'Washington Sea Grant — Shorelines of the Future',
+      url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+    },
+    {
+      label: 'TVW — Coastal Town Erosion (2025)',
+      url: 'https://tvw.org/2025/05/coastal-town-erosion-waves-sand-and-human-intervention/',
+    },
   ]
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -149,8 +181,9 @@ export function LandingPage() {
                 Protect Your Shoreline. Protect Your Legacy.
               </h1>
               <p className="mt-5 text-lg text-emerald-50/95">
-                If we act now, we can protect the places we call home, reduce future
-                costs, and preserve what we pass on to our kids and grandkids.
+                Washington shorelines support homes, habitat, and local economies.
+                Let&apos;s make this practical: what is changing, what it means for
+                your property, and what you can do next.
               </p>
               <div className="mt-8">
                 <button
@@ -237,6 +270,16 @@ export function LandingPage() {
               className="rounded-full bg-white px-3 py-2 text-sm font-black text-sky-700"
             >
               {'\u2192'}
+            </button>
+          </div>
+
+          <div className="absolute right-6 top-6 z-20">
+            <button
+              type="button"
+              onClick={() => setIsSourcesOpen(true)}
+              className="rounded-full border-2 border-white/40 bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-cyan-50 backdrop-blur hover:bg-white/25"
+            >
+              Sources
             </button>
           </div>
 
@@ -483,6 +526,45 @@ export function LandingPage() {
               </article>
             </div>
           </div>
+
+          {isSourcesOpen && (
+            <div className="absolute inset-0 z-30 flex items-center justify-center bg-slate-950/60 px-6">
+              <div className="w-full max-w-3xl rounded-3xl border-2 border-cyan-100 bg-white p-6 shadow-2xl">
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-shoreline-900">
+                      Information Sources
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-600">
+                      Core references used for shoreline facts in this experience.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsSourcesOpen(false)}
+                    className="rounded-full border-2 border-slate-200 px-3 py-1 text-sm font-bold text-slate-700"
+                  >
+                    Close
+                  </button>
+                </div>
+
+                <ul className="space-y-2">
+                  {sourceLinks.map((source) => (
+                    <li key={source.url}>
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-semibold text-sky-700 underline decoration-sky-300 underline-offset-2"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </section>
 
         <section id="cta" className="flex h-full w-screen items-center px-6 py-16">

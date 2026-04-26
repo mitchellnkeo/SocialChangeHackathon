@@ -1,122 +1,122 @@
 export const outreachItems = [
   {
-    title: 'Community Hubs',
+    title: 'Neighborhood + Club Networks',
     description:
-      'Yacht, fishing, and hunting clubs can organize trusted local outreach for shoreline action.',
+      'Local fishing clubs, marina groups, and neighborhood leaders can spread trusted shoreline updates faster than one-off announcements.',
   },
   {
-    title: 'Public Agency Channels',
+    title: 'State + Local Planning Channels',
     description:
-      'Align messaging with Washington Department of Fish & Wildlife resources and programs.',
+      'Washington communities use Shoreline Master Programs with city/county planners, Tribes, and state agencies to guide safer shoreline decisions.',
   },
   {
-    title: 'Digital + Physical Campaigns',
+    title: 'Digital + Doorstep Outreach',
     description:
-      'Combine a mobile web experience with neighborhood flyers to reach residents quickly.',
+      'Use this site, simple neighborhood handouts, and community meetings to turn concern into coordinated action.',
   },
 ]
 
 export const timelineItems = [
   {
-    period: '1970s-1990s',
-    title: 'More development, less natural buffer',
+    period: 'Then',
+    title: 'Growth changed natural shoreline buffers',
     description:
-      'As shoreline development expanded, many areas lost natural vegetation that once helped reduce erosion.',
+      'As development expanded, many shorelines lost natural vegetation and sediment movement that once helped absorb wave energy.',
   },
   {
-    period: '2000s',
-    title: 'Storm and flood stress became costlier',
+    period: 'Now',
+    title: 'Flooding and erosion costs are climbing',
     description:
-      'Many Washington property owners started seeing frequent repairs, insurance pressure, and recurring runoff damage.',
+      'State and university partners report increasing pressure from sea level rise, king tides, flooding, bluff erosion, and coastal storm events.',
   },
   {
-    period: 'Today',
-    title: 'Window for coordinated action',
+    period: 'Next',
+    title: 'Today’s choices shape long-term resilience',
     description:
-      'Local policy and restoration programs now make it possible to act sooner and avoid much larger long-term losses.',
+      'Planning now through local shoreline programs, adaptation projects, and community partnerships can reduce long-term risk and costs.',
   },
 ]
 
 export const areaTypes = [
   {
     id: 'stable',
-    title: 'Mostly Stable Shoreline',
-    description: 'Vegetation present, minor erosion, seasonal flooding only.',
+    title: 'Mostly Stable Today',
+    description: 'Healthy vegetation, limited erosion, occasional high-water stress.',
     guidance:
-      'Your shoreline looks relatively stable. Prevention-first upgrades now can keep your costs lower in the long run.',
+      'Great starting point. Prevention-first steps now can keep maintenance costs lower and protect shoreline habitat over time.',
   },
   {
     id: 'eroding',
     title: 'Noticeable Erosion',
-    description: 'Retreating shoreline edge and repeated runoff concerns.',
+    description: 'Shore edge retreat, repeated runoff, and more frequent storm impacts.',
     guidance:
-      'Your area shows active erosion. A near-term plan with your neighbors can protect property value and reduce future repair costs.',
+      'Your shoreline is signaling change. A near-term plan with neighbors and local experts can reduce future property losses.',
   },
   {
     id: 'high-risk',
     title: 'High-Risk Shoreline',
-    description: 'Frequent storm impacts and visible land loss.',
+    description: 'Frequent flooding/erosion events with visible land or bluff instability.',
     guidance:
-      'Your area appears high-risk. Prioritizing expert consultation now can help avoid expensive emergency work later.',
+      'This area likely needs priority action. Early expert planning can help avoid emergency-only responses that cost much more.',
   },
 ] as const
 
 export const projectionItems = [
   {
-    label: '+50 Years',
-    title: 'Early action vs. early loss',
+    label: 'By 2050',
+    title: 'Exposure grows without adaptation',
     description:
-      'Communities that invest in resilience early are more likely to avoid major setbacks in one generation.',
+      'Washington analyses estimate thousands of homes and structures could face growing coastal flood exposure this century.',
   },
   {
-    label: '+100 Years',
-    title: 'Your family legacy',
+    label: 'Long-term',
+    title: 'Legacy planning matters',
     description:
-      'What we do today influences what children and grandchildren inherit in shoreline stability and habitat health.',
+      'Actions taken now can protect what your family and community inherit: safer shoreline access, habitat, and property value.',
   },
   {
-    label: 'Policy + Land',
-    title: 'Legislation shapes outcomes',
+    label: 'Trade-offs',
+    title: 'No single fix works everywhere',
     description:
-      'Pairing projections with policy milestones helps residents see how regulation and restoration incentives impact real land conditions.',
+      'Hard armoring, soft stabilization, accommodation, and retreat each have trade-offs in cost, ecology, and long-term effectiveness.',
   },
 ]
 
 export const financialCards = [
   {
-    title: 'Property Value Risk',
-    metric: '-8% to -22%',
+    title: 'Property + Infrastructure Exposure',
+    metric: '14,000+ structures',
     description:
-      'Estimated value exposure in shoreline areas with repeated erosion and flooding impacts.',
+      'Washington coastal resilience reporting highlights substantial structures potentially exposed to coastal flooding by 2050.',
   },
   {
-    title: 'Delayed Repair Costs',
-    metric: '2x to 4x higher',
+    title: 'Asset Value at Stake',
+    metric: '$8B+ today',
     description:
-      'Emergency repairs are often much more expensive than planned resilience investments.',
+      'Current statewide value of potentially exposed homes and structures underscores why early planning can protect family wealth.',
   },
   {
-    title: 'Acting Now',
+    title: 'Acting Earlier',
     metric: 'Lower long-term burden',
     description:
-      'Early intervention can protect household budgets and reduce future community service costs.',
+      'Early action can reduce emergency fixes, improve funding options, and lower long-term strain on household and community budgets.',
   },
 ]
 
 export const solutionSlides = [
   {
-    title: 'Living Shoreline Solutions',
+    title: 'Match the Tool to the Shoreline',
     description:
-      'Native plant buffers, gradual slopes, and habitat-friendly design can absorb wave energy while preserving shoreline character.',
+      'Washington guidance compares hard defenses, soft stabilization, accommodation, and retreat/avoidance so communities can choose wisely.',
   },
   {
-    title: 'Neighborhood Coordination',
+    title: 'Plan Locally, Coordinate Regionally',
     description:
-      'Block-by-block collaboration helps communities avoid isolated fixes and build shared resilience plans.',
+      'Neighborhood projects work best when aligned with local Shoreline Master Programs, permitting pathways, and Tribal/community priorities.',
   },
   {
-    title: 'Success Stories and Testimonies',
+    title: 'Build from Real WA Examples',
     description:
-      'Before-and-after photos and short local testimonies show residents this approach is already working in similar communities.',
+      'Coastal communities are testing practical, place-based approaches. Use before/after examples to show progress is possible.',
   },
 ]
