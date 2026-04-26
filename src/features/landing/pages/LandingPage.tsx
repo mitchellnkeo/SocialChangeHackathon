@@ -69,27 +69,27 @@ export function LandingPage() {
 
   const panelImages = [
     {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Washington_Coast_%285652105519%29_%282%29.jpg',
+      src: '/images/wa-coast-1.jpg',
       alt: 'Washington shoreline with coastal homes and water.',
     },
     {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Federal_Way%2C_Puget_Sound%2C_Washington.jpg',
+      src: '/images/puget-sound-federal-way.jpg',
       alt: 'Puget Sound style coastline and tide movement.',
     },
     {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Hoh_Head%2C_Washington_coast.jpg',
+      src: '/images/hoh-head-coast.jpg',
       alt: 'Eroding beach and bluff edge along a coastal area.',
     },
     {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Jagged_Island_Washington_coast.jpg',
+      src: '/images/jagged-island-coast.jpg',
       alt: 'Pacific Northwest coastal landscape with shoreline habitat.',
     },
     {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Washington_Coast_%285652100327%29_%282%29.jpg',
+      src: '/images/wa-coast-2.jpg',
       alt: 'Coastal flood risk visual near homes and infrastructure.',
     },
     {
-      src: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Washington_Coast_%285652105519%29_%282%29.jpg',
+      src: '/images/wa-coast-1.jpg',
       alt: 'Shoreline restoration and habitat-focused coastal scene.',
     },
   ]
