@@ -16,6 +16,7 @@ export function LandingPage() {
   const [activeSlide, setActiveSlide] = useState(0)
   const [activePanel, setActivePanel] = useState(0)
   const [activeAppPage, setActiveAppPage] = useState(0)
+  const [panelDragStartX, setPanelDragStartX] = useState<number | null>(null)
   const [statusMessage, setStatusMessage] = useState('')
   const [timelineIndex, setTimelineIndex] = useState(0)
   const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
@@ -107,6 +108,25 @@ export function LandingPage() {
     setActivePanel((current) => (current > 0 ? current - 1 : current))
   }
 
+  function handlePanelPointerDown(clientX: number) {
+    setPanelDragStartX(clientX)
+  }
+
+  function handlePanelPointerUp(clientX: number) {
+    if (panelDragStartX === null) return
+
+    const deltaX = clientX - panelDragStartX
+    const threshold = 45
+
+    if (deltaX <= -threshold) {
+      goToNextPanel()
+    } else if (deltaX >= threshold) {
+      goToPreviousPanel()
+    }
+
+    setPanelDragStartX(null)
+  }
+
   return (
     <main className="h-screen overflow-hidden">
       <div
@@ -178,9 +198,17 @@ export function LandingPage() {
             </button>
           </div>
 
-          <article className="rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:min-h-[72vh] md:p-8">
-            {activePanel === 0 && (
-              <>
+          <article
+            className="overflow-hidden rounded-[2rem] border-2 border-cyan-100 bg-white/95 shadow-xl shadow-sky-100 md:min-h-[72vh]"
+            onPointerDown={(event) => handlePanelPointerDown(event.clientX)}
+            onPointerUp={(event) => handlePanelPointerUp(event.clientX)}
+            onPointerCancel={() => setPanelDragStartX(null)}
+          >
+            <div
+              className="flex w-[600%] transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${activePanel * (100 / 6)}%)` }}
+            >
+              <div className="w-full shrink-0 p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   How Outreach Happens Today
                 </h2>
@@ -202,11 +230,9 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
-              </>
-            )}
+              </div>
 
-            {activePanel === 1 && (
-              <>
+              <div className="w-full shrink-0 p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
                 </h2>
@@ -236,11 +262,9 @@ export function LandingPage() {
                     </p>
                   </article>
                 </div>
-              </>
-            )}
+              </div>
 
-            {activePanel === 2 && (
-              <>
+              <div className="w-full shrink-0 p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which One Looks More Like Your View?
                 </h2>
@@ -275,11 +299,9 @@ export function LandingPage() {
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}
                 </p>
-              </>
-            )}
+              </div>
 
-            {activePanel === 3 && (
-              <>
+              <div className="w-full shrink-0 p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Future Outlook in 50-Year Steps
                 </h2>
@@ -303,11 +325,9 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
-              </>
-            )}
+              </div>
 
-            {activePanel === 4 && (
-              <>
+              <div className="w-full shrink-0 p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters Financially
                 </h2>
@@ -367,11 +387,9 @@ export function LandingPage() {
                   </p>
                   <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
                 </div>
-              </>
-            )}
+              </div>
 
-            {activePanel === 5 && (
-              <>
+              <div className="w-full shrink-0 p-6 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
                 </h2>
@@ -412,8 +430,8 @@ export function LandingPage() {
                     </button>
                   </div>
                 </article>
-              </>
-            )}
+              </div>
+            </div>
           </article>
           </div>
         </section>
