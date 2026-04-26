@@ -245,6 +245,26 @@ export const landingPageSources: SourceReference[] = [
   },
 ]
 
+/** Action-oriented links for the Sunlight Shores story page. */
+export const whidbeyStoryActionResources: SourceReference[] = [
+  {
+    label: 'Explore the Sunlight Shores project & lessons (Northwest Straits)',
+    url: 'https://nwstraitsfoundation.org/projects/sunlight-shores-shoreline-restoration-and-armor-removal-2/',
+  },
+  {
+    label: 'Find a Shore Friendly program or partner in your county',
+    url: 'https://www.shorefriendly.org/resources/resources-in-your-area/',
+  },
+  {
+    label: 'Watch the armor removal timelapse (YouTube)',
+    url: 'https://www.youtube.com/watch?v=Srvg7F1Qwjc',
+  },
+  {
+    label: 'Download native shoreline planting guides (examples)',
+    url: 'https://piercecd.org/DocumentCenter/View/1964/TAM-32_Plants-Protect-Shorelines',
+  },
+]
+
 export const whidbeyStorySources: SourceReference[] = [
   {
     label: 'Northwest Straits Foundation — Sunlight Shores restoration project',
@@ -369,6 +389,98 @@ export const informationalPanelSources: SourceReference[][] = [
     {
       label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
       url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+  ],
+]
+
+/**
+ * “Take next steps” links for each informational exhibit panel (same order as
+ * `informationalPanelSources`: timeline → property → hotspots → future outlook →
+ * why this matters → solutions).
+ */
+export const informationalPanelActionResources: SourceReference[][] = [
+  [
+    {
+      label: 'Request local context: Shore Friendly — Resources in Your Area',
+      url: 'https://www.shorefriendly.org/resources/resources-in-your-area/',
+    },
+    {
+      label: 'Understand sea level rise in permit planning (Ecology)',
+      url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+    },
+    {
+      label: 'WDFW — Marine shorelines (habitat & management overview)',
+      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+    },
+  ],
+  [
+    {
+      label: 'Match your shoreline to local help — Shore Friendly directory',
+      url: 'https://www.shorefriendly.org/resources/resources-in-your-area/',
+    },
+    {
+      label: 'WDFW — Puget Sound Shore Friendly (site visits & programs)',
+      url: 'https://wdfw.wa.gov/species-habitats/habitat-recovery/puget-sound/shore-friendly',
+    },
+    {
+      label: 'UW Climate Impacts Group — WA coast hazards & scenarios (planning context)',
+      url: 'https://cig.uw.edu/publications/impacts-of-climate-change-on-the-coasts-of-washington-state/',
+    },
+  ],
+  [
+    {
+      label: 'Ecology — Slope stabilization with vegetation (technical PDF)',
+      url: 'https://apps.ecology.wa.gov/publications/documents/9330.pdf',
+    },
+    {
+      label: 'WDFW — Marine shorelines ecosystem page',
+      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+    },
+    {
+      label: 'Ecology — Climate resilience & shoreline management toolbox',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+  ],
+  [
+    {
+      label: 'Washington Sea Grant — Shorelines of the Future (outreach & scenarios)',
+      url: 'https://wsg.washington.edu/sea-levels-are-rising-in-washington-what-will-the-shorelines-of-the-future-be-like/',
+    },
+    {
+      label: 'Ecology — Sea level rise (state guidance hub)',
+      url: 'https://ecology.wa.gov/air-climate/responding-to-climate-change/sea-level-rise',
+    },
+    {
+      label: 'Talk with local planners — Ecology shoreline & coastal planning',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+  ],
+  [
+    {
+      label: 'Shore Friendly — find programs, workshops, and mini-grant pathways',
+      url: 'https://www.shorefriendly.org/resources/resources-in-your-area/',
+    },
+    {
+      label: 'Ecology — Climate resilience & shoreline management',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+    {
+      label: 'FEMA — National Flood Insurance Program (risk & coverage basics)',
+      url: 'https://www.floodsmart.gov/',
+    },
+  ],
+  [
+    {
+      label: 'Shore Friendly — Resources in Your Area (replicate community-led projects)',
+      url: 'https://www.shorefriendly.org/resources/resources-in-your-area/',
+    },
+    {
+      label: 'Ecology — Shoreline & coastal planning hub',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+    {
+      label: 'Northwest Straits Foundation — community restoration examples',
+      url: 'https://nwstraitsfoundation.org/',
     },
   ],
 ]

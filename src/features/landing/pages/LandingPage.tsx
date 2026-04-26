@@ -3,12 +3,14 @@ import type { FormEvent } from 'react'
 import {
   areaTypes,
   ctaPageSources,
+  informationalPanelActionResources,
   informationalPanelSources,
   landingPageSources,
   projectionItems,
   solutionSlides,
   sourceModalLinks,
   timelineItems,
+  whidbeyStoryActionResources,
   whidbeyStorySources,
   type SourceReference,
 } from '../data/landingContent'
@@ -85,6 +87,63 @@ function PanelSourcesFooter({
         ))}
       </ul>
     </footer>
+  )
+}
+
+function PanelActionResourcesFooter({
+  resources,
+  variant = 'onLight',
+}: {
+  resources: SourceReference[]
+  variant?: 'onLight' | 'onDark'
+}) {
+  if (resources.length === 0) return null
+
+  const isDark = variant === 'onDark'
+
+  return (
+    <div
+      className={
+        isDark
+          ? 'mt-6 rounded-2xl border border-white/35 bg-white/10 p-4 backdrop-blur-sm'
+          : 'mt-6 rounded-2xl border-2 border-cyan-200/90 bg-cyan-50/75 p-4 shadow-sm backdrop-blur-sm'
+      }
+    >
+      <p
+        className={
+          isDark
+            ? 'text-xs font-extrabold uppercase tracking-wide text-cyan-100'
+            : 'text-xs font-extrabold uppercase tracking-wide text-cyan-800'
+        }
+      >
+        Take next steps
+      </p>
+      <p
+        className={
+          isDark ? 'mt-1 text-xs text-cyan-100/85' : 'mt-1 text-xs text-slate-600'
+        }
+      >
+        Action links open in a new tab.
+      </p>
+      <ul className="mt-3 list-none space-y-2 p-0">
+        {resources.map((resource) => (
+          <li key={resource.url}>
+            <a
+              href={resource.url}
+              target="_blank"
+              rel="noreferrer"
+              className={
+                isDark
+                  ? 'text-sm font-semibold text-white underline decoration-cyan-200/90 underline-offset-2 hover:text-cyan-50'
+                  : 'text-sm font-semibold text-sky-800 underline decoration-sky-400 underline-offset-2 hover:text-sky-950'
+              }
+            >
+              {resource.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
@@ -589,6 +648,9 @@ export function LandingPage() {
                     </p>
                   </article>
                 </div>
+                <PanelActionResourcesFooter
+                  resources={informationalPanelActionResources[0]}
+                />
                 <PanelSourcesFooter sources={informationalPanelSources[0]} />
               </article>
             </div>
@@ -663,6 +725,9 @@ export function LandingPage() {
                     repairs become the default path.
                   </p>
                 </article>
+                <PanelActionResourcesFooter
+                  resources={informationalPanelActionResources[1]}
+                />
                 <PanelSourcesFooter sources={informationalPanelSources[1]} />
               </article>
             </div>
@@ -720,6 +785,9 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
+                <PanelActionResourcesFooter
+                  resources={informationalPanelActionResources[2]}
+                />
                 <PanelSourcesFooter sources={informationalPanelSources[2]} />
               </article>
             </div>
@@ -757,6 +825,9 @@ export function LandingPage() {
                       </article>
                     ))}
                   </div>
+                  <PanelActionResourcesFooter
+                    resources={informationalPanelActionResources[3]}
+                  />
                   <PanelSourcesFooter sources={informationalPanelSources[3]} />
                 </article>
               </div>
@@ -838,6 +909,9 @@ export function LandingPage() {
                     coordinate and chip in together.
                   </p>
                 </div>
+                <PanelActionResourcesFooter
+                  resources={informationalPanelActionResources[4]}
+                />
                 <PanelSourcesFooter sources={informationalPanelSources[4]} />
               </article>
             </div>
@@ -906,6 +980,9 @@ export function LandingPage() {
                     </div>
                   </article>
                 </div>
+                <PanelActionResourcesFooter
+                  resources={informationalPanelActionResources[5]}
+                />
                 <PanelSourcesFooter sources={informationalPanelSources[5]} />
               </article>
             </div>
@@ -1147,6 +1224,7 @@ export function LandingPage() {
               </ul>
             </div>
 
+            <PanelActionResourcesFooter resources={whidbeyStoryActionResources} />
             <PanelSourcesFooter sources={whidbeyStorySources} />
           </article>
         </section>
