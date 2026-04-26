@@ -16,6 +16,7 @@ export function LandingPage() {
   const [activeSlide, setActiveSlide] = useState(0)
   const [activePanel, setActivePanel] = useState(0)
   const [activeAppPage, setActiveAppPage] = useState(0)
+  const [appDragStartX, setAppDragStartX] = useState<number | null>(null)
   const [panelDragStartX, setPanelDragStartX] = useState<number | null>(null)
   const [isSourcesOpen, setIsSourcesOpen] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
@@ -159,6 +160,33 @@ export function LandingPage() {
     setPanelDragStartX(null)
   }
 
+  function handleAppPointerDown(
+    clientX: number,
+    targetElement: EventTarget | null,
+  ) {
+    const target = targetElement as HTMLElement | null
+    if (target?.closest('input,textarea,select,button,a')) {
+      setAppDragStartX(null)
+      return
+    }
+    setAppDragStartX(clientX)
+  }
+
+  function handleAppPointerUp(clientX: number) {
+    if (appDragStartX === null) return
+
+    const deltaX = clientX - appDragStartX
+    const threshold = 45
+
+    if (deltaX <= -threshold && activeAppPage < 2) {
+      setActiveAppPage((current) => Math.min(current + 1, 2))
+    } else if (deltaX >= threshold && activeAppPage > 0) {
+      setActiveAppPage((current) => Math.max(current - 1, 0))
+    }
+
+    setAppDragStartX(null)
+  }
+
   return (
     <main className="h-screen overflow-hidden">
       <div
@@ -168,6 +196,11 @@ export function LandingPage() {
         <section
           id="landing-hero"
           className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24"
+          onPointerDown={(event) =>
+            handleAppPointerDown(event.clientX, event.target)
+          }
+          onPointerUp={(event) => handleAppPointerUp(event.clientX)}
+          onPointerCancel={() => setAppDragStartX(null)}
         >
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
@@ -570,6 +603,11 @@ export function LandingPage() {
         <section
           id="cta"
           className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white"
+          onPointerDown={(event) =>
+            handleAppPointerDown(event.clientX, event.target)
+          }
+          onPointerUp={(event) => handleAppPointerUp(event.clientX)}
+          onPointerCancel={() => setAppDragStartX(null)}
         >
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
