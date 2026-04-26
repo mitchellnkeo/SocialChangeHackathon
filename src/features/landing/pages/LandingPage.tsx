@@ -91,6 +91,9 @@ export function LandingPage() {
       )}&body=${encodeURIComponent(
         `I found a community page about shoreline conservation in Washington.\n\n${pageUrl}`,
       )}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        pageUrl,
+      )}&quote=${encodeURIComponent(text)}`,
       x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`,
     }
   }, [])
@@ -950,6 +953,13 @@ export function LandingPage() {
                 neighbors) that prioritizes habitat-friendly options over
                 last-minute emergency fixes.
               </p>
+              <p className="mt-3 rounded-xl border border-emerald-200/50 bg-emerald-500/15 px-3 py-2 text-emerald-50">
+                Encouraging note: Some Shore Friendly Partners offer
+                mini-grants of up to $15,000 for Shore Friendly (armor
+                alternative) projects that do not require extensive Shore
+                Friendly assistance. Programs vary by Partner, so availability,
+                eligibility, and process can differ by location.
+              </p>
             </div>
 
             <p className="mt-4 text-sm font-medium text-cyan-50">{statusMessage}</p>
@@ -960,6 +970,14 @@ export function LandingPage() {
                 className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
               >
                 Share by Email
+              </a>
+              <a
+                href={shareLinks.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
+              >
+                Share on Facebook
               </a>
               <a
                 href={shareLinks.x}
