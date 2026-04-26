@@ -12,6 +12,15 @@ import {
   type SourceReference,
 } from '../data/landingContent'
 
+const WDFW_SHORELINE_EMAIL = 'webmaster@dfw.wa.gov'
+
+const COASTLINE_TYPE_LABELS: Record<string, string> = {
+  bay: 'Bay',
+  'river-mouth': 'River mouth',
+  bluff: 'Bluff / coastal slope',
+  estuary: 'Estuary / wetland edge',
+}
+
 function PanelSourcesFooter({
   sources,
   variant = 'onLight',
@@ -243,7 +252,9 @@ export function LandingPage() {
     const formData = new FormData(event.currentTarget)
     const name = String(formData.get('name') ?? 'Neighbor')
     const email = String(formData.get('email') ?? '')
-    const coastlineType = String(formData.get('coastlineType') ?? 'shoreline')
+    const coastlineValue = String(formData.get('coastlineType') ?? '')
+    const coastlineLabel =
+      (COASTLINE_TYPE_LABELS[coastlineValue] ?? coastlineValue) || 'Not specified'
     const notes = String(formData.get('notes') ?? '').trim()
     const subject = `Shoreline support request from ${name}`
     const body = [
@@ -252,17 +263,23 @@ export function LandingPage() {
       `I am requesting shoreline support information.`,
       ``,
       `Name: ${name}`,
-      `Email: ${email}`,
-      `Coastline type: ${coastlineType}`,
+      `My email (reply to): ${email}`,
+      `Coastline type: ${coastlineLabel}`,
       `Observed changes: ${notes || 'Not provided'}`,
       ``,
       `Please share recommended Shore Friendly next steps and any relevant local partner contacts.`,
     ].join('\n')
-    const mailtoUrl = `mailto:webmaster@dfw.wa.gov?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
-    window.location.href = mailtoUrl
+    const gmailComposeUrl = new URL('https://mail.google.com/mail/')
+    gmailComposeUrl.searchParams.set('view', 'cm')
+    gmailComposeUrl.searchParams.set('fs', '1')
+    gmailComposeUrl.searchParams.set('to', WDFW_SHORELINE_EMAIL)
+    gmailComposeUrl.searchParams.set('su', subject)
+    gmailComposeUrl.searchParams.set('body', body)
+
+    window.open(gmailComposeUrl.toString(), '_blank', 'noopener,noreferrer')
     setStatusMessage(
-      `Thanks, ${name}. Your email draft to WDFW is ready to send in your mail app.`,
+      `Thanks, ${name}. A Gmail compose tab should open with your draft to WDFW. Sign in to Gmail if prompted, then review and send.`,
     )
     event.currentTarget.reset()
   }
@@ -985,10 +1002,9 @@ export function LandingPage() {
                 What happens when you submit?
               </p>
               <p className="mt-2">
-                This request is your first step toward a shoreline stewardship
-                conversation. You&apos;ll share basic context so local coordinators
-                and nature-based technical experts can follow up with guidance on
-                practical next steps for your shoreline type.
+                When you use the button below, we open Gmail with a pre-filled draft
+                to WDFW using the details you entered. Sign in if needed, review the
+                message, then send when you are ready.
               </p>
               <p className="mt-2">
                 Expected outcome: a clearer action path (for you and your
