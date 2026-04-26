@@ -773,15 +773,13 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters
                 </h2>
-                <div className="relative mx-auto mt-5 aspect-[2.65/1] w-full max-w-5xl overflow-hidden rounded-2xl shadow-md ring-1 ring-slate-200/70 md:aspect-[2.85/1]">
-                  <img
-                    src={panelImages[4].src}
-                    alt={panelImages[4].alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover object-top"
-                  />
-                </div>
+                <img
+                  src={panelImages[4].src}
+                  alt={panelImages[4].alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover object-top"
+                />
                 <p className="mt-2 max-w-3xl text-slate-700">
                   Shoreline decisions affect more than one property line. They shape
                   household finances, habitat health, and how resilient the whole
