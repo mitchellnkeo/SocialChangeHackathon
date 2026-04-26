@@ -15,6 +15,7 @@ export function LandingPage() {
   >(null)
   const [activeSlide, setActiveSlide] = useState(0)
   const [activePanel, setActivePanel] = useState(0)
+  const [activeAppPage, setActiveAppPage] = useState(0)
   const [statusMessage, setStatusMessage] = useState('')
   const [timelineIndex, setTimelineIndex] = useState(0)
   const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
@@ -88,16 +89,18 @@ export function LandingPage() {
   }
 
   const goToNextPanel = () =>
-    setActivePanel((current) =>
-      current < panelTitles.length - 1 ? current + 1 : current,
-    )
+    setActivePanel((current) => {
+      if (current < panelTitles.length - 1) {
+        return current + 1
+      }
+
+      setActiveAppPage(2)
+      return current
+    })
 
   const goToPreviousPanel = () => {
     if (activePanel === 0) {
-      document.getElementById('landing-hero')?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
+      setActiveAppPage(0)
       return
     }
 
@@ -105,50 +108,56 @@ export function LandingPage() {
   }
 
   return (
-    <main className="pb-8">
-      <section
-        id="landing-hero"
-        className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24"
+    <main className="h-screen overflow-hidden">
+      <div
+        className="flex h-full w-[300vw] transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${activeAppPage * 100}vw)` }}
       >
-        <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
-        <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
-        <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
-        <div className="mx-auto max-w-5xl">
-          <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
-            Washington Shoreline Conservation
-          </p>
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
-            Protect Your Shoreline. Protect Your Legacy.
-          </h1>
-          <p className="mt-5 max-w-3xl text-lg text-emerald-50/95">
-            If we act now, we can protect the places we call home, reduce future
-            costs, and preserve what we pass on to our kids and grandkids.
-          </p>
-          <div className="mt-8 flex flex-wrap items-end gap-4">
-            <a
-              href="#shoreline-quiz"
-              className="inline-flex flex-col items-center gap-2 text-white"
-              aria-label="Go to shoreline informational pages"
-            >
-              <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
-                {'\u2192'}
-              </span>
-              <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
-                Explore Shoreline Outlook
-              </span>
-            </a>
-            <a
-              href="#cta"
-              className="rounded-full border-2 border-white/80 bg-white/10 px-6 py-3 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
-            >
-              Request Expert Guidance
-            </a>
+        <section
+          id="landing-hero"
+          className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24"
+        >
+          <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
+          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
+          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
+          <div className="mx-auto max-w-5xl">
+            <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
+              Washington Shoreline Conservation
+            </p>
+            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
+              Protect Your Shoreline. Protect Your Legacy.
+            </h1>
+            <p className="mt-5 max-w-3xl text-lg text-emerald-50/95">
+              If we act now, we can protect the places we call home, reduce future
+              costs, and preserve what we pass on to our kids and grandkids.
+            </p>
+            <div className="mt-8 flex flex-wrap items-end gap-4">
+              <button
+                type="button"
+                onClick={() => setActiveAppPage(1)}
+                className="inline-flex flex-col items-center gap-2 text-white"
+                aria-label="Go to shoreline informational pages"
+              >
+                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
+                  {'\u2192'}
+                </span>
+                <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
+                  Explore Shoreline Outlook
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveAppPage(2)}
+                className="rounded-full border-2 border-white/80 bg-white/10 px-6 py-3 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
+              >
+                Request Expert Guidance
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="shoreline-quiz" className="flex min-h-screen items-center px-6 py-10">
-        <div className="mx-auto w-full max-w-6xl">
+        <section id="shoreline-quiz" className="flex h-full w-screen items-center px-6 py-10">
+          <div className="mx-auto w-full max-w-6xl">
           <div className="mb-5 flex items-center justify-between rounded-3xl border-2 border-cyan-100 bg-white/90 px-4 py-3 shadow-lg shadow-cyan-100/50 backdrop-blur">
             <button
               type="button"
@@ -406,85 +415,96 @@ export function LandingPage() {
               </>
             )}
           </article>
-        </div>
-      </section>
-
-      <section id="cta" className="flex min-h-screen items-center px-6 py-16">
-        <div className="mx-auto max-w-5xl rounded-[2rem] bg-gradient-to-br from-cyan-600 via-sky-600 to-indigo-600 p-8 text-white shadow-2xl shadow-sky-300/30 md:p-10">
-          <h2 className="text-3xl font-bold">Take Action with Your Community</h2>
-          <p className="mt-3 max-w-3xl text-emerald-100">
-            Share this effort, talk with your neighbors, and connect with a
-            trusted professional before small issues turn into expensive ones.
-          </p>
-
-          <form className="mt-8 grid gap-3 md:grid-cols-2" onSubmit={handleSubmit}>
-            <input
-              name="name"
-              required
-              placeholder="Full name"
-              className="rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 placeholder:text-slate-500"
-            />
-            <input
-              name="email"
-              required
-              type="email"
-              placeholder="Email address"
-              className="rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 placeholder:text-slate-500"
-            />
-            <select
-              name="coastlineType"
-              required
-              className="rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 md:col-span-2"
-              defaultValue=""
-            >
-              <option value="" disabled>
-                What type of coastline do you live on?
-              </option>
-              <option value="bay">Bay</option>
-              <option value="river-mouth">River mouth</option>
-              <option value="bluff">Bluff / coastal slope</option>
-              <option value="estuary">Estuary / wetland edge</option>
-            </select>
-            <textarea
-              name="notes"
-              placeholder="What changes have you observed over the last few years?"
-              className="min-h-28 rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 placeholder:text-slate-500 md:col-span-2"
-            />
-            <button
-              type="submit"
-              className="rounded-2xl bg-white px-5 py-3 font-extrabold text-sky-700 shadow-lg md:col-span-2"
-            >
-              Request Shoreline Expert Consultation
-            </button>
-          </form>
-
-          <p className="mt-4 text-sm font-medium text-emerald-100">{statusMessage}</p>
-
-          <div className="mt-6 flex flex-wrap gap-2">
-            <a
-              href={shareLinks.email}
-              className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
-            >
-              Share by Email
-            </a>
-            <a
-              href={shareLinks.x}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
-            >
-              Share on X
-            </a>
-            <button
-              type="button"
-              onClick={copyNeighborTemplate}
-              className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
-            >
-              Copy Neighbor Outreach Template
-            </button>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section id="cta" className="flex h-full w-screen items-center px-6 py-16">
+          <div className="mx-auto max-w-5xl rounded-[2rem] bg-gradient-to-br from-cyan-600 via-sky-600 to-indigo-600 p-8 text-white shadow-2xl shadow-sky-300/30 md:p-10">
+            <div className="mb-5 flex">
+              <button
+                type="button"
+                onClick={() => setActiveAppPage(1)}
+                className="rounded-full border-2 border-white/40 bg-white/10 px-5 py-2 text-sm font-extrabold text-white"
+              >
+                {'\u2190'} Back to Info
+              </button>
+            </div>
+
+            <h2 className="text-3xl font-bold">Take Action with Your Community</h2>
+            <p className="mt-3 max-w-3xl text-emerald-100">
+              Share this effort, talk with your neighbors, and connect with a
+              trusted professional before small issues turn into expensive ones.
+            </p>
+
+            <form className="mt-8 grid gap-3 md:grid-cols-2" onSubmit={handleSubmit}>
+              <input
+                name="name"
+                required
+                placeholder="Full name"
+                className="rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 placeholder:text-slate-500"
+              />
+              <input
+                name="email"
+                required
+                type="email"
+                placeholder="Email address"
+                className="rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 placeholder:text-slate-500"
+              />
+              <select
+                name="coastlineType"
+                required
+                className="rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 md:col-span-2"
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  What type of coastline do you live on?
+                </option>
+                <option value="bay">Bay</option>
+                <option value="river-mouth">River mouth</option>
+                <option value="bluff">Bluff / coastal slope</option>
+                <option value="estuary">Estuary / wetland edge</option>
+              </select>
+              <textarea
+                name="notes"
+                placeholder="What changes have you observed over the last few years?"
+                className="min-h-28 rounded-2xl border-2 border-white/40 bg-white/95 px-4 py-3 text-slate-900 placeholder:text-slate-500 md:col-span-2"
+              />
+              <button
+                type="submit"
+                className="rounded-2xl bg-white px-5 py-3 font-extrabold text-sky-700 shadow-lg md:col-span-2"
+              >
+                Request Shoreline Expert Consultation
+              </button>
+            </form>
+
+            <p className="mt-4 text-sm font-medium text-emerald-100">{statusMessage}</p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              <a
+                href={shareLinks.email}
+                className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
+              >
+                Share by Email
+              </a>
+              <a
+                href={shareLinks.x}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
+              >
+                Share on X
+              </a>
+              <button
+                type="button"
+                onClick={copyNeighborTemplate}
+                className="rounded-full border-2 border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold text-white"
+              >
+                Copy Neighbor Outreach Template
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   )
 }
