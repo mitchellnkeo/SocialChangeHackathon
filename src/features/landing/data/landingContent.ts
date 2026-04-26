@@ -245,6 +245,29 @@ export const landingPageSources: SourceReference[] = [
   },
 ]
 
+export const whidbeyStorySources: SourceReference[] = [
+  {
+    label: 'Northwest Straits Foundation — Sunlight Shores restoration project',
+    url: 'https://nwstraitsfoundation.org/projects/sunlight-shores-shoreline-restoration-and-armor-removal-2/',
+  },
+  {
+    label: 'YouTube — Sunlight Shores armor removal timelapse',
+    url: 'https://www.youtube.com/watch?v=Srvg7F1Qwjc',
+  },
+  {
+    label: 'Pierce CD — TAM-32 Plants Protect Shorelines',
+    url: 'https://piercecd.org/DocumentCenter/View/1964/TAM-32_Plants-Protect-Shorelines',
+  },
+  {
+    label: 'Kitsap County — Shore Friendly plants handout (PDF)',
+    url: 'https://www.kitsap.gov/dcd/PEP%20Documents/Shore%20Friendly%20Plants%20Handout%20april%202%202017.pdf',
+  },
+  {
+    label: 'WA Dept. of Ecology — Slope stabilization using vegetation (9330 PDF)',
+    url: 'https://apps.ecology.wa.gov/publications/documents/9330.pdf',
+  },
+]
+
 export const ctaPageSources: SourceReference[] = [
   {
     label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',

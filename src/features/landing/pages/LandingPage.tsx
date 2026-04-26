@@ -9,6 +9,7 @@ import {
   solutionSlides,
   sourceModalLinks,
   timelineItems,
+  whidbeyStorySources,
   type SourceReference,
 } from '../data/landingContent'
 
@@ -20,6 +21,9 @@ const COASTLINE_TYPE_LABELS: Record<string, string> = {
   bluff: 'Bluff / coastal slope',
   estuary: 'Estuary / wetland edge',
 }
+
+/** Horizontal app pages: 0 landing, 1 info, 2 Whidbey story, 3 CTA */
+const APP_PAGE_LAST_INDEX = 3
 
 function PanelSourcesFooter({
   sources,
@@ -342,8 +346,10 @@ export function LandingPage() {
     const deltaX = clientX - appDragStartX
     const threshold = 45
 
-    if (deltaX <= -threshold && activeAppPage < 2) {
-      setActiveAppPage((current) => Math.min(current + 1, 2))
+    if (deltaX <= -threshold && activeAppPage < APP_PAGE_LAST_INDEX) {
+      setActiveAppPage((current) =>
+        Math.min(current + 1, APP_PAGE_LAST_INDEX),
+      )
     } else if (deltaX >= threshold && activeAppPage > 0) {
       setActiveAppPage((current) => Math.max(current - 1, 0))
     }
@@ -380,7 +386,7 @@ export function LandingPage() {
   return (
     <main className="h-screen overflow-hidden">
       <div
-        className="flex h-full w-[300vw] transition-transform duration-500 ease-in-out"
+        className="flex h-full w-[400vw] transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${activeAppPage * 100}vw)` }}
       >
         <section
@@ -934,6 +940,215 @@ export function LandingPage() {
         </section>
 
         <section
+          id="whidbey-sunlight-shores"
+          className="relative flex h-full w-screen items-center overflow-hidden bg-white px-6 py-12 text-slate-900 md:py-16"
+          onPointerDown={(event) =>
+            handleAppPointerDown(event.clientX, event.target)
+          }
+          onPointerUp={(event) => handleAppPointerUp(event.clientX)}
+          onPointerCancel={() => setAppDragStartX(null)}
+        >
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/LandingPage.jpg')" }}
+            aria-hidden="true"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-white/58" aria-hidden="true" />
+          <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
+          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-sky-200/30 blur-sm" />
+          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-indigo-200/20 blur-sm" />
+
+          <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
+            <button
+              type="button"
+              onClick={() => setActiveAppPage(1)}
+              className="inline-flex flex-col items-center gap-2 text-slate-800"
+            >
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
+                {'\u2190'}
+              </span>
+              <span className="text-xs font-extrabold uppercase tracking-wide text-slate-700">
+                Exhibit
+              </span>
+            </button>
+          </div>
+
+          <div className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
+            <button
+              type="button"
+              onClick={() => setActiveAppPage(3)}
+              className="inline-flex flex-col items-center gap-2 text-slate-800"
+            >
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
+                {'\u2192'}
+              </span>
+              <span className="text-xs font-extrabold uppercase tracking-wide text-slate-700">
+                Take action
+              </span>
+            </button>
+          </div>
+
+          <article className="relative z-10 mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-200 bg-white/95 p-6 shadow-xl shadow-cyan-100 md:p-7">
+            <p className="text-xs font-extrabold uppercase tracking-wide text-cyan-700">
+              Real story · Whidbey Island, WA · 2018
+            </p>
+            <h2 className="mt-2 text-3xl font-bold text-shoreline-900 md:text-4xl">
+              Sunlight Shores — community-led beach restoration
+            </h2>
+            <p className="mt-3 max-w-3xl text-slate-700">
+              A neighborhood&apos;s failing bulkhead became a catalyst for one of
+              Island County&apos;s most celebrated restoration projects.
+            </p>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-2 md:gap-6">
+              <div className="rounded-3xl border-2 border-cyan-100 bg-white p-4 shadow-sm">
+                <p className="text-xs font-extrabold uppercase tracking-wide text-slate-600">
+                  Before
+                </p>
+                <p className="mt-1 text-sm font-semibold text-shoreline-900">
+                  Creosote piles, angular rock &amp; rubble
+                </p>
+                <p className="mt-1 text-sm text-slate-600">
+                  About 350 ft of creosote piles, angular boulders, and concrete
+                  rubble along the shore.
+                </p>
+                <img
+                  src="/images/newPage/CreosotePiles.png"
+                  alt="Before restoration: creosote piles and rubble along the shoreline at Sunlight Shores."
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-3 w-full rounded-2xl object-contain"
+                />
+                <a
+                  href="https://nwstraitsfoundation.org/projects/sunlight-shores-shoreline-restoration-and-armor-removal-2/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-block text-sm font-bold text-sky-700 underline decoration-sky-300 underline-offset-2"
+                >
+                  View Northwest Straits Foundation project page
+                </a>
+              </div>
+              <div className="rounded-3xl border-2 border-cyan-100 bg-white p-4 shadow-sm">
+                <p className="text-xs font-extrabold uppercase tracking-wide text-slate-600">
+                  After
+                </p>
+                <p className="mt-1 text-sm font-semibold text-shoreline-900">
+                  Salt marsh, dune grass &amp; drift logs
+                </p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Salt marsh, about 1,500 dune grass plugs, native plants, and
+                  drift logs — rebuilt habitat and a healthier beach.
+                </p>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  <img
+                    src="/images/newPage/SaltMarsh1.png"
+                    alt="After restoration: salt marsh and native shoreline plantings at Sunlight Shores."
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full rounded-2xl object-contain"
+                  />
+                  <img
+                    src="/images/newPage/SaltMarsh2.png"
+                    alt="After restoration: additional view of restored shoreline habitat at Sunlight Shores."
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full rounded-2xl object-contain"
+                  />
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=Srvg7F1Qwjc"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-block text-sm font-bold text-sky-700 underline decoration-sky-300 underline-offset-2"
+                >
+                  View armor removal timelapse (YouTube)
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-6 overflow-hidden rounded-2xl border-2 border-cyan-100 bg-slate-900">
+              <iframe
+                title="Sunlight Shores armor removal timelapse"
+                src="https://www.youtube.com/embed/Srvg7F1Qwjc"
+                className="aspect-video w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { label: 'Shoreline restored', value: '350 ft' },
+                { label: 'Nearshore habitat', value: '0.25 ac created' },
+                { label: 'Plants installed', value: '1,800+ by 18 volunteers' },
+                { label: 'Native species', value: '12+ planted' },
+              ].map((fact) => (
+                <div
+                  key={fact.label}
+                  className="rounded-2xl border-2 border-sky-200 bg-gradient-to-br from-sky-50 to-cyan-50 p-4 text-center shadow-sm"
+                >
+                  <p className="text-2xl font-extrabold text-sky-800">{fact.value}</p>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-600">
+                    {fact.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-3xl border-2 border-cyan-100 bg-cyan-50/60 p-5 md:p-6">
+              <h3 className="text-xl font-bold text-shoreline-900">
+                Solutions communities are using: native vegetation stabilization
+              </h3>
+              <p className="mt-2 text-slate-700">
+                Native plants are often the most affordable piece of a shoreline
+                project and frequently support every other approach you choose.
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+                <li>
+                  Plan for survival: many programs plant roughly three to five
+                  plants for every one that is expected to mature — harsh
+                  waterfront conditions mean some loss is normal.
+                </li>
+                <li>
+                  <a
+                    href="https://piercecd.org/DocumentCenter/View/1964/TAM-32_Plants-Protect-Shorelines"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-sky-800 underline decoration-sky-300"
+                  >
+                    Pierce Conservation District — TAM-32, Plants protect
+                    shorelines
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.kitsap.gov/dcd/PEP%20Documents/Shore%20Friendly%20Plants%20Handout%20april%202%202017.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-sky-800 underline decoration-sky-300"
+                  >
+                    Kitsap — Shore Friendly plants handout (PDF)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://apps.ecology.wa.gov/publications/documents/9330.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-sky-800 underline decoration-sky-300"
+                  >
+                    WA Dept. of Ecology — Slope stabilization &amp; erosion
+                    control using vegetation (Pub. 93-30 / 9330 PDF)
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <PanelSourcesFooter sources={whidbeyStorySources} />
+          </article>
+        </section>
+
+        <section
           id="cta"
           className="relative flex h-full w-screen items-center overflow-hidden bg-white px-6 py-12 text-white md:py-16"
           onPointerDown={(event) =>
@@ -955,7 +1170,7 @@ export function LandingPage() {
           <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
             <button
               type="button"
-              onClick={() => setActiveAppPage(1)}
+              onClick={() => setActiveAppPage(2)}
               className="inline-flex flex-col items-center gap-2 text-slate-800"
             >
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
