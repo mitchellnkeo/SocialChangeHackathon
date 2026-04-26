@@ -367,8 +367,8 @@ export function LandingPage() {
             aria-hidden="true"
           />
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
-          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
-          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
+          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-sky-200/30 blur-sm" />
+          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-indigo-200/20 blur-sm" />
           <div className="absolute right-8 top-8 z-20 md:right-14 md:top-10">
             <img
               src="/images/Washington_State_Department_of_Fish_and_Wildlife_(logo).svg"
@@ -613,7 +613,7 @@ export function LandingPage() {
                     />
                   </div>
                 )}
-                <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-emerald-50 p-4 text-slate-800">
+                <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-sky-50 p-4 text-slate-800">
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}
                 </p>
@@ -692,9 +692,9 @@ export function LandingPage() {
                     {projectionItems.map((item) => (
                       <article
                         key={item.title}
-                        className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-emerald-50 p-5"
+                        className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-sky-50 p-5"
                       >
-                        <p className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold tracking-wide text-emerald-800">
+                        <p className="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-extrabold tracking-wide text-sky-800">
                           {item.label}
                         </p>
                         <h3 className="mt-3 text-lg font-semibold text-shoreline-900">
@@ -710,7 +710,7 @@ export function LandingPage() {
             )}
 
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-200 bg-white/95 p-6 shadow-xl shadow-cyan-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters
                 </h2>
@@ -727,8 +727,8 @@ export function LandingPage() {
                   neighborhood is over time.
                 </p>
                 <div className="mt-5 grid gap-4 lg:grid-cols-2">
-                  <article className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-5">
-                    <p className="text-xs font-extrabold uppercase tracking-wide text-rose-700">
+                  <article className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-sky-50 p-5">
+                    <p className="text-xs font-extrabold uppercase tracking-wide text-cyan-700">
                       Financially
                     </p>
                     <h3 className="mt-2 text-2xl font-bold text-shoreline-900">
@@ -746,8 +746,8 @@ export function LandingPage() {
                     </p>
                   </article>
 
-                  <article className="rounded-3xl border-2 border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 p-5">
-                    <p className="text-xs font-extrabold uppercase tracking-wide text-emerald-700">
+                  <article className="rounded-3xl border-2 border-sky-100 bg-gradient-to-br from-sky-50 to-indigo-50 p-5">
+                    <p className="text-xs font-extrabold uppercase tracking-wide text-sky-700">
                       Ecologically
                     </p>
                     <h3 className="mt-2 text-2xl font-bold text-shoreline-900">
@@ -772,7 +772,7 @@ export function LandingPage() {
             </div>
 
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-violet-200 bg-white/95 p-6 shadow-xl shadow-violet-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-200 bg-white/95 p-6 shadow-xl shadow-cyan-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
                 </h2>
@@ -791,7 +791,7 @@ export function LandingPage() {
                   {solutionSlides.map((solution) => (
                     <article
                       key={solution.title}
-                      className="rounded-3xl border-2 border-violet-100 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-5"
+                      className="rounded-3xl border-2 border-sky-100 bg-gradient-to-br from-sky-50 to-indigo-50 p-5"
                     >
                       <h3 className="text-xl font-bold text-shoreline-900">
                         {solution.title}
@@ -801,7 +801,7 @@ export function LandingPage() {
                   ))}
                 </div>
                 <div className="mt-6 grid gap-4 lg:grid-cols-2">
-                  <article className="rounded-3xl border-2 border-violet-100 bg-white p-4 shadow-sm">
+                  <article className="rounded-3xl border-2 border-sky-100 bg-white p-4 shadow-sm">
                     <h3 className="text-base font-bold text-shoreline-900">
                       Kitsap Shore Friendly Partner
                     </h3>
@@ -818,7 +818,7 @@ export function LandingPage() {
                     </div>
                   </article>
 
-                  <article className="rounded-3xl border-2 border-violet-100 bg-white p-4 shadow-sm">
+                  <article className="rounded-3xl border-2 border-sky-100 bg-white p-4 shadow-sm">
                     <h3 className="text-base font-bold text-shoreline-900">
                       Thurston Shore Friendly Partner - the Powell Family
                     </h3>
@@ -896,8 +896,8 @@ export function LandingPage() {
           />
           <div className="pointer-events-none absolute inset-0 bg-white/58" aria-hidden="true" />
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
-          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
-          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
+          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-sky-200/30 blur-sm" />
+          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-indigo-200/20 blur-sm" />
 
           <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
             <button
@@ -977,7 +977,7 @@ export function LandingPage() {
                 neighbors) that prioritizes habitat-friendly options over
                 last-minute emergency fixes.
               </p>
-              <p className="mt-3 rounded-xl border border-emerald-200/50 bg-emerald-500/15 px-3 py-2 text-emerald-50">
+              <p className="mt-3 rounded-xl border border-sky-200/50 bg-sky-500/15 px-3 py-2 text-sky-50">
                 Encouraging note: Some Shore Friendly Partners offer
                 mini-grants of up to $15,000 for Shore Friendly (armor
                 alternative) projects that do not require extensive Shore
@@ -986,8 +986,8 @@ export function LandingPage() {
               </p>
             </div>
 
-            <div className="mt-4 rounded-2xl border-2 border-amber-200/60 bg-amber-500/10 p-4 text-sm text-amber-50">
-              <p className="font-extrabold uppercase tracking-wide text-amber-100">
+            <div className="mt-4 rounded-2xl border-2 border-indigo-200/60 bg-indigo-500/10 p-4 text-sm text-sky-50">
+              <p className="font-extrabold uppercase tracking-wide text-sky-100">
                 Choosing a Shoreline Contractor
               </p>
               <p className="mt-2">
@@ -996,7 +996,7 @@ export function LandingPage() {
                 specifically about armor alternatives, not just bulkhead
                 installation.
               </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-amber-50">
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sky-50">
                 <li>
                   Verify the business license and registration status before
                   signing any contract.
