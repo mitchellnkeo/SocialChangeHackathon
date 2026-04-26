@@ -601,12 +601,8 @@ export function LandingPage() {
             <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
-                  Which Describes Your Property?
+                  Which image describes your property?
                 </h2>
-                <p className="mt-5 max-w-3xl text-slate-700">
-                  Pick the option that best matches your current shoreline setup.
-                  We will personalize next-step guidance based on your selection.
-                </p>
                 <div className="mt-8 grid gap-4 md:grid-cols-3">
                   {areaTypes.map((areaType) => {
                     const isSelected = selectedAreaTypeId === areaType.id
