@@ -88,13 +88,28 @@ export function LandingPage() {
   }
 
   const goToNextPanel = () =>
-    setActivePanel((current) => (current + 1) % panelTitles.length)
-  const goToPreviousPanel = () =>
-    setActivePanel((current) => (current - 1 + panelTitles.length) % panelTitles.length)
+    setActivePanel((current) =>
+      current < panelTitles.length - 1 ? current + 1 : current,
+    )
+
+  const goToPreviousPanel = () => {
+    if (activePanel === 0) {
+      document.getElementById('landing-hero')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+      return
+    }
+
+    setActivePanel((current) => (current > 0 ? current - 1 : current))
+  }
 
   return (
     <main className="pb-8">
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24">
+      <section
+        id="landing-hero"
+        className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24"
+      >
         <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
         <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
         <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
@@ -140,7 +155,7 @@ export function LandingPage() {
               onClick={goToPreviousPanel}
               className="rounded-full border-2 border-cyan-200 bg-cyan-50 px-5 py-2 font-extrabold text-cyan-700"
             >
-              {'\u2190'} Back
+              {'\u2190'} {activePanel === 0 ? 'Landing' : 'Back'}
             </button>
             <p className="text-sm font-extrabold text-cyan-800">
               {activePanel + 1} of {panelTitles.length}: {panelTitles[activePanel]}
