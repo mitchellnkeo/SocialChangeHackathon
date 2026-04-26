@@ -18,22 +18,52 @@ export const outreachItems = [
 
 export const timelineItems = [
   {
-    period: 'Then',
-    title: 'Growth changed natural shoreline buffers',
+    period: '1950s-1960s',
+    title: 'Coastal growth accelerates',
     description:
-      'As development expanded, many shorelines lost natural vegetation and sediment movement that once helped absorb wave energy.',
+      'Population growth and shoreline development increase pressure on natural coastal systems across Washington.',
   },
   {
-    period: 'Now',
-    title: 'Flooding and erosion costs are climbing',
+    period: '1970s',
+    title: 'Shoreline policy takes shape',
     description:
-      'State and university partners report increasing pressure from sea level rise, king tides, flooding, bluff erosion, and coastal storm events.',
+      'The state builds a stronger shoreline management framework to balance growth, habitat, and long-term public benefit.',
   },
   {
-    period: 'Next',
-    title: 'Today’s choices shape long-term resilience',
+    period: '1980s-1990s',
+    title: 'Armoring and alteration expand',
     description:
-      'Planning now through local shoreline programs, adaptation projects, and community partnerships can reduce long-term risk and costs.',
+      'Many areas add hard shoreline structures, reducing short-term exposure in places while creating long-term ecological trade-offs in others.',
+  },
+  {
+    period: '2000s',
+    title: 'Warning signs become clearer',
+    description:
+      'Communities begin seeing more repeated erosion, bluff instability, and coastal flooding around high-impact tide and storm periods.',
+  },
+  {
+    period: '2010s',
+    title: 'Climate risk enters local planning',
+    description:
+      'Regional science and planning groups improve sea level rise projections and support local governments with resilience tools.',
+  },
+  {
+    period: '2020-2025',
+    title: 'More communities face direct impacts',
+    description:
+      'Washington coastal towns report growing infrastructure and property risk from erosion, high water, and shoreline change.',
+  },
+  {
+    period: '2030s (planning horizon)',
+    title: 'Adaptation choices become urgent',
+    description:
+      'Communities compare hard defense, soft stabilization, accommodation, and retreat/avoidance to match local conditions.',
+  },
+  {
+    period: '2050+',
+    title: 'Long-term resilience depends on today',
+    description:
+      'The choices made now will shape flood exposure, habitat quality, and property outcomes for future generations.',
   },
 ]
 
