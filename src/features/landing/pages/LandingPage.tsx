@@ -242,9 +242,27 @@ export function LandingPage() {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const name = String(formData.get('name') ?? 'Neighbor')
+    const email = String(formData.get('email') ?? '')
     const coastlineType = String(formData.get('coastlineType') ?? 'shoreline')
+    const notes = String(formData.get('notes') ?? '').trim()
+    const subject = `Shoreline support request from ${name}`
+    const body = [
+      `Hello Washington Department of Fish and Wildlife,`,
+      ``,
+      `I am requesting shoreline support information.`,
+      ``,
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Coastline type: ${coastlineType}`,
+      `Observed changes: ${notes || 'Not provided'}`,
+      ``,
+      `Please share recommended Shore Friendly next steps and any relevant local partner contacts.`,
+    ].join('\n')
+    const mailtoUrl = `mailto:webmaster@dfw.wa.gov?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+    window.location.href = mailtoUrl
     setStatusMessage(
-      `Thanks, ${name}. We recorded your request for a shoreline consultation for your ${coastlineType} area.`,
+      `Thanks, ${name}. Your email draft to WDFW is ready to send in your mail app.`,
     )
     event.currentTarget.reset()
   }
@@ -958,7 +976,7 @@ export function LandingPage() {
                 type="submit"
                 className="rounded-2xl bg-white px-5 py-3 font-extrabold text-sky-700 shadow-lg md:col-span-2"
               >
-                Request Shoreline Expert Consultation
+                Email WDFW Shoreline Support Team
               </button>
             </form>
 
