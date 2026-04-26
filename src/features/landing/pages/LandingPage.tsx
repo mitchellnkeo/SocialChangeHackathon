@@ -176,9 +176,8 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section id="shoreline-quiz" className="flex h-full w-screen items-center px-6 py-10">
-          <div className="mx-auto w-full max-w-6xl">
-          <div className="mb-5 flex items-center justify-between rounded-3xl border-2 border-cyan-100 bg-white/90 px-4 py-3 shadow-lg shadow-cyan-100/50 backdrop-blur">
+        <section id="shoreline-quiz" className="relative h-full w-screen overflow-hidden">
+          <div className="absolute left-1/2 top-4 z-20 flex -translate-x-1/2 items-center gap-3 rounded-full border-2 border-cyan-100 bg-white/90 px-4 py-2 shadow-lg shadow-cyan-100/50 backdrop-blur">
             <button
               type="button"
               onClick={goToPreviousPanel}
@@ -198,17 +197,15 @@ export function LandingPage() {
             </button>
           </div>
 
-          <article
-            className="overflow-hidden rounded-[2rem] border-2 border-cyan-100 bg-white/95 shadow-xl shadow-sky-100 md:min-h-[72vh]"
+          <div
+            className="flex h-full w-[600vw] transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${activePanel * 100}vw)` }}
             onPointerDown={(event) => handlePanelPointerDown(event.clientX)}
             onPointerUp={(event) => handlePanelPointerUp(event.clientX)}
             onPointerCancel={() => setPanelDragStartX(null)}
           >
-            <div
-              className="flex w-[600%] transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${activePanel * (100 / 6)}%)` }}
-            >
-              <div className="w-full shrink-0 p-6 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-100/60 via-white to-sky-100/60 px-6 py-24">
+              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   How Outreach Happens Today
                 </h2>
@@ -230,9 +227,11 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
-              </div>
+              </article>
+            </div>
 
-              <div className="w-full shrink-0 p-6 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-100/60 via-white to-emerald-100/60 px-6 py-24">
+              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
                 </h2>
@@ -262,9 +261,11 @@ export function LandingPage() {
                     </p>
                   </article>
                 </div>
-              </div>
+              </article>
+            </div>
 
-              <div className="w-full shrink-0 p-6 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-sky-100/60 via-white to-indigo-100/60 px-6 py-24">
+              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which One Looks More Like Your View?
                 </h2>
@@ -299,9 +300,11 @@ export function LandingPage() {
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}
                 </p>
-              </div>
+              </article>
+            </div>
 
-              <div className="w-full shrink-0 p-6 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-emerald-100/60 via-white to-cyan-100/60 px-6 py-24">
+              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Future Outlook in 50-Year Steps
                 </h2>
@@ -325,9 +328,11 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
-              </div>
+              </article>
+            </div>
 
-              <div className="w-full shrink-0 p-6 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-rose-100/60 via-white to-orange-100/60 px-6 py-24">
+              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters Financially
                 </h2>
@@ -387,9 +392,11 @@ export function LandingPage() {
                   </p>
                   <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
                 </div>
-              </div>
+              </article>
+            </div>
 
-              <div className="w-full shrink-0 p-6 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-violet-100/60 via-white to-fuchsia-100/60 px-6 py-24">
+              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-violet-200 bg-white/95 p-6 shadow-xl shadow-violet-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
                 </h2>
@@ -430,9 +437,8 @@ export function LandingPage() {
                     </button>
                   </div>
                 </article>
-              </div>
+              </article>
             </div>
-          </article>
           </div>
         </section>
 
