@@ -184,7 +184,7 @@ export function LandingPage() {
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
 
-          <div className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:flex md:flex-col md:items-center md:gap-4">
+          <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
             <button
               type="button"
               onClick={goToPreviousPanel}
@@ -197,11 +197,9 @@ export function LandingPage() {
                 {activePanel === 0 ? 'Landing' : 'Back'}
               </span>
             </button>
+          </div>
 
-            <p className="rounded-full bg-white/20 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cyan-50">
-              {activePanel + 1} / {panelTitles.length}
-            </p>
-
+          <div className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
             <button
               type="button"
               onClick={goToNextPanel}
@@ -214,6 +212,12 @@ export function LandingPage() {
                 Next
               </span>
             </button>
+          </div>
+
+          <div className="absolute left-1/2 top-6 z-20 hidden -translate-x-1/2 md:block">
+            <p className="rounded-full bg-white/20 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+              {activePanel + 1} / {panelTitles.length}
+            </p>
           </div>
 
           <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 rounded-full bg-white/15 px-3 py-2 backdrop-blur md:hidden">
