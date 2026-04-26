@@ -528,13 +528,15 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Shoreline Timelapse
                 </h2>
-                <img
-                  src={timelineImages[activeTimelineIndex].src}
-                  alt={timelineImages[activeTimelineIndex].alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover"
-                />
+                <div className="relative mt-5 aspect-video w-full overflow-hidden rounded-3xl">
+                  <img
+                    src={timelineImages[activeTimelineIndex].src}
+                    alt={timelineImages[activeTimelineIndex].alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-cyan-700">
                   {timelineImages[activeTimelineIndex].caption}
                 </p>
