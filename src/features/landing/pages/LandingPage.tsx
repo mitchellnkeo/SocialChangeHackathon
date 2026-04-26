@@ -507,7 +507,7 @@ export function LandingPage() {
             <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
-                  What Happened? A Quick Timeline
+                  Shoreline Timelapse
                 </h2>
                 <img
                   src={timelineImages[activeTimelineIndex].src}
