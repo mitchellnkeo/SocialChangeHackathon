@@ -582,7 +582,15 @@ export function LandingPage() {
                             : 'border-cyan-100 hover:-translate-y-0.5 hover:border-cyan-300'
                         }`}
                       >
-                        <div className="mb-4 h-28 rounded-2xl bg-gradient-to-br from-cyan-200 via-sky-200 to-indigo-200" />
+                        <div className="mb-4 overflow-hidden rounded-2xl border-2 border-cyan-100">
+                          <img
+                            src={areaType.imageSrc}
+                            alt={areaType.imageAlt}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-28 w-full object-cover"
+                          />
+                        </div>
                         <h3 className="text-lg font-semibold text-shoreline-900">
                           {areaType.title}
                         </h3>
@@ -591,6 +599,17 @@ export function LandingPage() {
                     )
                   })}
                 </div>
+                {selectedArea && (
+                  <div className="mt-6 flex justify-center">
+                    <img
+                      src={selectedArea.imageSrc}
+                      alt={selectedArea.imageAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-64 w-full max-w-3xl rounded-2xl object-contain md:max-h-72"
+                    />
+                  </div>
+                )}
                 <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-emerald-50 p-4 text-slate-800">
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}

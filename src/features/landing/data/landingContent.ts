@@ -79,6 +79,9 @@ export const areaTypes = [
     title: 'Natural / Untouched',
     description:
       'Your beach is healthy — let’s keep it that way. Reinforce it with native plants and request a site assessment to get ahead of sea level rise.',
+    imageSrc: '/images/NaturalUntouched.png',
+    imageAlt:
+      'Natural Washington shoreline with healthy vegetation and minimal armoring.',
     guidance:
       'This is a strong starting point. A proactive site assessment and native planting strategy can help preserve shoreline resilience before larger stressors emerge.',
   },
@@ -87,6 +90,9 @@ export const areaTypes = [
     title: 'Soft Modifications',
     description:
       'Added sand, debris, or informal changes are already a step forward. Expert guidance can help make them count.',
+    imageSrc: '/images/SoftModifications.png',
+    imageAlt:
+      'Washington shoreline showing light-touch human modifications near a beach edge.',
     guidance:
       'A site assessment can turn early efforts into a stronger, fundable shoreline plan with clearer long-term outcomes.',
   },
@@ -95,6 +101,9 @@ export const areaTypes = [
     title: 'Armored',
     description:
       'Seawall, bulkhead, or riprap in place. These structures will not last forever, and better options are available at replacement time.',
+    imageSrc: '/images/Armoring.png',
+    imageAlt:
+      'Armored shoreline with hard protection structures near homes and infrastructure.',
     guidance:
       'Guidance and funding support are available to help shift from aging armoring toward shoreline-friendly alternatives when timing and site conditions align.',
   },
