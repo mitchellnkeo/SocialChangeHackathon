@@ -13,7 +13,6 @@ export function LandingPage() {
   const [selectedAreaTypeId, setSelectedAreaTypeId] = useState<
     (typeof areaTypes)[number]['id'] | null
   >(null)
-  const [activeSlide, setActiveSlide] = useState(0)
   const [activePanel, setActivePanel] = useState(0)
   const [activeAppPage, setActiveAppPage] = useState(0)
   const [appDragStartX, setAppDragStartX] = useState<number | null>(null)
@@ -768,39 +767,19 @@ export function LandingPage() {
                   Inspired by successful community efforts, these options can be
                   tailored to your shoreline type and neighborhood priorities.
                 </p>
-                <article className="mt-8 rounded-3xl border-2 border-violet-100 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6">
-                  <h3 className="text-2xl font-bold text-shoreline-900">
-                    {solutionSlides[activeSlide].title}
-                  </h3>
-                  <p className="mt-3 text-slate-700">
-                    {solutionSlides[activeSlide].description}
-                  </p>
-                  <div className="mt-6 flex gap-2">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setActiveSlide(
-                          (current) =>
-                            (current - 1 + solutionSlides.length) % solutionSlides.length,
-                        )
-                      }
-                      className="rounded-full border-2 border-violet-200 bg-white px-5 py-2 font-extrabold text-violet-700 shadow-sm"
+                <div className="mt-8 grid gap-4 md:grid-cols-3">
+                  {solutionSlides.map((solution) => (
+                    <article
+                      key={solution.title}
+                      className="rounded-3xl border-2 border-violet-100 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-5"
                     >
-                      Previous
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setActiveSlide(
-                          (current) => (current + 1) % solutionSlides.length,
-                        )
-                      }
-                      className="rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-2 font-extrabold text-white"
-                    >
-                      Next
-                    </button>
-                  </div>
-                </article>
+                      <h3 className="text-xl font-bold text-shoreline-900">
+                        {solution.title}
+                      </h3>
+                      <p className="mt-2 text-slate-700">{solution.description}</p>
+                    </article>
+                  ))}
+                </div>
               </article>
             </div>
           </div>
