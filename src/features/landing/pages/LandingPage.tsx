@@ -567,20 +567,32 @@ export function LandingPage() {
           )}
         </section>
 
-        <section id="cta" className="flex h-full w-screen items-center px-6 py-16">
-          <div className="mx-auto max-w-5xl rounded-[2rem] bg-gradient-to-br from-cyan-600 via-sky-600 to-indigo-600 p-8 text-white shadow-2xl shadow-sky-300/30 md:p-10">
-            <div className="mb-5 flex">
-              <button
-                type="button"
-                onClick={() => setActiveAppPage(1)}
-                className="rounded-full border-2 border-white/40 bg-white/10 px-5 py-2 text-sm font-extrabold text-white"
-              >
-                {'\u2190'} Back to Info
-              </button>
-            </div>
+        <section
+          id="cta"
+          className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white"
+        >
+          <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
+          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
+          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
 
-            <h2 className="text-3xl font-bold">Take Action with Your Community</h2>
-            <p className="mt-3 max-w-3xl text-emerald-100">
+          <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
+            <button
+              type="button"
+              onClick={() => setActiveAppPage(1)}
+              className="inline-flex flex-col items-center gap-2 text-white"
+            >
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
+                {'\u2190'}
+              </span>
+              <span className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+                Back
+              </span>
+            </button>
+          </div>
+
+          <div className="mx-auto w-full max-w-6xl">
+            <h2 className="text-4xl font-bold md:text-5xl">Take Action with Your Community</h2>
+            <p className="mt-4 max-w-3xl text-cyan-50">
               Share this effort, talk with your neighbors, and connect with a
               trusted professional before small issues turn into expensive ones.
             </p>
@@ -626,7 +638,7 @@ export function LandingPage() {
               </button>
             </form>
 
-            <p className="mt-4 text-sm font-medium text-emerald-100">{statusMessage}</p>
+            <p className="mt-4 text-sm font-medium text-cyan-50">{statusMessage}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               <a
