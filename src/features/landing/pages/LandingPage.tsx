@@ -21,6 +21,7 @@ export function LandingPage() {
   const [isSourcesOpen, setIsSourcesOpen] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
   const [timelineIndex, setTimelineIndex] = useState(0)
+  const [activeHotspotId, setActiveHotspotId] = useState('shoreline-edge')
   const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
     'act-now',
   )
@@ -68,6 +69,57 @@ export function LandingPage() {
     'Financial Impact',
     'Solutions',
   ]
+
+  const shorelineHotspots = [
+    {
+      id: 'shoreline-edge',
+      label: 'Shoreline Edge',
+      top: '66%',
+      left: '22%',
+      title: 'Erosion zone',
+      impact:
+        'This is where wave energy and sediment loss often show up first during king tides and storm events.',
+      action:
+        'Track visible shoreline retreat season-to-season and discuss nature-based stabilization options with a shoreline expert.',
+    },
+    {
+      id: 'bluff-slope',
+      label: 'Bluff/Slope',
+      top: '38%',
+      left: '48%',
+      title: 'Bluff and slope stress',
+      impact:
+        'Drainage changes and storm intensity can increase slope instability and bluff erosion over time.',
+      action:
+        'Prioritize slope-friendly drainage and vegetation strategies before emergency repairs become necessary.',
+    },
+    {
+      id: 'yard-infrastructure',
+      label: 'Yard + Utilities',
+      top: '53%',
+      left: '67%',
+      title: 'Property systems at risk',
+      impact:
+        'Repeated high-water exposure can affect septic, drainage, and nearshore infrastructure performance.',
+      action:
+        'Document repeated water impacts and include utility/septic considerations in your adaptation planning conversation.',
+    },
+    {
+      id: 'nearshore-habitat',
+      label: 'Nearshore Habitat',
+      top: '73%',
+      left: '77%',
+      title: 'Habitat connection point',
+      impact:
+        'Nearshore habitat supports forage fish, salmon food webs, and the broader Puget Sound ecosystem.',
+      action:
+        'Choose options that protect sediment movement and support habitat health while reducing shoreline risk.',
+    },
+  ] as const
+
+  const selectedHotspot =
+    shorelineHotspots.find((hotspot) => hotspot.id === activeHotspotId) ??
+    shorelineHotspots[0]
 
   const panelImages = [
     {
@@ -496,6 +548,56 @@ export function LandingPage() {
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}
                 </p>
+                <div className="mt-6 rounded-3xl border-2 border-cyan-100 bg-white p-4 md:p-5">
+                  <p className="text-sm font-bold uppercase tracking-wide text-cyan-700">
+                    Interactive Shoreline Hotspots
+                  </p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Tap/click a point to see what it means and what you can do next.
+                  </p>
+
+                  <div className="mt-4 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
+                    <div className="relative h-64 rounded-2xl overflow-hidden border-2 border-cyan-100 md:h-72">
+                      <img
+                        src={panelImages[2].src}
+                        alt={panelImages[2].alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                      />
+                      {shorelineHotspots.map((hotspot) => (
+                        <button
+                          key={hotspot.id}
+                          type="button"
+                          onClick={() => setActiveHotspotId(hotspot.id)}
+                          className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full border-2 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide shadow-md transition ${
+                            activeHotspotId === hotspot.id
+                              ? 'border-sky-700 bg-sky-700 text-white'
+                              : 'border-white/90 bg-white text-sky-700 hover:bg-sky-50'
+                          }`}
+                          style={{ top: hotspot.top, left: hotspot.left }}
+                          aria-label={`Show hotspot info for ${hotspot.label}`}
+                        >
+                          {hotspot.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="rounded-2xl border-2 border-cyan-100 bg-cyan-50 p-4">
+                      <p className="text-xs font-extrabold uppercase tracking-wide text-cyan-700">
+                        {selectedHotspot.title}
+                      </p>
+                      <p className="mt-2 text-sm text-slate-700">
+                        <span className="font-bold text-slate-800">What this means: </span>
+                        {selectedHotspot.impact}
+                      </p>
+                      <p className="mt-3 text-sm text-slate-700">
+                        <span className="font-bold text-slate-800">Suggested next step: </span>
+                        {selectedHotspot.action}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </article>
             </div>
 
