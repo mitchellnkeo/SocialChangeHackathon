@@ -431,8 +431,8 @@ export function LandingPage() {
             onPointerUp={(event) => handlePanelPointerUp(event.clientX)}
             onPointerCancel={() => setPanelDragStartX(null)}
           >
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
-              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   How Outreach Happens Today
                 </h2>
@@ -464,8 +464,8 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
-              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
                 </h2>
@@ -505,8 +505,8 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
-              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which One Looks More Like Your View?
                 </h2>
@@ -601,8 +601,8 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
-              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Future Outlook in 50-Year Steps
                 </h2>
@@ -707,8 +707,8 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
-              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-violet-200 bg-white/95 p-6 shadow-xl shadow-violet-100 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-violet-200 bg-white/95 p-6 shadow-xl shadow-violet-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
                 </h2>
