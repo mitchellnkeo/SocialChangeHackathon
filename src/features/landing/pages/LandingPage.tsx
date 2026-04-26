@@ -554,7 +554,7 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Shoreline Timelapse
                 </h2>
-                <div className="relative mx-auto mt-5 aspect-video w-full max-w-2xl overflow-hidden rounded-3xl sm:max-w-3xl">
+                <div className="relative mx-auto mt-5 aspect-video w-full max-w-[29.4rem] overflow-hidden rounded-3xl sm:max-w-[33.6rem]">
                   <img
                     src={timelineImages[activeTimelineIndex].src}
                     alt={timelineImages[activeTimelineIndex].alt}
