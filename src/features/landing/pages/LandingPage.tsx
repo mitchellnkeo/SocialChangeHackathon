@@ -148,6 +148,49 @@ export function LandingPage() {
     },
   ]
 
+  const timelineImages = [
+    {
+      src: '/images/timeline-01-lonely-cove-1906.jpeg',
+      alt: 'Historic Washington Pacific coast beach and shoreline from early 1900s.',
+      caption: 'Historic shoreline view (early 1900s)',
+    },
+    {
+      src: '/images/timeline-02-washington-coast.jpg',
+      alt: 'Natural Washington coast with wave-exposed shoreline and sediment movement.',
+      caption: 'Natural coastal systems under wave energy',
+    },
+    {
+      src: '/images/timeline-03-washington-coastline-2.jpg',
+      alt: 'Washington shoreline showing developed coastal edge and altered beach profile.',
+      caption: 'Shoreline change under development pressure',
+    },
+    {
+      src: '/images/timeline-04-washington-coastline-5768.jpg',
+      alt: 'Washington coastline with visible erosion and high-energy shoreline processes.',
+      caption: 'Erosion signals become more visible',
+    },
+    {
+      src: '/images/timeline-05-puget-sound-federal-way.jpg',
+      alt: 'Puget Sound shoreline with residential areas and marine water.',
+      caption: 'Shoreline risk becomes a community planning issue',
+    },
+    {
+      src: '/images/timeline-06-hoh-head.jpg',
+      alt: 'Hoh Head on Washington coast showing exposed coastal bluff and shoreline.',
+      caption: 'Current hazards: bluff stress and coastal exposure',
+    },
+    {
+      src: '/images/timeline-07-jagged-island.jpg',
+      alt: 'Washington coastal habitat landscape illustrating dynamic nearshore systems.',
+      caption: 'Adaptation era: protect habitat while reducing risk',
+    },
+    {
+      src: '/images/timeline-08-2050-outlook.jpg',
+      alt: 'Washington coastal outlook image representing future resilience planning horizon.',
+      caption: '2050+ outlook: long-term resilience depends on decisions now',
+    },
+  ] as const
+
   const sourceLinks = [
     {
       label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
@@ -192,6 +235,14 @@ export function LandingPage() {
     {
       label: 'Wikimedia Commons — Jagged Island, Washington Coast',
       url: 'https://commons.wikimedia.org/wiki/File:Jagged_Island_Washington_coast.jpg',
+    },
+    {
+      label: 'Wikimedia Commons — Lonely Cove shoreline (ca. 1906)',
+      url: 'https://commons.wikimedia.org/wiki/File:Beach_and_shoreline_at_Lonely_Cove,_Pacific_Coast,_Washington,_ca_1906_(WASTATE_1707).jpeg',
+    },
+    {
+      label: 'Wikimedia Commons — Washington Coastline (5768933029)',
+      url: 'https://commons.wikimedia.org/wiki/File:Washington_Coastline_(5768933029)_(2).jpg',
     },
   ]
 
@@ -470,12 +521,15 @@ export function LandingPage() {
                   What Happened? A Quick Timeline
                 </h2>
                 <img
-                  src={panelImages[1].src}
-                  alt={panelImages[1].alt}
+                  src={timelineImages[timelineIndex].src}
+                  alt={timelineImages[timelineIndex].alt}
                   loading="lazy"
                   decoding="async"
                   className="mt-5 h-52 w-full rounded-3xl object-cover"
                 />
+                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-cyan-700">
+                  {timelineImages[timelineIndex].caption}
+                </p>
                 <p className="mt-3 text-slate-700">
                   Use this timeline slider like an exhibit control.
                 </p>
