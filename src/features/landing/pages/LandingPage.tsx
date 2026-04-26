@@ -1057,22 +1057,13 @@ export function LandingPage() {
                   Salt marsh, about 1,500 dune grass plugs, native plants, and
                   drift logs — rebuilt habitat and a healthier beach.
                 </p>
-                <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                  <img
-                    src="/images/newPage/SaltMarsh1.png"
-                    alt="After restoration: salt marsh and native shoreline plantings at Sunlight Shores."
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full rounded-2xl object-contain"
-                  />
-                  <img
-                    src="/images/newPage/SaltMarsh2.png"
-                    alt="After restoration: additional view of restored shoreline habitat at Sunlight Shores."
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full rounded-2xl object-contain"
-                  />
-                </div>
+                <img
+                  src="/images/newPage/SaltMarsh1.png"
+                  alt="After restoration: salt marsh and native shoreline plantings at Sunlight Shores."
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-3 w-full rounded-2xl object-contain"
+                />
                 <a
                   href="https://www.youtube.com/watch?v=Srvg7F1Qwjc"
                   target="_blank"
