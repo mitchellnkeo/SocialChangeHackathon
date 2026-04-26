@@ -99,7 +99,7 @@ export function LandingPage() {
   const [isSourcesOpen, setIsSourcesOpen] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
   const [timelinePosition, setTimelinePosition] = useState(0)
-  const [activeHotspotId, setActiveHotspotId] = useState('shoreline-edge')
+  const [activeHotspotId, setActiveHotspotId] = useState('bluff-structures')
 
   const selectedArea = useMemo(
     () => areaTypes.find((areaType) => areaType.id === selectedAreaTypeId),
@@ -134,50 +134,73 @@ export function LandingPage() {
   const showFutureOutlookPanel = false
 
 
+  /** Positions tuned to `/images/InteractiveHotspot.png` (bluff-top cabins, eroding face, beach, estuary). */
   const shorelineHotspots = [
     {
-      id: 'shoreline-edge',
-      label: 'Shoreline Edge',
+      id: 'bluff-structures',
+      label: 'Structures',
+      top: '40%',
+      left: '20%',
+      title: 'Buildings close to the bluff edge',
+      impact:
+        'Cabins and outbuildings this near an active bluff have shrinking setback as the bank recedes; king tides and storms accelerate loss at the toe, which works back up the slope.',
+      action:
+        'Ask for a Shore Friendly or local planner review before expanding pads or utilities; map how far the edge has moved over a few seasons.',
+    },
+    {
+      id: 'bank-top',
+      label: 'Bank top',
+      top: '48%',
+      left: '34%',
+      title: 'Lawn, fence, and the break in slope',
+      impact:
+        'This line is where everyday use meets gravity: mowing to the edge, foot traffic, and downspouts can concentrate flow and weaken the lip of the bluff.',
+      action:
+        'Buffer the edge with deep-rooted native plants, keep heavy equipment back, and route roof and yard water away from the face.',
+    },
+    {
+      id: 'bluff-erosion',
+      label: 'Erosion',
       top: '66%',
-      left: '22%',
-      title: 'Erosion zone',
+      left: '46%',
+      title: 'Exposed, actively eroding bluff face',
       impact:
-        'This is where wave energy and sediment loss often show up first during king tides and storm events.',
+        'Bare soil and vertical scars show sediment feeding the beach below. Hard fixes at the toe alone can starve neighbors’ drift cells and stress nearshore habitat.',
       action:
-        'Track visible shoreline retreat season-to-season and discuss nature-based stabilization options with a shoreline expert.',
+        'Prioritize geotech or shoreline expertise for slope-wide fixes; compare managed retreat, soft stabilization, and timing of any hard armor to Ecology and local SMP rules.',
     },
     {
-      id: 'bluff-slope',
-      label: 'Bluff/Slope',
-      top: '38%',
-      left: '48%',
-      title: 'Bluff and slope stress',
+      id: 'slope-vegetation',
+      label: 'Vegetation',
+      top: '54%',
+      left: '58%',
+      title: 'Shrubs and grass on the slope',
       impact:
-        'Drainage changes and storm intensity can increase slope instability and bluff erosion over time.',
+        'Patches of vegetation slow runoff, knit soil, and provide cover; they are part of the same system that supports forage fish habitat off the beach when sediment moves naturally.',
       action:
-        'Prioritize slope-friendly drainage and vegetation strategies before emergency repairs become necessary.',
+        'Expand native plantings from stable pockets toward bare areas; avoid clearing “for the view” without a replanting plan.',
     },
     {
-      id: 'yard-infrastructure',
-      label: 'Yard + Utilities',
-      top: '53%',
-      left: '67%',
-      title: 'Property systems at risk',
+      id: 'beach-surf',
+      label: 'Beach',
+      top: '62%',
+      left: '74%',
+      title: 'Sand, surf, and high-tide reach',
       impact:
-        'Repeated high-water exposure can affect septic, drainage, and nearshore infrastructure performance.',
+        'This zone delivers wave energy to the bluff toe and shapes which beaches can support spawning forage fish and nearshore rearing for juvenile salmon.',
       action:
-        'Document repeated water impacts and include utility/septic considerations in your adaptation planning conversation.',
+        'Track wood, cobble, and berm changes after storms; discuss beach nourishment or soft protection only with designs that keep sediment sharing intact.',
     },
     {
-      id: 'nearshore-habitat',
-      label: 'Nearshore Habitat',
-      top: '73%',
-      left: '77%',
-      title: 'Habitat connection point',
+      id: 'estuary-channel',
+      label: 'Estuary',
+      top: '86%',
+      left: '88%',
+      title: 'River mouth and mixing zone',
       impact:
-        'Nearshore habitat supports forage fish, salmon food webs, and the broader Puget Sound ecosystem.',
+        'Channels like this move freshwater, wood, and fine sediment; they are ecologically distinct from open-coast bluffs and often need different permits and partners.',
       action:
-        'Choose options that protect sediment movement and support habitat health while reducing shoreline risk.',
+        'Involve WDFW, Tribal co-managers, and Ecology early for mouth work; plan for flooding, migration, and changing flow with sea level rise.',
     },
   ] as const
 
@@ -200,8 +223,9 @@ export function LandingPage() {
       alt: 'Puget Sound style coastline and tide movement.',
     },
     {
-      src: '/images/hoh-head-coast.jpg',
-      alt: 'Eroding beach and bluff edge along a coastal area.',
+      src: '/images/InteractiveHotspot.png',
+      alt:
+        'Washington-style coastal bluff with wooden cabins near the edge, exposed eroding bank, sandy beach, surf, and a small estuary channel on the right.',
     },
     {
       src: '/images/jagged-island-coast.jpg',
