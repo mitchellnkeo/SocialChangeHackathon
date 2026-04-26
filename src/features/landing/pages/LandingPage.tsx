@@ -811,6 +811,22 @@ export function LandingPage() {
                     <h3 className="mt-2 text-2xl font-bold text-shoreline-900">
                       Unsustainable fixes create knockdown effects
                     </h3>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <img
+                        src="/images/Ecology1.png"
+                        alt="Southern Resident killer whale carrying a salmon, illustrating the link from healthy nearshore food webs to orca survival."
+                        loading="lazy"
+                        decoding="async"
+                        className="h-44 w-full rounded-2xl border-2 border-sky-200/80 object-cover"
+                      />
+                      <img
+                        src="/images/Ecology2.png"
+                        alt="Spawning salmon over a natural rocky riverbed, showing habitat supported by intact shorelines and connected waterways."
+                        loading="lazy"
+                        decoding="async"
+                        className="h-44 w-full rounded-2xl border-2 border-sky-200/80 object-cover"
+                      />
+                    </div>
                     <p className="mt-3 text-slate-700">
                       Choices that interrupt sediment flow or damage nearshore habitat
                       can reduce beach function, stress forage fish and salmon food
