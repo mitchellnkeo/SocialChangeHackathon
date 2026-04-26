@@ -14,9 +14,7 @@ export function LandingPage() {
     (typeof areaTypes)[number]['id'] | null
   >(null)
   const [activeSlide, setActiveSlide] = useState(0)
-  const [activePanel, setActivePanel] = useState(0)
   const [statusMessage, setStatusMessage] = useState('')
-  const [pointerStartX, setPointerStartX] = useState<number | null>(null)
   const [timelineIndex, setTimelineIndex] = useState(0)
   const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
     'act-now',
@@ -81,44 +79,6 @@ export function LandingPage() {
     }
   }
 
-  const panelTitles = [
-    'Outreach',
-    'Timeline',
-    'Your Shoreline',
-    'Future Outlook',
-    'Financial Impact',
-    'Solutions',
-  ]
-
-  function goToNextPanel() {
-    setActivePanel((current) => (current + 1) % panelTitles.length)
-  }
-
-  function goToPreviousPanel() {
-    setActivePanel(
-      (current) => (current - 1 + panelTitles.length) % panelTitles.length,
-    )
-  }
-
-  function handlePointerStart(clientX: number) {
-    setPointerStartX(clientX)
-  }
-
-  function handlePointerEnd(clientX: number) {
-    if (pointerStartX === null) return
-
-    const deltaX = clientX - pointerStartX
-    const swipeThreshold = 50
-
-    if (deltaX > swipeThreshold) {
-      goToPreviousPanel()
-    } else if (deltaX < -swipeThreshold) {
-      goToNextPanel()
-    }
-
-    setPointerStartX(null)
-  }
-
   return (
     <main className="pb-8">
       <section className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24">
@@ -153,305 +113,245 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section id="shoreline-quiz" className="flex min-h-screen items-center px-6 py-10">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <p className="rounded-full bg-cyan-100 px-3 py-1 text-sm font-extrabold uppercase tracking-wide text-cyan-700">
-              Swipeable Story Flow
-            </p>
-            <p className="text-sm text-slate-600">
-              Swipe left/right or use buttons to move through key sections.
-            </p>
-          </div>
-
-          <div className="mb-5 flex items-center justify-between rounded-3xl border-2 border-cyan-100 bg-white/90 px-4 py-3 shadow-lg shadow-cyan-100/50 backdrop-blur">
-            <button
-              type="button"
-              onClick={goToPreviousPanel}
-              className="rounded-full border-2 border-cyan-200 bg-cyan-50 px-5 py-2 font-extrabold text-cyan-700"
-            >
-              {'\u2190'} Back
-            </button>
-            <p className="text-sm font-extrabold text-cyan-800">
-              {activePanel + 1} of {panelTitles.length}: {panelTitles[activePanel]}
-            </p>
-            <button
-              type="button"
-              onClick={goToNextPanel}
-              className="rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 px-5 py-2 font-extrabold text-white"
-            >
-              Next {'\u2192'}
-            </button>
-          </div>
-
-          <article
-            className="rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:min-h-[72vh] md:p-8"
-            onPointerDown={(event) => handlePointerStart(event.clientX)}
-            onPointerUp={(event) => handlePointerEnd(event.clientX)}
-            onPointerCancel={() => setPointerStartX(null)}
-          >
-            <div key={activePanel} className="animate-panel-enter">
-              {activePanel === 0 && (
-                <>
-                  <h2 className="text-3xl font-bold text-shoreline-900">
-                    How Outreach Happens Today
-                  </h2>
-                  <p className="mt-3 max-w-3xl text-slate-700">
-                    We meet residents where they already are: trusted clubs, agency
-                    channels, neighborhood communication, and a clear mobile-friendly
-                    website.
-                  </p>
-                  <div className="mt-8 grid gap-4 md:grid-cols-3">
-                    {outreachItems.map((item) => (
-                      <article
-                        key={item.title}
-                        className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-sky-50 p-5"
-                      >
-                        <h3 className="text-lg font-semibold text-shoreline-900">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 text-slate-700">{item.description}</p>
-                      </article>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {activePanel === 1 && (
-                <>
-                  <h2 className="text-3xl font-bold text-shoreline-900">
-                    What Happened? A Quick Timeline
-                  </h2>
-                  <p className="mt-3 text-slate-700">
-                    Use this timeline slider like an exhibit control.
-                  </p>
-                  <div className="mt-8 rounded-3xl border-2 border-cyan-100 bg-cyan-50/70 p-5">
-                    <input
-                      type="range"
-                      min={0}
-                      max={timelineItems.length - 1}
-                      step={1}
-                      value={timelineIndex}
-                      onChange={(event) => setTimelineIndex(Number(event.target.value))}
-                      className="w-full accent-cyan-500"
-                      aria-label="Timeline step"
-                    />
-                    <article className="mt-4 rounded-2xl bg-white p-5">
-                      <p className="text-sm font-semibold uppercase tracking-wide text-shoreline-700">
-                        {timelineItems[timelineIndex].period}
-                      </p>
-                      <h3 className="text-xl font-semibold text-shoreline-900">
-                        {timelineItems[timelineIndex].title}
-                      </h3>
-                      <p className="mt-1 text-slate-700">
-                        {timelineItems[timelineIndex].description}
-                      </p>
-                    </article>
-                  </div>
-                </>
-              )}
-
-              {activePanel === 2 && (
-                <>
-                  <h2 className="text-3xl font-bold text-shoreline-900">
-                    Which One Looks More Like Your View?
-                  </h2>
-                  <p className="mt-3 max-w-3xl text-slate-700">
-                    Pick the option that best matches your shoreline area. We will
-                    personalize the next step guidance.
-                  </p>
-                  <div className="mt-8 grid gap-4 md:grid-cols-3">
-                    {areaTypes.map((areaType) => {
-                      const isSelected = selectedAreaTypeId === areaType.id
-                      return (
-                        <button
-                          key={areaType.id}
-                          type="button"
-                          onClick={() => setSelectedAreaTypeId(areaType.id)}
-                          className={`rounded-3xl border-2 bg-white p-5 text-left shadow-md transition ${
-                            isSelected
-                              ? 'border-cyan-400 ring-4 ring-cyan-100'
-                              : 'border-cyan-100 hover:-translate-y-0.5 hover:border-cyan-300'
-                          }`}
-                        >
-                          <div className="mb-4 h-28 rounded-2xl bg-gradient-to-br from-cyan-200 via-sky-200 to-indigo-200" />
-                          <h3 className="text-lg font-semibold text-shoreline-900">
-                            {areaType.title}
-                          </h3>
-                          <p className="mt-1 text-slate-700">{areaType.description}</p>
-                        </button>
-                      )
-                    })}
-                  </div>
-                  <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-emerald-50 p-4 text-slate-800">
-                    {selectedArea?.guidance ??
-                      'Select your shoreline type to see guidance tailored to your situation.'}
-                  </p>
-                  <p className="mt-4 rounded-2xl border-2 border-emerald-100 bg-emerald-50/80 p-4 text-sm font-semibold text-emerald-800">
-                    Exhibit activity: compare your selection with a neighbor and look
-                    for shared risk patterns.
-                  </p>
-                </>
-              )}
-
-              {activePanel === 3 && (
-                <>
-                  <h2 className="text-3xl font-bold text-shoreline-900">
-                    Future Outlook in 50-Year Steps
-                  </h2>
-                  <p className="mt-3 max-w-3xl text-slate-700">
-                    Helping residents visualize long-term change can make policy,
-                    planning, and funding decisions easier to understand.
-                  </p>
-                  <div className="mt-8 grid gap-4 md:grid-cols-3">
-                    {projectionItems.map((item) => (
-                      <article
-                        key={item.title}
-                        className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-emerald-50 p-5"
-                      >
-                        <p className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold tracking-wide text-emerald-800">
-                          {item.label}
-                        </p>
-                        <h3 className="mt-3 text-lg font-semibold text-shoreline-900">
-                          {item.title}
-                        </h3>
-                        <p className="mt-1 text-slate-700">{item.description}</p>
-                      </article>
-                    ))}
-                  </div>
-                  <p className="mt-4 rounded-2xl border-2 border-cyan-100 bg-white p-4 text-slate-700">
-                    Exhibit prompt: Which projection feels most likely for your
-                    shoreline in the next 10-20 years?
-                  </p>
-                </>
-              )}
-
-              {activePanel === 4 && (
-                <>
-                  <h2 className="text-3xl font-bold text-shoreline-900">
-                    Why This Matters Financially
-                  </h2>
-                  <p className="mt-3 max-w-3xl text-slate-700">
-                    Waiting usually costs more. Early planning can help protect
-                    property value and avoid larger emergency expenses.
-                  </p>
-                  <div className="mt-8 grid gap-4 md:grid-cols-3">
-                    {financialCards.map((card) => (
-                      <article
-                        key={card.title}
-                        className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-5"
-                      >
-                        <h3 className="text-lg font-semibold text-shoreline-900">
-                          {card.title}
-                        </h3>
-                        <p className="mt-3 text-2xl font-extrabold text-rose-700">
-                          {card.metric}
-                        </p>
-                        <p className="mt-2 text-slate-700">{card.description}</p>
-                      </article>
-                    ))}
-                  </div>
-                  <div className="mt-6 rounded-3xl border-2 border-rose-200 bg-white p-5">
-                    <p className="text-sm font-bold text-rose-700">
-                      Interactive Cost Simulator
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setFinancialMode('act-now')}
-                        className={`rounded-full px-4 py-2 text-sm font-extrabold ${
-                          financialMode === 'act-now'
-                            ? 'bg-emerald-500 text-white'
-                            : 'bg-emerald-100 text-emerald-800'
-                        }`}
-                      >
-                        Act now
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setFinancialMode('delay')}
-                        className={`rounded-full px-4 py-2 text-sm font-extrabold ${
-                          financialMode === 'delay'
-                            ? 'bg-rose-500 text-white'
-                            : 'bg-rose-100 text-rose-800'
-                        }`}
-                      >
-                        Delay action
-                      </button>
-                    </div>
-                    <h3 className="mt-4 text-xl font-bold text-shoreline-900">
-                      {financialScenario.title}
-                    </h3>
-                    <p className="mt-1 text-lg font-extrabold text-rose-700">
-                      {financialScenario.value}
-                    </p>
-                    <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
-                  </div>
-                </>
-              )}
-
-              {activePanel === 5 && (
-                <>
-                  <h2 className="text-3xl font-bold text-shoreline-900">
-                    Solutions Communities Are Using
-                  </h2>
-                  <p className="mt-3 max-w-3xl text-slate-700">
-                    Inspired by successful community efforts, these options can be
-                    tailored to your shoreline type and neighborhood priorities.
-                  </p>
-                  <article className="mt-8 rounded-3xl border-2 border-violet-100 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6">
-                    <h3 className="text-2xl font-bold text-shoreline-900">
-                      {solutionSlides[activeSlide].title}
-                    </h3>
-                    <p className="mt-3 text-slate-700">
-                      {solutionSlides[activeSlide].description}
-                    </p>
-                    <div className="mt-6 flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveSlide(
-                            (current) =>
-                              (current - 1 + solutionSlides.length) %
-                              solutionSlides.length,
-                          )
-                        }
-                        className="rounded-full border-2 border-violet-200 bg-white px-5 py-2 font-extrabold text-violet-700 shadow-sm"
-                      >
-                        Previous
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveSlide(
-                            (current) => (current + 1) % solutionSlides.length,
-                          )
-                        }
-                        className="rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-2 font-extrabold text-white"
-                      >
-                        Next
-                      </button>
-                    </div>
-                  </article>
-                </>
-              )}
-            </div>
-          </article>
-
-          <div className="mt-4 flex justify-center gap-2">
-            {panelTitles.map((title, index) => (
-              <button
-                key={title}
-                type="button"
-                onClick={() => setActivePanel(index)}
-                aria-label={`Go to ${title}`}
-                className={`h-3.5 w-3.5 rounded-full transition ${
-                  index === activePanel ? 'bg-cyan-500 ring-4 ring-cyan-100' : 'bg-slate-300'
-                }`}
-              />
+      <section className="flex min-h-screen items-center px-6 py-10">
+        <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+          <h2 className="text-3xl font-bold text-shoreline-900">
+            How Outreach Happens Today
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-700">
+            We meet residents where they already are: trusted clubs, agency
+            channels, neighborhood communication, and a clear mobile-friendly
+            website.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {outreachItems.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-sky-50 p-5"
+              >
+                <h3 className="text-lg font-semibold text-shoreline-900">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-slate-700">{item.description}</p>
+              </article>
             ))}
           </div>
-        </div>
+        </article>
+      </section>
+
+      <section className="flex min-h-screen items-center px-6 py-10">
+        <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+          <h2 className="text-3xl font-bold text-shoreline-900">
+            What Happened? A Quick Timeline
+          </h2>
+          <p className="mt-3 text-slate-700">
+            Use this timeline slider like an exhibit control.
+          </p>
+          <div className="mt-8 rounded-3xl border-2 border-cyan-100 bg-cyan-50/70 p-5">
+            <input
+              type="range"
+              min={0}
+              max={timelineItems.length - 1}
+              step={1}
+              value={timelineIndex}
+              onChange={(event) => setTimelineIndex(Number(event.target.value))}
+              className="w-full accent-cyan-500"
+              aria-label="Timeline step"
+            />
+            <article className="mt-4 rounded-2xl bg-white p-5">
+              <p className="text-sm font-semibold uppercase tracking-wide text-shoreline-700">
+                {timelineItems[timelineIndex].period}
+              </p>
+              <h3 className="text-xl font-semibold text-shoreline-900">
+                {timelineItems[timelineIndex].title}
+              </h3>
+              <p className="mt-1 text-slate-700">
+                {timelineItems[timelineIndex].description}
+              </p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section id="shoreline-quiz" className="flex min-h-screen items-center px-6 py-10">
+        <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+          <h2 className="text-3xl font-bold text-shoreline-900">
+            Which One Looks More Like Your View?
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-700">
+            Pick the option that best matches your shoreline area. We will
+            personalize the next step guidance.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {areaTypes.map((areaType) => {
+              const isSelected = selectedAreaTypeId === areaType.id
+              return (
+                <button
+                  key={areaType.id}
+                  type="button"
+                  onClick={() => setSelectedAreaTypeId(areaType.id)}
+                  className={`rounded-3xl border-2 bg-white p-5 text-left shadow-md transition ${
+                    isSelected
+                      ? 'border-cyan-400 ring-4 ring-cyan-100'
+                      : 'border-cyan-100 hover:-translate-y-0.5 hover:border-cyan-300'
+                  }`}
+                >
+                  <div className="mb-4 h-28 rounded-2xl bg-gradient-to-br from-cyan-200 via-sky-200 to-indigo-200" />
+                  <h3 className="text-lg font-semibold text-shoreline-900">
+                    {areaType.title}
+                  </h3>
+                  <p className="mt-1 text-slate-700">{areaType.description}</p>
+                </button>
+              )
+            })}
+          </div>
+          <p className="mt-5 rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 to-emerald-50 p-4 text-slate-800">
+            {selectedArea?.guidance ??
+              'Select your shoreline type to see guidance tailored to your situation.'}
+          </p>
+          <p className="mt-4 rounded-2xl border-2 border-emerald-100 bg-emerald-50/80 p-4 text-sm font-semibold text-emerald-800">
+            Exhibit activity: compare your selection with a neighbor and look for
+            shared risk patterns.
+          </p>
+        </article>
+      </section>
+
+      <section className="flex min-h-screen items-center px-6 py-10">
+        <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+          <h2 className="text-3xl font-bold text-shoreline-900">
+            Future Outlook in 50-Year Steps
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-700">
+            Helping residents visualize long-term change can make policy, planning,
+            and funding decisions easier to understand.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {projectionItems.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-emerald-50 p-5"
+              >
+                <p className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold tracking-wide text-emerald-800">
+                  {item.label}
+                </p>
+                <h3 className="mt-3 text-lg font-semibold text-shoreline-900">
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-slate-700">{item.description}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 rounded-2xl border-2 border-cyan-100 bg-white p-4 text-slate-700">
+            Exhibit prompt: Which projection feels most likely for your shoreline
+            in the next 10-20 years?
+          </p>
+        </article>
+      </section>
+
+      <section className="flex min-h-screen items-center px-6 py-10">
+        <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+          <h2 className="text-3xl font-bold text-shoreline-900">
+            Why This Matters Financially
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-700">
+            Waiting usually costs more. Early planning can help protect property
+            value and avoid larger emergency expenses.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {financialCards.map((card) => (
+              <article
+                key={card.title}
+                className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-5"
+              >
+                <h3 className="text-lg font-semibold text-shoreline-900">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-2xl font-extrabold text-rose-700">
+                  {card.metric}
+                </p>
+                <p className="mt-2 text-slate-700">{card.description}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 rounded-3xl border-2 border-rose-200 bg-white p-5">
+            <p className="text-sm font-bold text-rose-700">
+              Interactive Cost Simulator
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setFinancialMode('act-now')}
+                className={`rounded-full px-4 py-2 text-sm font-extrabold ${
+                  financialMode === 'act-now'
+                    ? 'bg-emerald-500 text-white'
+                    : 'bg-emerald-100 text-emerald-800'
+                }`}
+              >
+                Act now
+              </button>
+              <button
+                type="button"
+                onClick={() => setFinancialMode('delay')}
+                className={`rounded-full px-4 py-2 text-sm font-extrabold ${
+                  financialMode === 'delay'
+                    ? 'bg-rose-500 text-white'
+                    : 'bg-rose-100 text-rose-800'
+                }`}
+              >
+                Delay action
+              </button>
+            </div>
+            <h3 className="mt-4 text-xl font-bold text-shoreline-900">
+              {financialScenario.title}
+            </h3>
+            <p className="mt-1 text-lg font-extrabold text-rose-700">
+              {financialScenario.value}
+            </p>
+            <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
+          </div>
+        </article>
+      </section>
+
+      <section className="flex min-h-screen items-center px-6 py-10">
+        <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
+          <h2 className="text-3xl font-bold text-shoreline-900">
+            Solutions Communities Are Using
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-700">
+            Inspired by successful community efforts, these options can be
+            tailored to your shoreline type and neighborhood priorities.
+          </p>
+          <article className="mt-8 rounded-3xl border-2 border-violet-100 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6">
+            <h3 className="text-2xl font-bold text-shoreline-900">
+              {solutionSlides[activeSlide].title}
+            </h3>
+            <p className="mt-3 text-slate-700">
+              {solutionSlides[activeSlide].description}
+            </p>
+            <div className="mt-6 flex gap-2">
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveSlide(
+                    (current) => (current - 1 + solutionSlides.length) % solutionSlides.length,
+                  )
+                }
+                className="rounded-full border-2 border-violet-200 bg-white px-5 py-2 font-extrabold text-violet-700 shadow-sm"
+              >
+                Previous
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveSlide((current) => (current + 1) % solutionSlides.length)
+                }
+                className="rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-2 font-extrabold text-white"
+              >
+                Next
+              </button>
+            </div>
+          </article>
+        </article>
       </section>
 
       <section id="cta" className="flex min-h-screen items-center px-6 py-16">
