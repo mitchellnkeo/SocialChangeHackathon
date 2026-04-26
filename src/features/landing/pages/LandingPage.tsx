@@ -534,8 +534,8 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
-              <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-8">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters Financially
                 </h2>
@@ -544,29 +544,29 @@ export function LandingPage() {
                   alt={panelImages[4].alt}
                   loading="lazy"
                   decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover"
+                  className="mt-3 h-36 w-full rounded-3xl object-cover md:h-40"
                 />
-                <p className="mt-3 max-w-3xl text-slate-700">
+                <p className="mt-2 max-w-3xl text-slate-700">
                   Waiting usually costs more. Early planning can help protect
                   property value and avoid larger emergency expenses.
                 </p>
-                <div className="mt-8 grid gap-4 md:grid-cols-3">
+                <div className="mt-4 grid gap-3 md:grid-cols-3">
                   {financialCards.map((card) => (
                     <article
                       key={card.title}
-                      className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-5"
+                      className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-4"
                     >
-                      <h3 className="text-lg font-semibold text-shoreline-900">
+                      <h3 className="text-base font-semibold text-shoreline-900">
                         {card.title}
                       </h3>
-                      <p className="mt-3 text-2xl font-extrabold text-rose-700">
+                      <p className="mt-2 text-xl font-extrabold text-rose-700">
                         {card.metric}
                       </p>
-                      <p className="mt-2 text-slate-700">{card.description}</p>
+                      <p className="mt-1 text-sm text-slate-700">{card.description}</p>
                     </article>
                   ))}
                 </div>
-                <div className="mt-6 rounded-3xl border-2 border-rose-200 bg-white p-5">
+                <div className="mt-4 rounded-3xl border-2 border-rose-200 bg-white p-4">
                   <p className="text-sm font-bold text-rose-700">
                     Interactive Cost Simulator
                   </p>
