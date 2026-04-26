@@ -3,7 +3,6 @@ import type { FormEvent } from 'react'
 import {
   areaTypes,
   ctaPageSources,
-  financialCards,
   informationalPanelSources,
   landingPageSources,
   projectionItems,
@@ -75,29 +74,11 @@ export function LandingPage() {
   const [statusMessage, setStatusMessage] = useState('')
   const [timelinePosition, setTimelinePosition] = useState(0)
   const [activeHotspotId, setActiveHotspotId] = useState('shoreline-edge')
-  const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
-    'act-now',
-  )
 
   const selectedArea = useMemo(
     () => areaTypes.find((areaType) => areaType.id === selectedAreaTypeId),
     [selectedAreaTypeId],
   )
-
-  const financialScenario =
-    financialMode === 'act-now'
-      ? {
-          title: 'If your community acts now',
-          value: 'Reduce risk before costs spike',
-          detail:
-            'Early planning improves options: phased upgrades, smarter permitting, and better long-term protection for homes and infrastructure.',
-        }
-      : {
-          title: 'If action is delayed',
-          value: 'Higher emergency exposure, fewer options',
-          detail:
-            'Waiting often pushes communities into reactive fixes after damage occurs, which can increase both direct repair and indirect costs.',
-        }
 
   const shareLinks = useMemo(() => {
     const pageUrl = 'https://example.org'
@@ -704,7 +685,7 @@ export function LandingPage() {
             <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
-                  Why This Matters Financially
+                  Why This Matters
                 </h2>
                 <img
                   src={panelImages[4].src}
@@ -714,60 +695,50 @@ export function LandingPage() {
                   className="mt-3 h-36 w-full rounded-3xl object-cover md:h-40"
                 />
                 <p className="mt-2 max-w-3xl text-slate-700">
-                  Waiting usually costs more. Early planning can help protect
-                  property value and avoid larger emergency expenses.
+                  Shoreline decisions affect more than one property line. They shape
+                  household finances, habitat health, and how resilient the whole
+                  neighborhood is over time.
                 </p>
-                <div className="mt-4 grid gap-3 md:grid-cols-3">
-                  {financialCards.map((card) => (
-                    <article
-                      key={card.title}
-                      className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-4"
-                    >
-                      <h3 className="text-base font-semibold text-shoreline-900">
-                        {card.title}
-                      </h3>
-                      <p className="mt-2 text-xl font-extrabold text-rose-700">
-                        {card.metric}
-                      </p>
-                      <p className="mt-1 text-sm text-slate-700">{card.description}</p>
-                    </article>
-                  ))}
-                </div>
-                <div className="mt-4 rounded-3xl border-2 border-rose-200 bg-white p-4">
-                  <p className="text-sm font-bold text-rose-700">
-                    Interactive Cost Simulator
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setFinancialMode('act-now')}
-                      className={`rounded-full px-4 py-2 text-sm font-extrabold ${
-                        financialMode === 'act-now'
-                          ? 'bg-emerald-500 text-white'
-                          : 'bg-emerald-100 text-emerald-800'
-                      }`}
-                    >
-                      Act now
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFinancialMode('delay')}
-                      className={`rounded-full px-4 py-2 text-sm font-extrabold ${
-                        financialMode === 'delay'
-                          ? 'bg-rose-500 text-white'
-                          : 'bg-rose-100 text-rose-800'
-                      }`}
-                    >
-                      Delay action
-                    </button>
-                  </div>
-                  <h3 className="mt-4 text-xl font-bold text-shoreline-900">
-                    {financialScenario.title}
-                  </h3>
-                  <p className="mt-1 text-lg font-extrabold text-rose-700">
-                    {financialScenario.value}
-                  </p>
-                  <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
+                <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                  <article className="rounded-3xl border-2 border-rose-100 bg-gradient-to-br from-rose-50 to-orange-50 p-5">
+                    <p className="text-xs font-extrabold uppercase tracking-wide text-rose-700">
+                      Financially
+                    </p>
+                    <h3 className="mt-2 text-2xl font-bold text-shoreline-900">
+                      Shoreline risk becomes household and statewide cost
+                    </h3>
+                    <p className="mt-3 text-slate-700">
+                      Erosion, flooding, and shoreline instability can lower property
+                      value, increase insurance and repair costs, and force emergency
+                      fixes that are often more expensive than planned adaptation.
+                    </p>
+                    <p className="mt-3 text-slate-700">
+                      At scale, repeated damage also strains public infrastructure,
+                      local budgets, and long-term economic resilience across
+                      Washington communities.
+                    </p>
+                  </article>
+
+                  <article className="rounded-3xl border-2 border-emerald-100 bg-gradient-to-br from-emerald-50 to-cyan-50 p-5">
+                    <p className="text-xs font-extrabold uppercase tracking-wide text-emerald-700">
+                      Ecologically
+                    </p>
+                    <h3 className="mt-2 text-2xl font-bold text-shoreline-900">
+                      Unsustainable fixes create knockdown effects
+                    </h3>
+                    <p className="mt-3 text-slate-700">
+                      Choices that interrupt sediment flow or damage nearshore habitat
+                      can reduce beach function, stress forage fish and salmon food
+                      webs, and weaken the natural shoreline systems that protect
+                      communities over time.
+                    </p>
+                    <p className="mt-3 text-slate-700">
+                      One property cannot solve this alone. If only one household
+                      adopts shoreline-friendly solutions while neighbors do not, the
+                      benefits are limited. Lasting resilience improves when
+                      neighborhoods coordinate and chip in together.
+                    </p>
+                  </article>
                 </div>
                 <PanelSourcesFooter sources={informationalPanelSources[3]} />
               </article>
