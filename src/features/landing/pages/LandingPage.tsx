@@ -802,6 +802,41 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
+                <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                  <article className="rounded-3xl border-2 border-violet-100 bg-white p-4 shadow-sm">
+                    <h3 className="text-base font-bold text-shoreline-900">
+                      Kitsap Shore Friendly Partner
+                    </h3>
+                    <div className="mt-3 overflow-hidden rounded-2xl">
+                      <iframe
+                        title="Kitsap Shore Friendly Partner video"
+                        src="https://player.vimeo.com/video/184808518?h=ab450e06a2"
+                        className="aspect-video w-full"
+                        frameBorder="0"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  </article>
+
+                  <article className="rounded-3xl border-2 border-violet-100 bg-white p-4 shadow-sm">
+                    <h3 className="text-base font-bold text-shoreline-900">
+                      Thurston Shore Friendly Partner - the Powell Family
+                    </h3>
+                    <div className="mt-3 overflow-hidden rounded-2xl">
+                      <iframe
+                        title="Thurston Shore Friendly partner the Powell Family video"
+                        src="https://www.youtube.com/embed/UWnr6XaRCho?si=g38akwU8j-aL8anD"
+                        className="aspect-video w-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    </div>
+                  </article>
+                </div>
                 <PanelSourcesFooter sources={informationalPanelSources[4]} />
               </article>
             </div>
