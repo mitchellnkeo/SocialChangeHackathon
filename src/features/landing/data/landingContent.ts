@@ -18,52 +18,58 @@ export const outreachItems = [
 
 export const timelineItems = [
   {
-    period: '1950s-1960s',
-    title: 'Coastal growth accelerates',
+    period: 'Pre-1850s',
+    title: 'Intact Puget Sound shoreline',
     description:
-      'Population growth and shoreline development increase pressure on natural coastal systems across Washington.',
+      'Miles of unarmored beaches, bluffs, eelgrass beds, and ancient drift cells fed sediment freely to the coast. Indigenous communities lived sustainably along the shore for thousands of years. Forage fish laid eggs in undisturbed beach sediments.',
   },
   {
-    period: '1970s',
-    title: 'Shoreline policy takes shape',
+    period: '1850s-1900s',
+    title: 'Logging and early settlement reshape the coast',
     description:
-      'The state builds a stronger shoreline management framework to balance growth, habitat, and long-term public benefit.',
+      'Settlers logged bluffs and cleared shoreline vegetation, dramatically accelerating erosion. Early sawmills and docks cut off sediment supply. The first bulkheads appeared as homeowners tried to protect newly built structures from wave action.',
+  },
+  {
+    period: '1900s-1940s',
+    title: 'Industrialization and the bulkhead era begins',
+    description:
+      "Rapid urban and industrial growth along Tacoma, Seattle, and Olympia waterfronts led to widespread shoreline filling, dredging, and armoring. Railroads and roads were built right at the water's edge, permanently cutting off feeder bluffs from beaches.",
+  },
+  {
+    period: '1950s-1970s',
+    title: 'Post-war development: bulkheads become the norm',
+    description:
+      'The post-war housing boom brought tens of thousands of new waterfront homes to Puget Sound. Concrete and riprap bulkheads became the default solution for shore protection. By the 1970s, an estimated 27% of Puget Sound shoreline was armored.',
   },
   {
     period: '1980s-1990s',
-    title: 'Armoring and alteration expand',
+    title: 'Science reveals the hidden cost of armoring',
     description:
-      'Many areas add hard shoreline structures, reducing short-term exposure in places while creating long-term ecological trade-offs in others.',
+      'Research confirmed that bulkheads deflect wave energy, scour beach sediment, and starve downstream drift cells. Chinook salmon and Southern Resident orca populations began their steep decline, linked partly to degraded nearshore habitat and collapsing forage fish populations.',
   },
   {
-    period: '2000s',
-    title: 'Warning signs become clearer',
+    period: '2000s-2010s',
+    title: 'Shore Friendly movement launches',
     description:
-      'Communities begin seeing more repeated erosion, bluff instability, and coastal flooding around high-impact tide and storm periods.',
+      'WDFW and partners launched the Shore Friendly program to educate waterfront owners about armor alternatives. Bulkhead removal and beach restoration projects began. New research mapped drift cells and feeder bluffs, giving planners tools to prioritize high-impact sites.',
   },
   {
-    period: '2010s',
-    title: 'Climate risk enters local planning',
+    period: '2020s',
+    title: 'Sea level rise enters the equation',
     description:
-      'Regional science and planning groups improve sea level rise projections and support local governments with resilience tools.',
+      'Sea level in Seattle has risen about 10 inches since 1900 and is accelerating. New rules under development will incorporate sea level rise into shoreline permits by 2027. Parcel-scale vulnerability maps now help owners understand their own flood exposure. Armor removal projects are increasingly paired with native planting and beach nourishment.',
   },
   {
-    period: '2020-2025',
-    title: 'More communities face direct impacts',
+    period: '2030s-2040s',
+    title: 'The window for action narrows',
     description:
-      'Washington coastal towns report growing infrastructure and property risk from erosion, high water, and shoreline change.',
-  },
-  {
-    period: '2030s (planning horizon)',
-    title: 'Adaptation choices become urgent',
-    description:
-      'Communities compare hard defense, soft stabilization, accommodation, and retreat/avoidance to match local conditions.',
+      'Projected sea level rise of 6 to 18 inches by 2050 will increase storm surge and flood frequency across low-lying Puget Sound shores. Properties with armor face mounting maintenance costs as wave energy increases. Properties with restored, vegetated shores and active drift cells are projected to fare significantly better.',
   },
   {
     period: '2050+',
     title: 'Long-term resilience depends on today',
     description:
-      'The choices made now will shape flood exposure, habitat quality, and property outcomes for future generations.',
+      'The choices made now - armor alternatives, vegetation restoration, beach nourishment, or doing nothing - will shape flood exposure, habitat quality, and property outcomes for future generations. Drift cells that receive sediment today will support resilient beaches for decades to come.',
   },
 ]
 

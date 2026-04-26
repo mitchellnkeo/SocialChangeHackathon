@@ -73,7 +73,7 @@ export function LandingPage() {
   const [panelDragStartX, setPanelDragStartX] = useState<number | null>(null)
   const [isSourcesOpen, setIsSourcesOpen] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
-  const [timelineIndex, setTimelineIndex] = useState(0)
+  const [timelinePosition, setTimelinePosition] = useState(0)
   const [activeHotspotId, setActiveHotspotId] = useState('shoreline-edge')
   const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
     'act-now',
@@ -173,6 +173,11 @@ export function LandingPage() {
     shorelineHotspots.find((hotspot) => hotspot.id === activeHotspotId) ??
     shorelineHotspots[0]
 
+  const activeTimelineIndex = Math.min(
+    timelineItems.length - 1,
+    Math.max(0, Math.round(timelinePosition)),
+  )
+
   const panelImages = [
     {
       src: '/images/wa-coast-1.jpg',
@@ -237,6 +242,11 @@ export function LandingPage() {
       caption: 'Adaptation era: protect habitat while reducing risk',
     },
     {
+      src: '/images/timeline-05-puget-sound-federal-way.jpg',
+      alt: 'Puget Sound shoreline exposed to higher water and increasing flood pressure.',
+      caption: '2030s-2040s: the adaptation window narrows',
+    },
+    {
       src: '/images/timeline-08-2050-outlook.jpg',
       alt: 'Washington coastal outlook image representing future resilience planning horizon.',
       caption: '2050+ outlook: long-term resilience depends on decisions now',
@@ -263,6 +273,12 @@ export function LandingPage() {
     } catch {
       setStatusMessage(`Copy this message manually: ${template}`)
     }
+  }
+
+  function snapTimelineToNearestPoint() {
+    setTimelinePosition((current) =>
+      Math.min(timelineItems.length - 1, Math.max(0, Math.round(current))),
+    )
   }
 
   const goToNextPanel = () =>
@@ -510,14 +526,14 @@ export function LandingPage() {
                   What Happened? A Quick Timeline
                 </h2>
                 <img
-                  src={timelineImages[timelineIndex].src}
-                  alt={timelineImages[timelineIndex].alt}
+                  src={timelineImages[activeTimelineIndex].src}
+                  alt={timelineImages[activeTimelineIndex].alt}
                   loading="lazy"
                   decoding="async"
                   className="mt-5 h-52 w-full rounded-3xl object-cover"
                 />
                 <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-cyan-700">
-                  {timelineImages[timelineIndex].caption}
+                  {timelineImages[activeTimelineIndex].caption}
                 </p>
                 <p className="mt-3 text-slate-700">
                   Use this timeline slider like an exhibit control.
@@ -527,21 +543,24 @@ export function LandingPage() {
                     type="range"
                     min={0}
                     max={timelineItems.length - 1}
-                    step={1}
-                    value={timelineIndex}
-                    onChange={(event) => setTimelineIndex(Number(event.target.value))}
+                    step={0.01}
+                    value={timelinePosition}
+                    onChange={(event) => setTimelinePosition(Number(event.target.value))}
+                    onMouseUp={snapTimelineToNearestPoint}
+                    onTouchEnd={snapTimelineToNearestPoint}
+                    onKeyUp={snapTimelineToNearestPoint}
                     className="w-full accent-cyan-500"
                     aria-label="Timeline step"
                   />
                   <article className="mt-4 rounded-2xl bg-white p-5">
                     <p className="text-sm font-semibold uppercase tracking-wide text-shoreline-700">
-                      {timelineItems[timelineIndex].period}
+                      {timelineItems[activeTimelineIndex].period}
                     </p>
                     <h3 className="text-xl font-semibold text-shoreline-900">
-                      {timelineItems[timelineIndex].title}
+                      {timelineItems[activeTimelineIndex].title}
                     </h3>
                     <p className="mt-1 text-slate-700">
-                      {timelineItems[timelineIndex].description}
+                      {timelineItems[activeTimelineIndex].description}
                     </p>
                   </article>
                 </div>
