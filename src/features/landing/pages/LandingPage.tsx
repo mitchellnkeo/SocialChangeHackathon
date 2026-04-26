@@ -565,8 +565,8 @@ export function LandingPage() {
                   className="mt-5 h-52 w-full rounded-3xl object-cover"
                 />
                 <p className="mt-3 max-w-3xl text-slate-700">
-                  Pick the option that best matches your shoreline area. We will
-                  personalize the next step guidance.
+                  Pick the option that best matches your current shoreline setup.
+                  We will personalize next-step guidance based on your selection.
                 </p>
                 <div className="mt-8 grid gap-4 md:grid-cols-3">
                   {areaTypes.map((areaType) => {

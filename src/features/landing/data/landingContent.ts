@@ -76,24 +76,27 @@ export const timelineItems = [
 export const areaTypes = [
   {
     id: 'stable',
-    title: 'Mostly Stable Today',
-    description: 'Healthy vegetation, limited erosion, occasional high-water stress.',
+    title: 'Natural / Untouched',
+    description:
+      'Your beach is healthy — let’s keep it that way. Reinforce it with native plants and request a site assessment to get ahead of sea level rise.',
     guidance:
-      'Great starting point. Prevention-first steps now can keep maintenance costs lower and protect shoreline habitat over time.',
+      'This is a strong starting point. A proactive site assessment and native planting strategy can help preserve shoreline resilience before larger stressors emerge.',
   },
   {
     id: 'eroding',
-    title: 'Noticeable Erosion',
-    description: 'Shore edge retreat, repeated runoff, and more frequent storm impacts.',
+    title: 'Soft Modifications',
+    description:
+      'Added sand, debris, or informal changes are already a step forward. Expert guidance can help make them count.',
     guidance:
-      'Your shoreline is signaling change. A near-term plan with neighbors and local experts can reduce future property losses.',
+      'A site assessment can turn early efforts into a stronger, fundable shoreline plan with clearer long-term outcomes.',
   },
   {
     id: 'high-risk',
-    title: 'High-Risk Shoreline',
-    description: 'Frequent flooding/erosion events with visible land or bluff instability.',
+    title: 'Armored',
+    description:
+      'Seawall, bulkhead, or riprap in place. These structures will not last forever, and better options are available at replacement time.',
     guidance:
-      'This area likely needs priority action. Early expert planning can help avoid emergency-only responses that cost much more.',
+      'Guidance and funding support are available to help shift from aging armoring toward shoreline-friendly alternatives when timing and site conditions align.',
   },
 ] as const
 
