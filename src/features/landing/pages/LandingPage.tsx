@@ -101,10 +101,11 @@ export function LandingPage() {
   const panelTitles = [
     'Timeline',
     'Your Shoreline',
-    'Future Outlook',
     'Financial Impact',
     'Solutions',
   ]
+  const showFutureOutlookPanel = false
+
 
   const shorelineHotspots = [
     {
@@ -496,7 +497,9 @@ export function LandingPage() {
           </div>
 
           <div
-            className="flex h-full w-[500vw] transition-transform duration-500 ease-in-out"
+            className={`flex h-full transition-transform duration-500 ease-in-out ${
+              showFutureOutlookPanel ? 'w-[500vw]' : 'w-[400vw]'
+            }`}
             style={{ transform: `translateX(-${activePanel * 100}vw)` }}
             onPointerDown={(event) =>
               handlePanelPointerDown(event.clientX, event.target)
@@ -668,41 +671,43 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
-                <h2 className="text-3xl font-bold text-shoreline-900">
-                  Future Outlook in 50-Year Steps
-                </h2>
-                <img
-                  src={panelImages[3].src}
-                  alt={panelImages[3].alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover"
-                />
-                <p className="mt-3 max-w-3xl text-slate-700">
-                  Helping residents visualize long-term change can make policy,
-                  planning, and funding decisions easier to understand.
-                </p>
-                <div className="mt-8 grid gap-4 md:grid-cols-3">
-                  {projectionItems.map((item) => (
-                    <article
-                      key={item.title}
-                      className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-emerald-50 p-5"
-                    >
-                      <p className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold tracking-wide text-emerald-800">
-                        {item.label}
-                      </p>
-                      <h3 className="mt-3 text-lg font-semibold text-shoreline-900">
-                        {item.title}
-                      </h3>
-                      <p className="mt-1 text-slate-700">{item.description}</p>
-                    </article>
-                  ))}
-                </div>
-                <PanelSourcesFooter sources={informationalPanelSources[2]} />
-              </article>
-            </div>
+            {showFutureOutlookPanel && (
+              <div className="flex h-full w-screen items-center px-6 py-16">
+                <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
+                  <h2 className="text-3xl font-bold text-shoreline-900">
+                    Future Outlook in 50-Year Steps
+                  </h2>
+                  <img
+                    src={panelImages[3].src}
+                    alt={panelImages[3].alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="mt-5 h-52 w-full rounded-3xl object-cover"
+                  />
+                  <p className="mt-3 max-w-3xl text-slate-700">
+                    Helping residents visualize long-term change can make policy,
+                    planning, and funding decisions easier to understand.
+                  </p>
+                  <div className="mt-8 grid gap-4 md:grid-cols-3">
+                    {projectionItems.map((item) => (
+                      <article
+                        key={item.title}
+                        className="rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-cyan-50 to-emerald-50 p-5"
+                      >
+                        <p className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold tracking-wide text-emerald-800">
+                          {item.label}
+                        </p>
+                        <h3 className="mt-3 text-lg font-semibold text-shoreline-900">
+                          {item.title}
+                        </h3>
+                        <p className="mt-1 text-slate-700">{item.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                  <PanelSourcesFooter sources={informationalPanelSources[2]} />
+                </article>
+              </div>
+            )}
 
             <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-7">
