@@ -357,17 +357,26 @@ export function LandingPage() {
           onPointerCancel={() => setAppDragStartX(null)}
         >
           <div
-            className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
+            className="pointer-events-none absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/images/LandingPage.jpg')" }}
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-0 bg-white/72"
+            className="pointer-events-none absolute inset-0 bg-white/58"
             aria-hidden="true"
           />
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
+          <div className="absolute right-10 top-10 z-20 md:right-16 md:top-12">
+            <img
+              src="/images/Washington_State_Department_of_Fish_and_Wildlife_(logo).svg"
+              alt="Washington Department of Fish and Wildlife logo"
+              className="h-20 w-auto rounded-xl bg-white/78 p-2 shadow-lg shadow-slate-500/35 md:h-28"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl">
