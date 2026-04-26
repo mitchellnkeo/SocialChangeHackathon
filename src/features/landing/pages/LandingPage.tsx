@@ -550,7 +550,7 @@ export function LandingPage() {
             onPointerCancel={() => setPanelDragStartX(null)}
           >
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Shoreline Timelapse
                 </h2>
@@ -599,7 +599,7 @@ export function LandingPage() {
             </div>
 
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which image describes your property?
                 </h2>
@@ -673,7 +673,7 @@ export function LandingPage() {
             </div>
 
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Interactive Shoreline Hotspots
                 </h2>
@@ -731,7 +731,7 @@ export function LandingPage() {
 
             {showFutureOutlookPanel && (
               <div className="flex h-full w-screen items-center px-6 py-16">
-                <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
+                <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
                   <h2 className="text-3xl font-bold text-shoreline-900">
                     Future Outlook in 50-Year Steps
                   </h2>
@@ -768,7 +768,7 @@ export function LandingPage() {
             )}
 
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-200 bg-white/95 p-6 shadow-xl shadow-cyan-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters
                 </h2>
@@ -853,7 +853,7 @@ export function LandingPage() {
             </div>
 
             <div className="flex h-full w-screen items-center px-6 py-16">
-              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-200 bg-white/95 p-6 shadow-xl shadow-cyan-100 md:p-7">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
                 </h2>
@@ -1010,7 +1010,7 @@ export function LandingPage() {
             </button>
           </div>
 
-          <article className="relative z-10 mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-200 bg-white/95 p-6 shadow-xl shadow-cyan-100 md:p-7">
+          <article className="relative z-10 mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/70 bg-white/38 p-6 shadow-lg shadow-slate-600/25 backdrop-blur-sm md:p-7">
             <p className="text-xs font-extrabold uppercase tracking-wide text-cyan-700">
               Real story · Whidbey Island, WA · 2018
             </p>
