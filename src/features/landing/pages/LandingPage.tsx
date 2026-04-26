@@ -127,6 +127,7 @@ export function LandingPage() {
   const panelTitles = [
     'Timeline',
     'Your Shoreline',
+    'Interactive Hotspots',
     'Financial Impact',
     'Solutions',
   ]
@@ -514,7 +515,7 @@ export function LandingPage() {
 
           <div
             className={`flex h-full transition-transform duration-500 ease-in-out ${
-              showFutureOutlookPanel ? 'w-[500vw]' : 'w-[400vw]'
+              showFutureOutlookPanel ? 'w-[600vw]' : 'w-[500vw]'
             }`}
             style={{ transform: `translateX(-${activePanel * 100}vw)` }}
             onPointerDown={(event) =>
@@ -647,16 +648,23 @@ export function LandingPage() {
                     repairs become the default path.
                   </p>
                 </article>
-                <div className="mt-6 rounded-3xl border-2 border-cyan-100 bg-white p-4 md:p-5">
-                  <p className="text-sm font-bold uppercase tracking-wide text-cyan-700">
-                    Interactive Shoreline Hotspots
-                  </p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Tap/click a point to see what it means and what you can do next.
-                  </p>
+                <PanelSourcesFooter sources={informationalPanelSources[1]} />
+              </article>
+            </div>
 
-                  <div className="mt-4 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
-                    <div className="relative h-64 rounded-2xl overflow-hidden border-2 border-cyan-100 md:h-72">
+            <div className="flex h-full w-screen items-center px-6 py-16">
+              <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
+                <h2 className="text-3xl font-bold text-shoreline-900">
+                  Interactive Shoreline Hotspots
+                </h2>
+                <p className="mt-4 max-w-3xl text-slate-700">
+                  Tap or click a point on the scene to see what it means for your shoreline and
+                  what you can do next.
+                </p>
+
+                <div className="mt-6 rounded-3xl border-2 border-cyan-100 bg-white p-4 md:p-5">
+                  <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr]">
+                    <div className="relative h-64 overflow-hidden rounded-2xl border-2 border-cyan-100 md:h-72">
                       <img
                         src={panelImages[2].src}
                         alt={panelImages[2].alt}
@@ -697,7 +705,7 @@ export function LandingPage() {
                     </div>
                   </div>
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[1]} />
+                <PanelSourcesFooter sources={informationalPanelSources[2]} />
               </article>
             </div>
 
@@ -734,7 +742,7 @@ export function LandingPage() {
                       </article>
                     ))}
                   </div>
-                  <PanelSourcesFooter sources={informationalPanelSources[2]} />
+                  <PanelSourcesFooter sources={informationalPanelSources[3]} />
                 </article>
               </div>
             )}
@@ -806,7 +814,7 @@ export function LandingPage() {
                     </p>
                   </article>
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[3]} />
+                <PanelSourcesFooter sources={informationalPanelSources[4]} />
               </article>
             </div>
 
@@ -874,7 +882,7 @@ export function LandingPage() {
                     </div>
                   </article>
                 </div>
-                <PanelSourcesFooter sources={informationalPanelSources[4]} />
+                <PanelSourcesFooter sources={informationalPanelSources[5]} />
               </article>
             </div>
           </div>

@@ -321,6 +321,20 @@ export const informationalPanelSources: SourceReference[][] = [
       url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
     },
     {
+      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
+    },
+    {
+      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
+      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
+    },
+  ],
+  [
+    {
+      label: 'WDFW — Marine Shorelines',
+      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
+    },
+    {
       label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
       url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
     },
@@ -355,20 +369,6 @@ export const informationalPanelSources: SourceReference[][] = [
     {
       label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
       url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
-    },
-  ],
-  [
-    {
-      label: 'WA Dept. of Ecology — Climate Resilience & Shoreline Management',
-      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning/shoreline-planners-toolbox/climate-resilience-and-shoreline-management',
-    },
-    {
-      label: 'WA Dept. of Ecology — Shoreline & Coastal Planning',
-      url: 'https://ecology.wa.gov/water-shorelines/shoreline-coastal-management/shoreline-coastal-planning',
-    },
-    {
-      label: 'WDFW — Marine Shorelines',
-      url: 'https://wdfw.wa.gov/species-habitats/ecosystems/marine-shorelines',
     },
   ],
 ]
