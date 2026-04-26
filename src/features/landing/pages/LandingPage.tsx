@@ -17,11 +17,30 @@ export function LandingPage() {
   const [activePanel, setActivePanel] = useState(0)
   const [statusMessage, setStatusMessage] = useState('')
   const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const [timelineIndex, setTimelineIndex] = useState(0)
+  const [financialMode, setFinancialMode] = useState<'act-now' | 'delay'>(
+    'act-now',
+  )
 
   const selectedArea = useMemo(
     () => areaTypes.find((areaType) => areaType.id === selectedAreaTypeId),
     [selectedAreaTypeId],
   )
+
+  const financialScenario =
+    financialMode === 'act-now'
+      ? {
+          title: 'If your community acts now',
+          value: 'Lower risk, steadier property value',
+          detail:
+            'Early planning helps avoid emergency repair spikes and can preserve long-term neighborhood value.',
+        }
+      : {
+          title: 'If action is delayed',
+          value: 'Higher repair exposure, larger losses',
+          detail:
+            'Waiting can mean emergency construction, repeat storm damage, and increased financial pressure over time.',
+        }
 
   const shareLinks = useMemo(() => {
     const pageUrl = 'https://example.org'
@@ -101,8 +120,8 @@ export function LandingPage() {
   }
 
   return (
-    <main className="pb-14">
-      <section className="relative overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24">
+    <main className="pb-8">
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-20 text-white md:py-24">
         <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
         <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
         <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
@@ -134,8 +153,8 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section id="shoreline-quiz" className="px-6 py-14">
-        <div className="mx-auto max-w-5xl">
+      <section id="shoreline-quiz" className="flex min-h-screen items-center px-6 py-10">
+        <div className="mx-auto w-full max-w-6xl">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
             <p className="rounded-full bg-cyan-100 px-3 py-1 text-sm font-extrabold uppercase tracking-wide text-cyan-700">
               Swipeable Story Flow
@@ -166,7 +185,7 @@ export function LandingPage() {
           </div>
 
           <article
-            className="rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8"
+            className="rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:min-h-[72vh] md:p-8"
             onTouchStart={(event) => handleTouchStart(event.changedTouches[0].clientX)}
             onTouchEnd={(event) => handleTouchEnd(event.changedTouches[0].clientX)}
           >
@@ -201,18 +220,31 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
                 </h2>
-                <div className="mt-8 space-y-4 border-l-4 border-cyan-500 pl-5">
-                  {timelineItems.map((item) => (
-                    <article key={item.period}>
-                      <p className="text-sm font-semibold uppercase tracking-wide text-shoreline-700">
-                        {item.period}
-                      </p>
-                      <h3 className="text-xl font-semibold text-shoreline-900">
-                        {item.title}
-                      </h3>
-                      <p className="mt-1 text-slate-700">{item.description}</p>
-                    </article>
-                  ))}
+                <p className="mt-3 text-slate-700">
+                  Use this timeline slider like an exhibit control.
+                </p>
+                <div className="mt-8 rounded-3xl border-2 border-cyan-100 bg-cyan-50/70 p-5">
+                  <input
+                    type="range"
+                    min={0}
+                    max={timelineItems.length - 1}
+                    step={1}
+                    value={timelineIndex}
+                    onChange={(event) => setTimelineIndex(Number(event.target.value))}
+                    className="w-full accent-cyan-500"
+                    aria-label="Timeline step"
+                  />
+                  <article className="mt-4 rounded-2xl bg-white p-5">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-shoreline-700">
+                      {timelineItems[timelineIndex].period}
+                    </p>
+                    <h3 className="text-xl font-semibold text-shoreline-900">
+                      {timelineItems[timelineIndex].title}
+                    </h3>
+                    <p className="mt-1 text-slate-700">
+                      {timelineItems[timelineIndex].description}
+                    </p>
+                  </article>
                 </div>
               </>
             )}
@@ -253,6 +285,10 @@ export function LandingPage() {
                   {selectedArea?.guidance ??
                     'Select your shoreline type to see guidance tailored to your situation.'}
                 </p>
+                <p className="mt-4 rounded-2xl border-2 border-emerald-100 bg-emerald-50/80 p-4 text-sm font-semibold text-emerald-800">
+                  Exhibit activity: compare your selection with a neighbor and look
+                  for shared risk patterns.
+                </p>
               </>
             )}
 
@@ -281,6 +317,10 @@ export function LandingPage() {
                     </article>
                   ))}
                 </div>
+                <p className="mt-4 rounded-2xl border-2 border-cyan-100 bg-white p-4 text-slate-700">
+                  Exhibit prompt: Which projection feels most likely for your
+                  shoreline in the next 10-20 years?
+                </p>
               </>
             )}
 
@@ -308,6 +348,42 @@ export function LandingPage() {
                       <p className="mt-2 text-slate-700">{card.description}</p>
                     </article>
                   ))}
+                </div>
+                <div className="mt-6 rounded-3xl border-2 border-rose-200 bg-white p-5">
+                  <p className="text-sm font-bold text-rose-700">
+                    Interactive Cost Simulator
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setFinancialMode('act-now')}
+                      className={`rounded-full px-4 py-2 text-sm font-extrabold ${
+                        financialMode === 'act-now'
+                          ? 'bg-emerald-500 text-white'
+                          : 'bg-emerald-100 text-emerald-800'
+                      }`}
+                    >
+                      Act now
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFinancialMode('delay')}
+                      className={`rounded-full px-4 py-2 text-sm font-extrabold ${
+                        financialMode === 'delay'
+                          ? 'bg-rose-500 text-white'
+                          : 'bg-rose-100 text-rose-800'
+                      }`}
+                    >
+                      Delay action
+                    </button>
+                  </div>
+                  <h3 className="mt-4 text-xl font-bold text-shoreline-900">
+                    {financialScenario.title}
+                  </h3>
+                  <p className="mt-1 text-lg font-extrabold text-rose-700">
+                    {financialScenario.value}
+                  </p>
+                  <p className="mt-2 text-slate-700">{financialScenario.detail}</p>
                 </div>
               </>
             )}
@@ -375,7 +451,7 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section id="cta" className="px-6 py-16">
+      <section id="cta" className="flex min-h-screen items-center px-6 py-16">
         <div className="mx-auto max-w-5xl rounded-[2rem] bg-gradient-to-br from-cyan-600 via-sky-600 to-indigo-600 p-8 text-white shadow-2xl shadow-sky-300/30 md:p-10">
           <h2 className="text-3xl font-bold">Take Action with Your Community</h2>
           <p className="mt-3 max-w-3xl text-emerald-100">
