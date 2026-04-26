@@ -778,7 +778,7 @@ export function LandingPage() {
                   alt={panelImages[4].alt}
                   loading="lazy"
                   decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover object-top"
+                  className="mt-5 h-52 w-full rounded-3xl object-cover object-[center_35%]"
                 />
                 <p className="mt-2 max-w-3xl text-slate-700">
                   Shoreline decisions affect more than one property line. They shape
