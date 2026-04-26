@@ -232,11 +232,6 @@ export function LandingPage() {
       alt: 'Pacific Northwest coastal landscape with shoreline habitat.',
     },
     {
-      src: '/images/Ecology1.png',
-      alt:
-        'Southern Resident killer whale carrying a salmon, illustrating the link from healthy nearshore food webs to orca survival.',
-    },
-    {
       src: '/images/CommunitySolutions.png',
       alt: 'Community-led shoreline and habitat solutions along a Washington coast.',
     },
@@ -772,14 +767,7 @@ export function LandingPage() {
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters
                 </h2>
-                <img
-                  src={panelImages[4].src}
-                  alt={panelImages[4].alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="mt-5 h-52 w-full rounded-3xl object-cover object-[center_35%]"
-                />
-                <p className="mt-2 max-w-3xl text-slate-700">
+                <p className="mt-5 max-w-3xl text-slate-700">
                   Shoreline decisions affect more than one property line. They shape
                   household finances, habitat health, and how resilient the whole
                   neighborhood is over time.
@@ -840,13 +828,15 @@ export function LandingPage() {
                       killer whales rely heavily on Chinook—a tight link from healthy
                       beach sediment to whales offshore.
                     </p>
-                    <p className="mt-3 text-slate-700">
-                      One property cannot solve this alone. If only one household
-                      adopts shoreline-friendly solutions while neighbors do not, the
-                      benefits are limited. Lasting resilience improves when
-                      neighborhoods coordinate and chip in together.
-                    </p>
                   </article>
+                </div>
+                <div className="mt-6 rounded-3xl border-2 border-cyan-200/90 bg-white/85 p-5 shadow-sm backdrop-blur-sm md:p-6">
+                  <p className="text-base leading-relaxed text-slate-800">
+                    One property cannot solve this alone. If only one household adopts
+                    shoreline-friendly solutions while neighbors do not, the benefits
+                    are limited. Lasting resilience improves when neighborhoods
+                    coordinate and chip in together.
+                  </p>
                 </div>
                 <PanelSourcesFooter sources={informationalPanelSources[4]} />
               </article>
@@ -858,8 +848,8 @@ export function LandingPage() {
                   Solutions Communities Are Using
                 </h2>
                 <img
-                  src={panelImages[5].src}
-                  alt={panelImages[5].alt}
+                  src={panelImages[4].src}
+                  alt={panelImages[4].alt}
                   loading="lazy"
                   decoding="async"
                   className="mt-5 h-52 w-full rounded-3xl object-cover"
