@@ -428,6 +428,12 @@ export function LandingPage() {
         </section>
 
         <section id="shoreline-quiz" className="relative h-full w-screen overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/LandingPage.jpg')" }}
+            aria-hidden="true"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-white/58" aria-hidden="true" />
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
@@ -436,12 +442,12 @@ export function LandingPage() {
             <button
               type="button"
               onClick={goToPreviousPanel}
-              className="inline-flex flex-col items-center gap-2 text-white"
+              className="inline-flex flex-col items-center gap-2 text-slate-800"
             >
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
                 {'\u2190'}
               </span>
-              <span className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+              <span className="text-xs font-extrabold uppercase tracking-wide text-slate-700">
                 {activePanel === 0 ? 'Landing' : 'Back'}
               </span>
             </button>
@@ -451,12 +457,12 @@ export function LandingPage() {
             <button
               type="button"
               onClick={goToNextPanel}
-              className="inline-flex flex-col items-center gap-2 text-white"
+              className="inline-flex flex-col items-center gap-2 text-slate-800"
             >
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
                 {'\u2192'}
               </span>
-              <span className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+              <span className="text-xs font-extrabold uppercase tracking-wide text-slate-700">
                 Next
               </span>
             </button>
@@ -483,7 +489,7 @@ export function LandingPage() {
             <button
               type="button"
               onClick={() => setIsSourcesOpen(true)}
-              className="rounded-full border-2 border-white/40 bg-white/15 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-cyan-50 backdrop-blur hover:bg-white/25"
+              className="rounded-full border-2 border-slate-300 bg-white/75 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-slate-700 backdrop-blur hover:bg-white/90"
             >
               Sources
             </button>
@@ -498,7 +504,7 @@ export function LandingPage() {
             onPointerUp={(event) => handlePanelPointerUp(event.clientX)}
             onPointerCancel={() => setPanelDragStartX(null)}
           >
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+            <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
@@ -543,7 +549,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+            <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which One Looks More Like Your View?
@@ -640,7 +646,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+            <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Future Outlook in 50-Year Steps
@@ -676,7 +682,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+            <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters Financially
@@ -748,7 +754,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-16 text-white">
+            <div className="flex h-full w-screen items-center px-6 py-16">
               <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-violet-200 bg-white/95 p-6 shadow-xl shadow-violet-100 md:p-7">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
@@ -824,13 +830,19 @@ export function LandingPage() {
 
         <section
           id="cta"
-          className="relative flex h-full w-screen items-center overflow-hidden bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-12 text-white md:py-16"
+          className="relative flex h-full w-screen items-center overflow-hidden bg-white px-6 py-12 text-white md:py-16"
           onPointerDown={(event) =>
             handleAppPointerDown(event.clientX, event.target)
           }
           onPointerUp={(event) => handleAppPointerUp(event.clientX)}
           onPointerCancel={() => setAppDragStartX(null)}
         >
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/LandingPage.jpg')" }}
+            aria-hidden="true"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-white/58" aria-hidden="true" />
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
@@ -839,18 +851,18 @@ export function LandingPage() {
             <button
               type="button"
               onClick={() => setActiveAppPage(1)}
-              className="inline-flex flex-col items-center gap-2 text-white"
+              className="inline-flex flex-col items-center gap-2 text-slate-800"
             >
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
                 {'\u2190'}
               </span>
-              <span className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+              <span className="text-xs font-extrabold uppercase tracking-wide text-slate-700">
                 Back
               </span>
             </button>
           </div>
 
-          <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-cyan-100/60 bg-white/10 p-6 shadow-xl shadow-sky-900/20 backdrop-blur-sm md:p-7">
+          <article className="mx-auto max-h-[86vh] w-full max-w-6xl overflow-y-auto rounded-[2rem] border-2 border-white/40 bg-slate-900/45 p-6 shadow-xl shadow-sky-900/20 backdrop-blur-sm md:p-7">
             <h2 className="text-4xl font-bold md:text-5xl">Take Action with Your Community</h2>
             <p className="mt-4 max-w-3xl text-cyan-50">
               Share this effort, talk with your neighbors, and connect with a
