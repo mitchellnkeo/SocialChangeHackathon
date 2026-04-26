@@ -140,60 +140,99 @@ export function LandingPage() {
           <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
           <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
           <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
-              Washington Shoreline Conservation
-            </p>
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-tight md:text-6xl">
-              Protect Your Shoreline. Protect Your Legacy.
-            </h1>
-            <p className="mt-5 max-w-3xl text-lg text-emerald-50/95">
-              If we act now, we can protect the places we call home, reduce future
-              costs, and preserve what we pass on to our kids and grandkids.
-            </p>
-            <div className="mt-8 flex flex-wrap items-end justify-end gap-4">
-              <button
-                type="button"
-                onClick={() => setActiveAppPage(1)}
-                className="inline-flex flex-col items-center gap-2 text-white"
-                aria-label="Go to shoreline informational pages"
-              >
-                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
-                  {'\u2192'}
-                </span>
-                <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
-                  Explore Shoreline Outlook
-                </span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveAppPage(2)}
-                className="rounded-full border-2 border-white/80 bg-white/10 px-6 py-3 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
-              >
-                Request Expert Guidance
-              </button>
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <p className="mb-3 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-50">
+                Washington Shoreline Conservation
+              </p>
+              <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
+                Protect Your Shoreline. Protect Your Legacy.
+              </h1>
+              <p className="mt-5 text-lg text-emerald-50/95">
+                If we act now, we can protect the places we call home, reduce future
+                costs, and preserve what we pass on to our kids and grandkids.
+              </p>
+              <div className="mt-8">
+                <button
+                  type="button"
+                  onClick={() => setActiveAppPage(2)}
+                  className="rounded-full border-2 border-white/80 bg-white/10 px-6 py-3 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
+                >
+                  Request Expert Guidance
+                </button>
+              </div>
             </div>
+
+            <button
+              type="button"
+              onClick={() => setActiveAppPage(1)}
+              className="inline-flex flex-col items-center gap-2 text-white md:mb-2"
+              aria-label="Go to shoreline informational pages"
+            >
+              <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl font-black text-sky-700 shadow-lg shadow-sky-900/20 transition hover:-translate-y-0.5 hover:bg-cyan-50">
+                {'\u2192'}
+              </span>
+              <span className="text-sm font-extrabold uppercase tracking-wide text-cyan-50">
+                Explore Shoreline Outlook
+              </span>
+            </button>
           </div>
         </section>
 
         <section id="shoreline-quiz" className="relative h-full w-screen overflow-hidden">
-          <div className="absolute left-1/2 top-4 z-20 flex -translate-x-1/2 items-center gap-3 rounded-full border-2 border-cyan-100 bg-white/90 px-4 py-2 shadow-lg shadow-cyan-100/50 backdrop-blur">
+          <div className="pointer-events-none absolute -left-8 top-10 h-32 w-32 rounded-full bg-white/20 blur-sm" />
+          <div className="pointer-events-none absolute right-8 top-16 h-24 w-24 rounded-full bg-emerald-200/30 blur-sm" />
+          <div className="pointer-events-none absolute bottom-8 right-20 h-28 w-28 rounded-full bg-fuchsia-200/20 blur-sm" />
+
+          <div className="absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:flex md:flex-col md:items-center md:gap-4">
             <button
               type="button"
               onClick={goToPreviousPanel}
-              className="rounded-full border-2 border-cyan-200 bg-cyan-50 px-5 py-2 font-extrabold text-cyan-700"
+              className="inline-flex flex-col items-center gap-2 text-white"
             >
-              {'\u2190'} {activePanel === 0 ? 'Landing' : 'Back'}
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
+                {'\u2190'}
+              </span>
+              <span className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+                {activePanel === 0 ? 'Landing' : 'Back'}
+              </span>
             </button>
-            <p className="text-sm font-extrabold text-cyan-800">
-              {activePanel + 1} of {panelTitles.length}: {panelTitles[activePanel]}
+
+            <p className="rounded-full bg-white/20 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+              {activePanel + 1} / {panelTitles.length}
+            </p>
+
+            <button
+              type="button"
+              onClick={goToNextPanel}
+              className="inline-flex flex-col items-center gap-2 text-white"
+            >
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl font-black text-sky-700 shadow-lg shadow-sky-900/20">
+                {'\u2192'}
+              </span>
+              <span className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+                Next
+              </span>
+            </button>
+          </div>
+
+          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 rounded-full bg-white/15 px-3 py-2 backdrop-blur md:hidden">
+            <button
+              type="button"
+              onClick={goToPreviousPanel}
+              className="rounded-full bg-white px-3 py-2 text-sm font-black text-sky-700"
+            >
+              {'\u2190'}
+            </button>
+            <p className="text-xs font-extrabold uppercase tracking-wide text-cyan-50">
+              {activePanel + 1}/{panelTitles.length}
             </p>
             <button
               type="button"
               onClick={goToNextPanel}
-              className="rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 px-5 py-2 font-extrabold text-white"
+              className="rounded-full bg-white px-3 py-2 text-sm font-black text-sky-700"
             >
-              Next {'\u2192'}
+              {'\u2192'}
             </button>
           </div>
 
@@ -204,7 +243,7 @@ export function LandingPage() {
             onPointerUp={(event) => handlePanelPointerUp(event.clientX)}
             onPointerCancel={() => setPanelDragStartX(null)}
           >
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-100/60 via-white to-sky-100/60 px-6 py-24">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
               <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   How Outreach Happens Today
@@ -230,7 +269,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-100/60 via-white to-emerald-100/60 px-6 py-24">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
               <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   What Happened? A Quick Timeline
@@ -264,7 +303,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-sky-100/60 via-white to-indigo-100/60 px-6 py-24">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
               <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Which One Looks More Like Your View?
@@ -303,7 +342,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-emerald-100/60 via-white to-cyan-100/60 px-6 py-24">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
               <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-cyan-100 bg-white/95 p-6 shadow-xl shadow-sky-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Future Outlook in 50-Year Steps
@@ -331,7 +370,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-rose-100/60 via-white to-orange-100/60 px-6 py-24">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
               <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-rose-200 bg-white/95 p-6 shadow-xl shadow-rose-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Why This Matters Financially
@@ -395,7 +434,7 @@ export function LandingPage() {
               </article>
             </div>
 
-            <div className="flex h-full w-screen items-center bg-gradient-to-br from-violet-100/60 via-white to-fuchsia-100/60 px-6 py-24">
+            <div className="flex h-full w-screen items-center bg-gradient-to-br from-cyan-500 via-sky-500 to-indigo-500 px-6 py-24 text-white">
               <article className="mx-auto w-full max-w-6xl rounded-[2rem] border-2 border-violet-200 bg-white/95 p-6 shadow-xl shadow-violet-100 md:p-8">
                 <h2 className="text-3xl font-bold text-shoreline-900">
                   Solutions Communities Are Using
