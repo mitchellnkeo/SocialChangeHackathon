@@ -1048,10 +1048,25 @@ export function LandingPage() {
                 specifically about armor alternatives, not just bulkhead
                 installation.
               </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sky-50">
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sky-50">
+                <li>
+                  Ask for references or testimonials from past clients with
+                  similar shoreline work.
+                </li>
+                <li>
+                  Ask for photos or documentation of past projects, especially
+                  armor-alternative or soft-shoreline work.
+                </li>
                 <li>
                   Verify the business license and registration status before
                   signing any contract.
+                </li>
+                <li>
+                  Ask for evidence of proper insurance. Contractors hired to
+                  perform work under a Shore Friendly Partner project, according
+                  to that Partner&apos;s specifications, are expected to carry
+                  their own insurance and to be appropriately licensed and
+                  bonded—confirm this in writing for your project.
                 </li>
                 <li>
                   Ask what experience they have with alternatives to bulkheads
@@ -1074,6 +1089,67 @@ export function LandingPage() {
                   project does not create new erosion pressure next door.
                 </li>
               </ul>
+              <p className="mt-4 font-extrabold uppercase tracking-wide text-sky-100">
+                Who to contact next
+              </p>
+              <p className="mt-2">
+                Start with your local Shore Friendly program to learn what
+                applies in your area and how to request a site visit or
+                assessment:
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                <li>
+                  <a
+                    href="https://www.shorefriendly.org/resources/resources-in-your-area/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-white underline decoration-sky-200 underline-offset-2 hover:text-sky-100"
+                  >
+                    Resources in Your Area | Shore Friendly
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wdfw.wa.gov/species-habitats/habitat-recovery/puget-sound/shore-friendly"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-white underline decoration-sky-200 underline-offset-2 hover:text-sky-100"
+                  >
+                    WDFW — Puget Sound Shore Friendly (local programs &amp;
+                    context)
+                  </a>
+                </li>
+              </ul>
+              <p className="mt-4 font-extrabold uppercase tracking-wide text-sky-100">
+                Types of Shore Friendly support (varies by Partner)
+              </p>
+              <p className="mt-2">
+                Depending on your location and program, support may include:
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sky-50">
+                <li>Workshops and landowner education</li>
+                <li>Mini-grants for eligible armor-alternative projects</li>
+                <li>
+                  Site assessments or site visits (request through your local
+                  Partner—often linked from Resources in Your Area)
+                </li>
+                <li>
+                  Project management support, including coordination between the
+                  contractor and the property owner
+                </li>
+                <li>Help identifying and arranging grants</li>
+                <li>Permit assistance and shepherding through review steps</li>
+                <li>
+                  Support navigating cultural resources review requirements when
+                  they apply
+                </li>
+              </ul>
+              <p className="mt-3">
+                Some Partners offer straight mini-grants (for example up to
+                about $15,000) for Shore Friendly armor-alternative projects
+                that need limited hands-on assistance—each Partner sets its own
+                rules, so check locally.
+              </p>
               <p className="mt-3">
                 Shore Friendly Partners focus on armor alternatives. The best
                 outcomes usually come from neighborhood-scale coordination, not
